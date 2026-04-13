@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="AccesoDatos/AccesoDatos.csproj" />
+  <Project Path="Aplicacion/Aplicacion.csproj" />
+  <Project Path="CasosUso/CasosUso.csproj" />
+  <Project Path="Excepciones/Excepciones.csproj" />
+  <Project Path="Negocio/Negocio.csproj" />
+  <Project Path="Presentacion/Presentacion.csproj" />
+</Solution>
