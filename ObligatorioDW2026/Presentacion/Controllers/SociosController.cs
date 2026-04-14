@@ -17,11 +17,13 @@ namespace Presentacion.Controllers
         }
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("nombre") == null) return RedirectToAction("Login", "Usuarios");
             return View(CUListarSocios.ObtenerListado());
         }
 
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
             return View();
         }
 

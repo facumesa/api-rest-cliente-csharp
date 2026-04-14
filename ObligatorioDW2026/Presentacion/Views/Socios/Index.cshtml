@@ -1,4 +1,9 @@
 @model IEnumerable<CasosUso.DTOs.SocioDTO>
+@using Negocio.Dominio
+@{
+    string? nombreUsuario = Context.Session.GetString("nombre");
+    string? rol = Context.Session.GetString("rol");
+}
 
 @{
     ViewData["Title"] = "Lista de Socios";
@@ -14,9 +19,13 @@
 </head>
 
 <body>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    @if (rol == "Admin")
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
+
     <table class="table">
         <thead>
             <tr>
