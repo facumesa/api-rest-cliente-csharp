@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AccesoDatos.Repositorios
 {
-    internal class RepositorioObservaciones
+    public class RepositorioObservaciones
     {
     }
 }

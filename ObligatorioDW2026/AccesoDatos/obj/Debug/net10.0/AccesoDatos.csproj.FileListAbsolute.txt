@@ -1,0 +1,16 @@
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/bin/Debug/net10.0/AccesoDatos.deps.json
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/bin/Debug/net10.0/AccesoDatos.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/bin/Debug/net10.0/AccesoDatos.pdb
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/bin/Debug/net10.0/Negocio.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/bin/Debug/net10.0/Negocio.pdb
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.csproj.AssemblyReference.cache
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.AssemblyInfoInputs.cache
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.AssemblyInfo.cs
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.csproj.CoreCompileInputs.cache
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.sourcelink.json
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDa.B2719C34.Up2Date
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/refint/AccesoDatos.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/AccesoDatos.pdb
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/AccesoDatos/obj/Debug/net10.0/ref/AccesoDatos.dll

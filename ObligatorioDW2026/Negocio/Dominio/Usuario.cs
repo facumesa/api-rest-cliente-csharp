@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Text;
+using Negocio.InterfacesDominio;
 using Negocio.ValueObjects;
 
 namespace Negocio.Dominio
 {
-    public abstract class Usuario
+    public abstract class Usuario : IValidable
     {
         private static int ultNum = 1;
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string NombreCompleto { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public Email Email { get; set; }
         public string NombreUsuario { get; set; }
         public Password Contrasenia { get; set; }
+        public string Rol { get; protected set; }
 
         public Usuario(string nombreCompleto, string direccion, string telefono, Email email, string nombreUsuario, Password contrasenia)
         {
@@ -27,6 +29,12 @@ namespace Negocio.Dominio
             NombreUsuario = nombreUsuario;
             Contrasenia = contrasenia;
         }
-        
+
+        public virtual void Validar()
+        {
+            if(string.IsNullOrEmpty(NombreUsuario)) throw new Exception("El nombre de usuario no debe ser vacio");
+            if (string.IsNullOrEmpty(NombreCompleto)) throw new Exception("El nombre no puede estar vacío.");
+            if (string.IsNullOrEmpty(Direccion)) throw new Exception("La dirección es requerida.");
+        }
     }
 }
