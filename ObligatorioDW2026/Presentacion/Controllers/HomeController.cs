@@ -8,6 +8,7 @@ namespace Presentacion.Controllers
     {
         public IActionResult Index()
         {
+            //if(HttpContext.Session.GetString("nombre") == null) return RedirectToAction("Login", "Usuarios");
             return View();
         }
 
