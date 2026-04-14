@@ -1,3 +1,8 @@
+using Negocio.InterfacesRepo;
+using AccesoDatos.Repositorios;
+using CasosUso.InterfacesCU;
+using Aplicacion.CasosDeUso;
+
 namespace Presentacion
 {
     public class Program
@@ -8,6 +13,11 @@ namespace Presentacion
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();
+
+            builder.Services.AddScoped<IAltaSocio, CUAltaSocio>();
+            builder.Services.AddScoped<IListarSocios, CUListarSocios>();
+
 
             var app = builder.Build();
 

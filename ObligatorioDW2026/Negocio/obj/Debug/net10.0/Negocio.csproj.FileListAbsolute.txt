@@ -1,0 +1,12 @@
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/bin/Debug/net10.0/Negocio.deps.json
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/bin/Debug/net10.0/Negocio.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/bin/Debug/net10.0/Negocio.pdb
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.AssemblyInfoInputs.cache
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.AssemblyInfo.cs
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.csproj.CoreCompileInputs.cache
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.sourcelink.json
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/refint/Negocio.dll
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.pdb
+/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/ref/Negocio.dll

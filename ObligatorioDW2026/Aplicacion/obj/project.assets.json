@@ -1,11 +1,62 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "CasosUso/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/CasosUso.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CasosUso.dll": {}
+        }
+      },
+      "Excepciones/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Excepciones.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Excepciones.dll": {}
+        }
+      },
+      "Negocio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Negocio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Negocio.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CasosUso/1.0.0": {
+      "type": "project",
+      "path": "../CasosUso/CasosUso.csproj",
+      "msbuildProject": "../CasosUso/CasosUso.csproj"
+    },
+    "Excepciones/1.0.0": {
+      "type": "project",
+      "path": "../Excepciones/Excepciones.csproj",
+      "msbuildProject": "../Excepciones/Excepciones.csproj"
+    },
+    "Negocio/1.0.0": {
+      "type": "project",
+      "path": "../Negocio/Negocio.csproj",
+      "msbuildProject": "../Negocio/Negocio.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "CasosUso >= 1.0.0",
+      "Excepciones >= 1.0.0",
+      "Negocio >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/codespace/.nuget/packages/": {}
@@ -31,7 +82,17 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/workspaces/ObligatorioDW2026/ObligatorioDW2026/CasosUso/CasosUso.csproj": {
+              "projectPath": "/workspaces/ObligatorioDW2026/ObligatorioDW2026/CasosUso/CasosUso.csproj"
+            },
+            "/workspaces/ObligatorioDW2026/ObligatorioDW2026/Excepciones/Excepciones.csproj": {
+              "projectPath": "/workspaces/ObligatorioDW2026/ObligatorioDW2026/Excepciones/Excepciones.csproj"
+            },
+            "/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/Negocio.csproj": {
+              "projectPath": "/workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/Negocio.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

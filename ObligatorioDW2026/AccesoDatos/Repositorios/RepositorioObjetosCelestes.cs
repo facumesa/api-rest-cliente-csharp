@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AccesoDatos.Repositorios
 {
-    internal class RepositorioObjetosCelestes
+    public class RepositorioObjetosCelestes
     {
     }
 }
