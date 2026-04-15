@@ -12,14 +12,18 @@ namespace Negocio.Dominio
         public string Modelo { get; set; }
         public int Cantidad { get; set; }
 
-        public Equipo()
+        public Equipo(string marca, string modelo, int cantidad)
         {
-            
+            Marca = marca;
+            Modelo = modelo;
+            Cantidad = cantidad;
         }
 
         public void Validar()
         {
-            throw new NotImplementedException();
+            if(string.IsNullOrEmpty(Marca)) throw new Exception("La marca no puede ser vacía");
+            if(string.IsNullOrEmpty(Marca)) throw new Exception("La marca no puede ser vacía");
+            if(Cantidad < 0) throw new Exception("La cantidad no puede ser menor a 0");
         }
     }
 
