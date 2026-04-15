@@ -9,38 +9,19 @@ namespace AccesoDatos.Repositorios
 {
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
-        private static List<Usuario> usuarios = new List<Usuario>()
+        private static int ultId = 0;
+        private static List<Usuario> usuarios = new List<Usuario>();
+        public RepositorioUsuarios()
         {
-            new Administrador(
-                "Facundo Mesa",
-                "Ciudad de la Costa",
-                "099123456",
-                new Email("admin@ort.edu.uy"),
-                "admin",
-                new Password("Admin123!")
-            ),
-            new Socio(
-                "Oriana Rodriguez",
-                "Montevideo",
-                "098765432",
-                new Email("ori@gmail.com"),
-                "ori_socia",
-                new Password("Socio123!")
-            ),
-            new Socio(
-                "Juan Perez",
-                "Piriápolis",
-                "091111222",
-                new Email("juan@perez.com"),
-                "juanp",
-                new Password("Juanp123!")
-            )
-
-        };
-
+            if (usuarios.Count == 0)
+            {
+                this.PrecargarUsuarios(); 
+            }
+        }
         public void Add(Usuario nuevo)
         {
             nuevo.Validar();
+            nuevo.Id = ultId++;
             usuarios.Add(nuevo);
         }
 
@@ -85,6 +66,37 @@ namespace AccesoDatos.Repositorios
         public void Update(Usuario nuevo)
         {
             throw new NotImplementedException();
+        }
+
+        public void PrecargarUsuarios()
+        {
+            Administrador admin = new Administrador(
+                    "Facundo Mesa",
+                    "Ciudad de la Costa",
+                    "099123456",
+                    new Email("admin@ort.edu.uy"),
+                    "admin",
+                    new Password("Admin123!")
+                );
+            Socio socio = new Socio(
+                    "Oriana Rodriguez",
+                    "Montevideo",
+                    "098765432",
+                    new Email("ori@gmail.com"),
+                    "ori_socia",
+                    new Password("Socio123!")
+                );
+            Socio socio2 = new Socio(
+                    "Juan Perez",
+                    "Piriápolis",
+                    "091111222",
+                    new Email("juan@perez.com"),
+                    "juanp",
+                    new Password("Juanp123!")
+                );
+            this.Add(admin);
+            this.Add(socio);
+            this.Add(socio2);
         }
     }
 }

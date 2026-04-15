@@ -9,7 +9,6 @@ namespace Negocio.Dominio
 {
     public abstract class Usuario : IValidable
     {
-        private static int ultNum = 1;
         public int Id { get; set; }
         public string NombreCompleto { get; set; }
         public string Direccion { get; set; }
@@ -21,7 +20,6 @@ namespace Negocio.Dominio
 
         public Usuario(string nombreCompleto, string direccion, string telefono, Email email, string nombreUsuario, Password contrasenia)
         {
-            Id = ultNum++;
             NombreCompleto = nombreCompleto;
             Direccion = direccion;
             Telefono = telefono;
