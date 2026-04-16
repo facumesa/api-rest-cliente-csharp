@@ -10,3 +10,15 @@
 /workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/refint/Negocio.dll
 /workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/Negocio.pdb
 /workspaces/ObligatorioDW2026/ObligatorioDW2026/Negocio/obj/Debug/net10.0/ref/Negocio.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.AssemblyInfoInputs.cache
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.AssemblyInfo.cs
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.sourcelink.json
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\refint\Negocio.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.pdb
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Negocio.deps.json
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Negocio.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Negocio.pdb
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\ref\Negocio.dll
