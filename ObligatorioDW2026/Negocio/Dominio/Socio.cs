@@ -9,6 +9,8 @@ namespace Negocio.Dominio
     {
         public DateTime FechaRegistro { get; set; }
 
+        protected Socio() { }
+
         public Socio(string nombreCompleto, string direccion, string telefono, Email email, string nombreUsuario, Password contrasenia) : base(nombreCompleto, direccion, telefono, email, nombreUsuario, contrasenia)
         {
             FechaRegistro = DateTime.Now;

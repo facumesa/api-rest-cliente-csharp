@@ -18,6 +18,8 @@ namespace Negocio.Dominio
         public Password Contrasenia { get; set; }
         public string Rol { get; protected set; }
 
+        protected Usuario() { }
+
         public Usuario(string nombreCompleto, string direccion, string telefono, Email email, string nombreUsuario, Password contrasenia)
         {
             NombreCompleto = nombreCompleto;
