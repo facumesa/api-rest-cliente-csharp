@@ -19,53 +19,53 @@ build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
 build_property.RootNamespace = Presentacion
 build_property.RootNamespace = Presentacion
-build_property.ProjectDir = /workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/
+build_property.ProjectDir = C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Presentacion\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion
+build_property.MSBuildProjectDirectory = C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Presentacion
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Socios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29jaW9zL0NyZWF0ZS5jc2h0bWw=
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Socios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29jaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Socios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29jaW9zL0luZGV4LmNzaHRtbA==
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Socios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29jaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Usuarios/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvTG9naW4uY3NodG1s
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Usuarios/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/workspaces/ObligatorioDW2026/ObligatorioDW2026/Presentacion/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-owlbpd0dhe
+[C:/Users/famesa/Desktop/Cosas/DWObligatorio/ObligatorioDW2026/Presentacion/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-huwsf5vtt9
