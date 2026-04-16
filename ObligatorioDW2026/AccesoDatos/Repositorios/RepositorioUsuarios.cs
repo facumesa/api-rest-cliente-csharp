@@ -9,6 +9,7 @@ namespace AccesoDatos.Repositorios
 {
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
+        //Cambiar repo a BD y probar
         private static int ultId = 0;
         private static List<Usuario> usuarios = new List<Usuario>();
         public RepositorioUsuarios()
