@@ -2,6 +2,7 @@ using Negocio.InterfacesRepo;
 using AccesoDatos.Repositorios;
 using CasosUso.InterfacesCU;
 using Aplicacion.CasosDeUso;
+using AccesoDatos.EF;
 
 namespace Presentacion
 {
@@ -19,12 +20,14 @@ namespace Presentacion
             builder.Services.AddScoped<IListarSocios, CUListarSocios>();
             builder.Services.AddScoped<ILoginUsuarios, CULoginUsuarios>();
 
+            builder.Services.AddDbContext<StellarContext>();
+
             builder.Services.AddSession();
 
-            builder.Services.AddDistributedMemoryCache(); // Necesario para que la sesión tenga donde guardarse
+            builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(20); // Cuánto tiempo dura el login antes de expirar
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
