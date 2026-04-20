@@ -12,6 +12,11 @@ namespace AccesoDatos.EF
         public DbSet<Socio> Socios { get; set; }
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Coordinador> Coordinadores { get; set; }
+        public DbSet<Equipo> Equipos { get; set; }
+        public DbSet<Camara> Camaras { get; set; }
+        public DbSet<Telescopio> Telescopios { get; set; }
+        public DbSet<Montura> Monturas { get; set; }
+        public DbSet<Ocular> Oculares { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,6 +27,10 @@ namespace AccesoDatos.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+            modelBuilder.Entity<Camara>().ToTable("Camaras");
+            modelBuilder.Entity<Telescopio>().ToTable("Telescopios");
+            modelBuilder.Entity<Montura>().ToTable("Monturas");
+            modelBuilder.Entity<Ocular>().ToTable("Oculares");
 
             modelBuilder.Entity<Usuario>().OwnsOne(u => u.Email);
             modelBuilder.Entity<Usuario>().OwnsOne(u => u.Contrasenia);

@@ -22,6 +22,32 @@ namespace AccesoDatos.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Negocio.Dominio.Equipo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Marca")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Equipos");
+
+                    b.UseTptMappingStrategy();
+                });
+
             modelBuilder.Entity("Negocio.Dominio.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -62,6 +88,44 @@ namespace AccesoDatos.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Usuario");
 
                     b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Camara", b =>
+                {
+                    b.HasBaseType("Negocio.Dominio.Equipo");
+
+                    b.Property<string>("Resolucion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TamanioPixel")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TipoSensor")
+                        .HasColumnType("int");
+
+                    b.ToTable("Camaras", (string)null);
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Montura", b =>
+                {
+                    b.HasBaseType("Negocio.Dominio.Equipo");
+
+                    b.ToTable("Monturas", (string)null);
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Ocular", b =>
+                {
+                    b.HasBaseType("Negocio.Dominio.Equipo");
+
+                    b.ToTable("Oculares", (string)null);
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Telescopio", b =>
+                {
+                    b.HasBaseType("Negocio.Dominio.Equipo");
+
+                    b.ToTable("Telescopios", (string)null);
                 });
 
             modelBuilder.Entity("Negocio.Dominio.Administrador", b =>
@@ -128,6 +192,42 @@ namespace AccesoDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Email")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Camara", b =>
+                {
+                    b.HasOne("Negocio.Dominio.Equipo", null)
+                        .WithOne()
+                        .HasForeignKey("Negocio.Dominio.Camara", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Montura", b =>
+                {
+                    b.HasOne("Negocio.Dominio.Equipo", null)
+                        .WithOne()
+                        .HasForeignKey("Negocio.Dominio.Montura", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Ocular", b =>
+                {
+                    b.HasOne("Negocio.Dominio.Equipo", null)
+                        .WithOne()
+                        .HasForeignKey("Negocio.Dominio.Ocular", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Telescopio", b =>
+                {
+                    b.HasOne("Negocio.Dominio.Equipo", null)
+                        .WithOne()
+                        .HasForeignKey("Negocio.Dominio.Telescopio", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

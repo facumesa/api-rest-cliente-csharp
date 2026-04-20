@@ -10,7 +10,6 @@ namespace AccesoDatos.Repositorios
 {
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
-        private static int ultId = 0;
         public StellarContext Contexto { get; set; }
 
         public RepositorioUsuarios(StellarContext contexto)
@@ -21,10 +20,8 @@ namespace AccesoDatos.Repositorios
         public void Add(Usuario nuevo)
         {
             nuevo.Validar();
-            nuevo.Id = ultId++;
             Contexto.Usuarios.Add(nuevo);
             Contexto.SaveChanges();
-            
         }
 
         public IEnumerable<Usuario> FindAll()
