@@ -1,8 +1,9 @@
-using Negocio.InterfacesRepo;
-using AccesoDatos.Repositorios;
-using CasosUso.InterfacesCU;
-using Aplicacion.CasosDeUso;
 using AccesoDatos.EF;
+using AccesoDatos.Repositorios;
+using Aplicacion.CasosDeUso;
+using CasosUso.InterfacesCU;
+using Microsoft.EntityFrameworkCore;
+using Negocio.InterfacesRepo;
 
 namespace Presentacion
 {
@@ -23,8 +24,18 @@ namespace Presentacion
             builder.Services.AddScoped<IAltaCamara, CUAltaCamara>();
             builder.Services.AddScoped<IListarEquipos, CUListarEquipos>();
             builder.Services.AddScoped<IBuscarEquipo, CUBuscarEquipo>();
+            builder.Services.AddScoped<IAltaTelescopio, CUAltaTelescopio>();
+            builder.Services.AddScoped<IAltaMontura, CUAltaMontura>();
+            builder.Services.AddScoped<IAltaOcular, CUAltaOcular>();
+            builder.Services.AddScoped<IBajaEquipo, CUBajaEquipo>();
+            builder.Services.AddScoped<IEditarCamara, CUEditarCamara>();
+            builder.Services.AddScoped<IEditarMontura, CUEditarMontura>();
+            builder.Services.AddScoped<IEditarOcular, CUEditarOcular>();
+            builder.Services.AddScoped<IEditarTelescopio, CUEditarTelescopio>();
 
-            builder.Services.AddDbContext<StellarContext>();
+            string conBD = builder.Configuration.GetConnectionString("MiConexion");
+            builder.Services.AddDbContext<StellarContext>(options =>
+                options.UseSqlServer(conBD));
 
             builder.Services.AddSession();
 

@@ -1252,6 +1252,16 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "Excepciones/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Excepciones.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Excepciones.dll": {}
+        }
+      },
       "Negocio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -3667,6 +3677,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Excepciones/1.0.0": {
+      "type": "project",
+      "path": "../Excepciones/Excepciones.csproj",
+      "msbuildProject": "../Excepciones/Excepciones.csproj"
+    },
     "Negocio/1.0.0": {
       "type": "project",
       "path": "../Negocio/Negocio.csproj",
@@ -3675,6 +3690,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Excepciones >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.6",
@@ -3714,6 +3730,9 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Excepciones\\Excepciones.csproj": {
+              "projectPath": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Excepciones\\Excepciones.csproj"
+            },
             "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Negocio.csproj": {
               "projectPath": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Negocio.csproj"
             }

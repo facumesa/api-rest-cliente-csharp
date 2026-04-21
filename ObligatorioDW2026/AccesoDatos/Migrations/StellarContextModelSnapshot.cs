@@ -111,6 +111,15 @@ namespace AccesoDatos.Migrations
                 {
                     b.HasBaseType("Negocio.Dominio.Equipo");
 
+                    b.Property<decimal>("CargaUtil_kg")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("EsComputarizado")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
                     b.ToTable("Monturas", (string)null);
                 });
 
@@ -118,12 +127,31 @@ namespace AccesoDatos.Migrations
                 {
                     b.HasBaseType("Negocio.Dominio.Equipo");
 
+                    b.Property<int>("AnguloVision_grados")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Diametro_mm")
+                        .HasColumnType("int");
+
                     b.ToTable("Oculares", (string)null);
                 });
 
             modelBuilder.Entity("Negocio.Dominio.Telescopio", b =>
                 {
                     b.HasBaseType("Negocio.Dominio.Equipo");
+
+                    b.Property<int>("Apertura_mm")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DistanciaFocal_mm")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Peso")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("RelacionFocal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.ToTable("Telescopios", (string)null);
                 });

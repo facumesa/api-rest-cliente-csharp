@@ -14,7 +14,7 @@ namespace Aplicacion.Mappers
         {
             if (dto == null) throw new DatosInvalidosException("No hay datos de Camara");
 
-            return new Camara(
+            Camara c = new Camara(
                 dto.Marca,
                 dto.Modelo,
                 dto.Cantidad,
@@ -22,6 +22,10 @@ namespace Aplicacion.Mappers
                 dto.Resolucion,
                 dto.TamanioPixel
                 );
+
+            c.Id = dto.Id;
+
+            return c;
         }
 
         public static CamaraDTO ToDTO(Camara camara)

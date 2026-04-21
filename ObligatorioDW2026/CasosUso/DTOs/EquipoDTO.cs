@@ -10,6 +10,6 @@ namespace CasosUso.DTOs
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int Cantidad { get; set; }
-        public string TipoEquipo { get; set; } 
+        public string? TipoEquipo { get; set; } 
     }
 }

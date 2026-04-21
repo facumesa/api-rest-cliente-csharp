@@ -18,11 +18,7 @@ namespace AccesoDatos.EF
         public DbSet<Montura> Monturas { get; set; }
         public DbSet<Ocular> Oculares { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=ObligatorioDW_2026; Trusted_connection=True;");
-            base.OnConfiguring(optionsBuilder);
-        }
+        public StellarContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

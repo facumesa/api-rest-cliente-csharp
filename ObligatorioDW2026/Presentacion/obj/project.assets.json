@@ -2267,6 +2267,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "Excepciones": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.6",
           "Negocio": "1.0.0"
         },

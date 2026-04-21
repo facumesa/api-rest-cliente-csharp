@@ -6,5 +6,6 @@ namespace CasosUso.InterfacesCU
 {
     public interface IBajaEquipo
     {
+        void Ejecutar(int id);
     }
 }
