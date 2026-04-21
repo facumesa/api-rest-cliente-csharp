@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CasosUso.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,5 +7,6 @@ namespace CasosUso.InterfacesCU
 {
     public interface IAltaMontura
     {
+        void Ejecutar(MonturaDTO nuevo);
     }
 }

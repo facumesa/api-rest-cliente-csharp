@@ -1,6 +1,7 @@
 ﻿using AccesoDatos.EF;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
+using Excepciones.ExcepcionesPropias;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,12 +26,18 @@ namespace AccesoDatos.Repositorios
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Equipo equipo = FindById(id);
+            if (equipo == null) throw new OperacionInvalidaException("No existe el equipo con el id: " + id);
+
+            Contexto.Equipos.Remove(equipo);
+            Contexto.SaveChanges();
         }
 
         public void Update(Equipo nuevo)
         {
-            throw new NotImplementedException();
+            nuevo.Validar();
+            Contexto.Equipos.Update(nuevo);
+            Contexto.SaveChanges();
         }
 
         public Equipo FindById(int id)
@@ -45,4 +52,6 @@ namespace AccesoDatos.Repositorios
             return Contexto.Equipos.ToList();
         }
     }
-}
+
+    }
+

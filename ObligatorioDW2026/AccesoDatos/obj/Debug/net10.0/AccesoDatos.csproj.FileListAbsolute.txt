@@ -32,3 +32,5 @@ C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\AccesoDatos\obj\De
 C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\AccesoDatos\obj\Debug\net10.0\ref\AccesoDatos.dll
 C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\AccesoDatos\bin\Debug\net10.0\AccesoDatos.runtimeconfig.json
 C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\AccesoDatos\obj\Debug\net10.0\AccesoDatos.genruntimeconfig.cache
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\AccesoDatos\bin\Debug\net10.0\Excepciones.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\AccesoDatos\bin\Debug\net10.0\Excepciones.pdb
