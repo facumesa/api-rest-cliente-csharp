@@ -40,10 +40,13 @@ namespace Presentacion.Controllers
 
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
             return View();
         }
         public IActionResult Details(int id)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);
             if (equipo == null) ViewBag.Error = "El equipo con id " + id + " no existe";
 
@@ -57,6 +60,8 @@ namespace Presentacion.Controllers
 
         public IActionResult Edit(int id)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);
             if (equipo == null) ViewBag.Error = "El equipo con id " + id + " no existe";
 
@@ -72,6 +77,8 @@ namespace Presentacion.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditCamara(CamaraDTO c)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 CUEditarCamara.Ejecutar(c);
@@ -93,6 +100,8 @@ namespace Presentacion.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditTelescopio(TelescopioDTO t)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 CUEditarTelescopio.Ejecutar(t);
@@ -114,6 +123,8 @@ namespace Presentacion.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditMontura(MonturaDTO m)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 CUEditarMontura.Ejecutar(m);
@@ -135,6 +146,8 @@ namespace Presentacion.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditOcular(OcularDTO o)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 CUEditarOcular.Ejecutar(o);
@@ -154,17 +167,23 @@ namespace Presentacion.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             return View(CUListarEquipos.ObtenerListado());
         }
 
         public IActionResult CrearCamara()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult CrearCamara(CamaraDTO dto)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 if (ModelState.IsValid)
@@ -187,12 +206,16 @@ namespace Presentacion.Controllers
 
         public IActionResult CrearTelescopio()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult CrearTelescopio(TelescopioDTO dto)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 if (ModelState.IsValid)
@@ -215,11 +238,15 @@ namespace Presentacion.Controllers
 
         public IActionResult CrearMontura()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             return View();
         }
         [HttpPost]
         public IActionResult CrearMontura(MonturaDTO dto)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 if (ModelState.IsValid)
@@ -242,12 +269,16 @@ namespace Presentacion.Controllers
 
         public IActionResult CrearOcular()
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult CrearOcular(OcularDTO dto)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 if (ModelState.IsValid)
@@ -270,6 +301,8 @@ namespace Presentacion.Controllers
 
         public IActionResult Delete(int id)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);
             if (equipo == null) ViewBag.Error = "El equipo con id " + id + " no existe";
             return View(equipo);
@@ -279,6 +312,8 @@ namespace Presentacion.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id, IFormCollection a)
         {
+            if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+
             try
             {
                 CUBajaEquipo.Ejecutar(id);
@@ -297,7 +332,6 @@ namespace Presentacion.Controllers
                 return View(equipo);
             }
 
-            return View();
         }
 
     }
