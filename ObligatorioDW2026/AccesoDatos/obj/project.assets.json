@@ -954,10 +954,14 @@
       "Microsoft.VisualStudio.SolutionPersistence/1.0.52": {
         "type": "package",
         "compile": {
-          "lib/net8.0/_._": {}
+          "lib/net8.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net8.0/Microsoft.VisualStudio.SolutionPersistence.dll": {}
+          "lib/net8.0/Microsoft.VisualStudio.SolutionPersistence.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Mono.TextTemplating/3.0.0": {

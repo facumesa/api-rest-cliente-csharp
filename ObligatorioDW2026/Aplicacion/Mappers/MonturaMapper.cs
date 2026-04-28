@@ -39,7 +39,8 @@ namespace Aplicacion.Mappers
                 Cantidad = montura.Cantidad,
                 Tipo = montura.Tipo.ToString(),
                 CargaUtil_kg = montura.CargaUtil_kg,
-                EsComputarizado = montura.EsComputarizado
+                EsComputarizado = montura.EsComputarizado,
+                TipoEquipo = "Montura"
             };
         }
     }

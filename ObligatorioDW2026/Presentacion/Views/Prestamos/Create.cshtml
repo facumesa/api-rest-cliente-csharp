@@ -1,0 +1,92 @@
+﻿@model Presentacion.Models.ViewModels.PrestamoViewModel
+
+@{
+    ViewData["Title"] = "Alta de Prestamo";
+}
+
+<h1>Create</h1>
+
+<h4>Prestamo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Prestamo.FechaInicio" class="control-label"></label>
+                <input asp-for="Prestamo.FechaInicio" class="form-control" />
+                <span asp-validation-for="Prestamo.FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prestamo.FechaFin" class="control-label"></label>
+                <input asp-for="Prestamo.FechaFin" class="form-control" />
+                <span asp-validation-for="Prestamo.FechaFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prestamo.SocioId" class="control-label"></label>
+                <select asp-for="Prestamo.SocioId" class="form-control">
+                    <option value="">-- Seleccionar Socio --</option>
+                    @foreach (var s in Model.Socios)
+                    {
+                        <option value="@s.Id">@s.NombreCompleto</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prestamo.MonturaId" class="control-label"></label>
+                <select asp-for="Prestamo.MonturaId" class="form-control">
+                    <option value="">-- Seleccionar Montura --</option>
+                    @foreach (var m in Model.Monturas)
+                    {
+                        <option value="@m.Id">@m.Marca</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prestamo.TelescopioId" class="control-label"></label>
+                <select asp-for="Prestamo.TelescopioId" class="form-control">
+                    <option value="">-- Seleccionar Telescopio --</option>
+                    @foreach (var t in Model.Telescopios)
+                    {
+                        <option value="@t.Id">@t.Marca</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prestamo.CamaraId" class="control-label"></label>
+                <select asp-for="Prestamo.CamaraId" class="form-control">
+                    <option value="">-- Seleccionar Camara --</option>
+                    @foreach (var c in Model.Camaras)
+                    {
+                        <option value="@c.Id">@c.Marca</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prestamo.OcularId" class="control-label"></label>
+                <select asp-for="Prestamo.OcularId" class="form-control">
+                    <option value="">-- Seleccionar Ocular --</option>
+                    @foreach (var o in Model.Oculares)
+                    {
+                        <option value="@o.Id">@o.Marca</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

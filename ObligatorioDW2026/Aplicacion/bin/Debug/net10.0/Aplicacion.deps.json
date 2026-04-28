@@ -33,6 +33,9 @@
         }
       },
       "Negocio/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
         "runtime": {
           "Negocio.dll": {
             "assemblyVersion": "1.0.0.0",

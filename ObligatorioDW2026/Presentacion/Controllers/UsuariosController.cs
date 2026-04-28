@@ -30,6 +30,7 @@ namespace Presentacion.Controllers
             {
                 HttpContext.Session.SetString("rol", usuario.Rol);
                 HttpContext.Session.SetString("nombre", usuario.NombreUsuario);
+                HttpContext.Session.SetInt32("id", usuario.Id);
                 return RedirectToAction("Index", "Socios");
             }
             return View();

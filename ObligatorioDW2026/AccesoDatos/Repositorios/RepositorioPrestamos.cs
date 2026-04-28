@@ -1,4 +1,5 @@
-﻿using Negocio.Dominio;
+﻿using AccesoDatos.EF;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,17 @@ namespace AccesoDatos.Repositorios
 {
     public class RepositorioPrestamos : IRepositorioPrestamos
     {
+        public StellarContext Contexto { get; set; }
+
+        public RepositorioPrestamos(StellarContext contexto)
+        {
+            Contexto = contexto;
+        }
         public void Add(Prestamo nuevo)
         {
-            throw new NotImplementedException();
+            nuevo.Validar();
+            Contexto.Add(nuevo);
+            Contexto.SaveChanges();
         }
 
         public Equipo EnPrestamo(int id)

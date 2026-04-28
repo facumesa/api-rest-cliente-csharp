@@ -37,7 +37,8 @@ namespace Aplicacion.Mappers
                 Modelo = ocular.Modelo,
                 Cantidad = ocular.Cantidad,
                 Diametro_mm = ocular.Diametro_mm,
-                AnguloVision_grados = ocular.AnguloVision_grados
+                AnguloVision_grados = ocular.AnguloVision_grados,
+                TipoEquipo = "Ocular"
             };
         }
     }
