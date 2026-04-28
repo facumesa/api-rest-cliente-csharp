@@ -12,6 +12,23 @@ namespace Aplicacion.Mappers
         {
             if (equipo == null) return null;
 
+            if(equipo is Telescopio)
+            {
+                return TelescopioMapper.ToDTO((Telescopio)equipo);
+            }
+            if (equipo is Camara)
+            {
+                return CamaraMapper.ToDTO((Camara)equipo);
+            }
+            if (equipo is Montura)
+            {
+                return MonturaMapper.ToDTO((Montura)equipo);
+            }
+            if (equipo is Ocular)
+            {
+                return OcularMapper.ToDTO((Ocular)equipo);
+            }
+
             return new EquipoDTO
             {
                 Id = equipo.Id,

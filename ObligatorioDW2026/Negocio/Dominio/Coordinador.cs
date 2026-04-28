@@ -10,6 +10,11 @@ namespace Negocio.Dominio
         protected Coordinador() { }
         public Coordinador(string nombreCompleto, string direccion, string telefono, Email email, string nombreUsuario, Password contrasenia) : base(nombreCompleto, direccion, telefono, email, nombreUsuario, contrasenia)
         {
+            Rol = "Coordinador";
+        }
+        public override void Validar()
+        {
+            base.Validar();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Presentacion
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();
             builder.Services.AddScoped<IRepositorioEquipos, RepositorioEquipos>();
+            builder.Services.AddScoped<IRepositorioPrestamos, RepositorioPrestamos>();
 
             builder.Services.AddScoped<IAltaSocio, CUAltaSocio>();
             builder.Services.AddScoped<IListarSocios, CUListarSocios>();
@@ -32,6 +33,7 @@ namespace Presentacion
             builder.Services.AddScoped<IEditarMontura, CUEditarMontura>();
             builder.Services.AddScoped<IEditarOcular, CUEditarOcular>();
             builder.Services.AddScoped<IEditarTelescopio, CUEditarTelescopio>();
+            builder.Services.AddScoped<IAltaPrestamo, CUAltaPrestamo>();
 
             string conBD = builder.Configuration.GetConnectionString("MiConexion");
             builder.Services.AddDbContext<StellarContext>(options =>

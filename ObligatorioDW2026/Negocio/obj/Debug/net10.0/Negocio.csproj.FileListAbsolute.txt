@@ -22,3 +22,7 @@ C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\
 C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Negocio.dll
 C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Negocio.pdb
 C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\ref\Negocio.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Excepciones.dll
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\bin\Debug\net10.0\Excepciones.pdb
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.csproj.AssemblyReference.cache
+C:\Users\famesa\Desktop\Cosas\DWObligatorio\ObligatorioDW2026\Negocio\obj\Debug\net10.0\Negocio.csproj.Up2Date

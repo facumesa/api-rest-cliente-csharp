@@ -14,6 +14,11 @@ namespace Aplicacion.Mappers
 
             return new UsuarioDTO
             {
+                Id = usu.Id,
+                NombreCompleto = usu.NombreCompleto,
+                Direccion = usu.Direccion,
+                Telefono = usu.Telefono,
+                Email = usu.Email.Valor,
                 NombreUsuario = usu.Email.Valor,
                 Contrasenia = usu.Contrasenia.Valor,
                 Rol = usu.Rol

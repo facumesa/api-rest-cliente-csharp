@@ -40,7 +40,8 @@ namespace Aplicacion.Mappers
                 Cantidad = camara.Cantidad,
                 TipoSensor = camara.TipoSensor.ToString(),
                 Resolucion = camara.Resolucion,
-                TamanioPixel = camara.TamanioPixel
+                TamanioPixel = camara.TamanioPixel,
+                TipoEquipo = "Camara"
             };
         }
     }
