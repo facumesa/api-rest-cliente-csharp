@@ -16,5 +16,6 @@ namespace CasosUso.DTOs
         public int TelescopioId { get; set; }
         public int? CamaraId { get; set; }
         public int? OcularId { get; set; }
+        public DateTime FechaPrestamo { get; set; }
     }
 }

@@ -22,14 +22,22 @@ namespace AccesoDatos.Repositorios
             Contexto.SaveChanges();
         }
 
-        public Equipo EnPrestamo(int id)
+        public bool EquipoEnPrestamo(int id)
         {
-            throw new NotImplementedException();
+            List<Prestamo> activos = PrestamosActivos();
+            foreach (Prestamo p in activos)
+            {
+                if (p.TelescopioId == id || p.CamaraId == id || p.MonturaId == id || p.OcularId == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public IEnumerable<Prestamo> FindAll()
         {
-            throw new NotImplementedException();
+            return Contexto.Prestamos.ToList();
         }
 
         public Prestamo FindById(int id)
@@ -45,6 +53,19 @@ namespace AccesoDatos.Repositorios
         public void Update(Prestamo nuevo)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Prestamo> PrestamosActivos()
+        {
+            List<Prestamo> activos = new List<Prestamo>();
+            foreach (Prestamo p in Contexto.Prestamos.ToList())
+            {
+                if (p.Estado == EstadoPrestamo.PRESTADO)
+                {
+                    activos.Add(p);
+                }
+            }
+            return activos;
         }
     }
 }

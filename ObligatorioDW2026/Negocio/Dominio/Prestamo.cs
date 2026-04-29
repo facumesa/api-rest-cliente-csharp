@@ -25,6 +25,7 @@ namespace Negocio.Dominio
         public Camara? Camara { get; set; }
         public int? OcularId { get; set; }
         public Ocular? Ocular { get; set; }
+        public DateTime FechaPrestamo { get; set; }
 
         public void Validar()
         {

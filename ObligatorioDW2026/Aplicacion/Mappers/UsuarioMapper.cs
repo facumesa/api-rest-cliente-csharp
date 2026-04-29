@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CasosUso.DTOs;
+﻿using CasosUso.DTOs;
+using Excepciones;
 using Negocio.Dominio;
+using Negocio.ValueObjects;
+using System;
+using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
+using System.Text;
 
 namespace Aplicacion.Mappers
 {
@@ -23,6 +26,20 @@ namespace Aplicacion.Mappers
                 Contrasenia = usu.Contrasenia.Valor,
                 Rol = usu.Rol
             };
+        }
+        public static IEnumerable<UsuarioDTO> ToListDTO(IEnumerable<Usuario> usuarios)
+        {
+            List<UsuarioDTO> dtos = new List<UsuarioDTO>();
+
+            if (usuarios != null)
+            {
+                foreach (Usuario u in usuarios)
+                {
+                    dtos.Add(ToDto(u));
+                }
+            }
+
+            return dtos;
         }
     }
 }
