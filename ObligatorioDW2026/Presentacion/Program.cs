@@ -20,7 +20,10 @@ namespace Presentacion
             builder.Services.AddScoped<IRepositorioPrestamos, RepositorioPrestamos>();
 
             builder.Services.AddScoped<IAltaSocio, CUAltaSocio>();
+            builder.Services.AddScoped<IAltaAdministrador, CUAltaAdministrador>();
+            builder.Services.AddScoped<IAltaCoordinador, CUAltaCoordinador>();
             builder.Services.AddScoped<IListarSocios, CUListarSocios>();
+            builder.Services.AddScoped<IListarUsuarios, CUListarUsuarios>();
             builder.Services.AddScoped<ILoginUsuarios, CULoginUsuarios>();
             builder.Services.AddScoped<IAltaCamara, CUAltaCamara>();
             builder.Services.AddScoped<IListarEquipos, CUListarEquipos>();

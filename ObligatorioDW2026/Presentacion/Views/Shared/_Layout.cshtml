@@ -44,15 +44,21 @@
                             @if (rol == "Admin")
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Socios" asp-action="Create">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">
                                         Alta
-                                        Socios
+                                        Usuarios
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Equipos" asp-action="Create">
                                         Alta
                                         Equipos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                        Ver 
+                                        Usuarios
                                     </a>
                                 </li>
                             }

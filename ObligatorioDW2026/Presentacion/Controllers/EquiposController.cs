@@ -325,6 +325,12 @@ namespace Presentacion.Controllers
                 ViewBag.Error = ex.Message;
                 return View(equipo);
             }
+            catch (EntidadConRelacionException ex)
+            {
+                EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);
+                ViewBag.Error = ex.Message;
+                return View(equipo);
+            }
             catch (Exception ex)
             {
                 EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);

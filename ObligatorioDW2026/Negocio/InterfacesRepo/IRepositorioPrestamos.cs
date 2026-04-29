@@ -7,6 +7,8 @@ namespace Negocio.InterfacesRepo
 {
     public interface IRepositorioPrestamos : IRepositorio<Prestamo>
     {
-        Equipo EnPrestamo(int id);
+        bool EquipoEnPrestamo(int id);
+
+        List<Prestamo> PrestamosActivos();
     }
 }

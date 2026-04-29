@@ -25,6 +25,7 @@ namespace Aplicacion.Mappers
             p.TelescopioId = dto.TelescopioId;
             p.CamaraId = dto.CamaraId;
             p.OcularId = dto.OcularId;
+            p.FechaPrestamo = DateTime.Now;
 
             return p;
         
@@ -45,7 +46,8 @@ namespace Aplicacion.Mappers
                 MonturaId = prestamo.MonturaId,
                 TelescopioId = prestamo.TelescopioId,
                 CamaraId = prestamo.CamaraId,
-                OcularId = prestamo.OcularId
+                OcularId = prestamo.OcularId,
+                FechaPrestamo = prestamo.FechaPrestamo
             };
         }
     }

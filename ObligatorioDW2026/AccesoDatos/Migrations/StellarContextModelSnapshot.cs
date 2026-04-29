@@ -71,6 +71,9 @@ namespace AccesoDatos.Migrations
                     b.Property<DateTime>("FechaInicio")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("FechaPrestamo")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("MonturaId")
                         .HasColumnType("int");
 
