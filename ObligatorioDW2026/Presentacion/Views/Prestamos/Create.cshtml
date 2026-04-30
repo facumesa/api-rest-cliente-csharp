@@ -55,7 +55,7 @@
             <div class="form-group">
                 <label asp-for="Prestamo.CamaraId" class="control-label"></label>
                 <select asp-for="Prestamo.CamaraId" class="form-control">
-                    <option value="">-- Seleccionar Camara --</option>
+                    <option value="">-- Sin Cámara --</option>
                     @foreach (var c in Model.Camaras)
                     {
                         <option value="@c.Id">@c.Marca</option>
@@ -65,7 +65,7 @@
             <div class="form-group">
                 <label asp-for="Prestamo.OcularId" class="control-label"></label>
                 <select asp-for="Prestamo.OcularId" class="form-control">
-                    <option value="">-- Seleccionar Ocular --</option>
+                    <option value="">-- Sin Ocular --</option>
                     @foreach (var o in Model.Oculares)
                     {
                         <option value="@o.Id">@o.Marca</option>
