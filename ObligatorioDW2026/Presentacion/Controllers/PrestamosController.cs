@@ -2,6 +2,7 @@
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
 using Excepciones;
+using Excepciones.ExcepcionesPropias;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Mono.TextTemplating;
@@ -49,6 +50,12 @@ namespace Presentacion.Controllers
                 }
             }
             catch (DatosInvalidosException ex)
+            {
+                ViewBag.Error = ex.Message;
+                CargarListasViewModel(vm);
+                return View(vm);
+            }
+            catch (SinStockException ex)
             {
                 ViewBag.Error = ex.Message;
                 CargarListasViewModel(vm);

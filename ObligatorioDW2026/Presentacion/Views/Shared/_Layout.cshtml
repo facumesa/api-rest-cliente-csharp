@@ -57,8 +57,17 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                                        Ver 
+                                        Ver
                                         Usuarios
+                                    </a>
+                                </li>
+                            }
+                            @if (rol == "Coordinador")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Prestamos" asp-action="Create">
+                                        Alta
+                                        Prestamo
                                     </a>
                                 </li>
                             }
