@@ -29,6 +29,9 @@ namespace Presentacion
             builder.Services.AddScoped<IAltaCamara, CUAltaCamara>();
             builder.Services.AddScoped<IListarEquipos, CUListarEquipos>();
             builder.Services.AddScoped<IListarPrestamos, CUListarPrestamos>();
+            builder.Services.AddScoped<IListarSociosConPrestamo, CUListarSociosConPrestamo>();
+            builder.Services.AddScoped<IListarPrestamosPorSocio, CUListarPrestamosPorSocio>();
+            builder.Services.AddScoped<IDevolucionPrestamo, CUDevolucionPrestamo>();
             builder.Services.AddScoped<IBuscarEquipo, CUBuscarEquipo>();
             builder.Services.AddScoped<IAltaTelescopio, CUAltaTelescopio>();
             builder.Services.AddScoped<IAltaMontura, CUAltaMontura>();

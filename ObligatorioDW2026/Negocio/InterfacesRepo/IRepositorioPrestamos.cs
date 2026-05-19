@@ -10,5 +10,7 @@ namespace Negocio.InterfacesRepo
         bool EquipoEnPrestamo(int id);
 
         List<Prestamo> PrestamosActivos();
+
+        IEnumerable<Prestamo> ObtenerActivosPorSocio(int socioId);
     }
 }

@@ -25,15 +25,10 @@ namespace AccesoDatos.Repositorios
 
         public bool EquipoEnPrestamo(int id)
         {
-            List<Prestamo> activos = PrestamosActivos();
-            foreach (Prestamo p in activos)
-            {
-                if (p.TelescopioId == id || p.CamaraId == id || p.MonturaId == id || p.OcularId == id)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return PrestamosActivos().Any(p => p.TelescopioId == id ||
+                                       p.CamaraId == id ||
+                                       p.MonturaId == id ||
+                                       p.OcularId == id);
         }
 
         public IEnumerable<Prestamo> FindAll()
@@ -50,7 +45,9 @@ namespace AccesoDatos.Repositorios
 
         public Prestamo FindById(int id)
         {
-            throw new NotImplementedException();
+            return Contexto.Prestamos
+                   .Include(p => p.Socio)
+                   .FirstOrDefault(p => p.Id == id);
         }
 
         public void Remove(int id)
@@ -60,20 +57,29 @@ namespace AccesoDatos.Repositorios
 
         public void Update(Prestamo nuevo)
         {
-            throw new NotImplementedException();
+            nuevo.Validar();
+            Contexto.Prestamos.Update(nuevo);
+            Contexto.SaveChanges();
         }
 
         public List<Prestamo> PrestamosActivos()
         {
-            List<Prestamo> activos = new List<Prestamo>();
-            foreach (Prestamo p in Contexto.Prestamos.ToList())
-            {
-                if (p.Estado == EstadoPrestamo.PRESTADO)
-                {
-                    activos.Add(p);
-                }
-            }
-            return activos;
+            return Contexto.Prestamos
+                            .Where(p => p.Estado == EstadoPrestamo.PRESTADO)
+                            .ToList();
+        }
+
+        public IEnumerable<Prestamo> ObtenerActivosPorSocio(int socioId)
+        {
+            return Contexto.Prestamos
+                   .Where(p => p.SocioId == socioId && p.Estado == EstadoPrestamo.PRESTADO)
+                    .Include(p => p.Socio)
+                    .Include(p => p.Telescopio)
+                    .Include(p => p.Montura)
+                    .Include(p => p.Camara)
+                    .Include(p => p.Ocular)
+                    .Include(p => p.Coordinador)
+                   .ToList();
         }
     }
 }
