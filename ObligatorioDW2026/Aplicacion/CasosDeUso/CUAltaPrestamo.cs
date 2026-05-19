@@ -14,14 +14,21 @@ namespace Aplicacion.CasosDeUso
     {
         public IRepositorioPrestamos RepoPrestamos{ get; set; }
         public IRepositorioEquipos RepoEquipos { get; set; }
-        public CUAltaPrestamo(IRepositorioPrestamos repoPrestamos, IRepositorioEquipos repoEquipos)
+        public IRepositorioAuditoria RepoAuditoria { get; set; }
+        public IRepositorioUsuarios RepoUsuarios { get; set; }
+        public CUAltaPrestamo(IRepositorioPrestamos repoPrestamos, IRepositorioEquipos repoEquipos, IRepositorioAuditoria repoAuditoria, IRepositorioUsuarios repoUsuarios)
         {
             RepoPrestamos = repoPrestamos;
             RepoEquipos = repoEquipos;
+            RepoAuditoria = repoAuditoria;
+            RepoUsuarios = repoUsuarios;
         }
 
         public void Ejecutar(PrestamoDTO nuevo)
         {
+            Socio socioPrestamo = (Socio)RepoUsuarios.FindById(nuevo.SocioId);
+            if (socioPrestamo == null) throw new Exception("El socio no existe.");
+
             Prestamo p = PrestamoMapper.ToPrestamo(nuevo);
 
             p.Telescopio = (Telescopio)RepoEquipos.FindById(p.TelescopioId);
@@ -69,6 +76,16 @@ namespace Aplicacion.CasosDeUso
             }
 
             RepoPrestamos.Add(p);
+
+            Auditoria log = new Auditoria 
+            {
+                Fecha = DateTime.Now,
+                TipoAccion = "ALTA PRÉSTAMO",
+                CoordinadorId = nuevo.CoordinadorId,
+                Detalle = $"Se registró el préstamo ID {p.Id} para el socio {socioPrestamo.NombreCompleto} | (ID: {p.SocioId})."
+            };
+
+            RepoAuditoria.Add(log);
         }
     }
     

@@ -2,6 +2,7 @@
 using Excepciones;
 using Negocio.Dominio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -50,5 +51,30 @@ namespace Aplicacion.Mappers
                 FechaPrestamo = prestamo.FechaPrestamo
             };
         }
+
+        public static PrestamoListadoDTO ToListadoDTO(Prestamo p)
+        {
+            return new PrestamoListadoDTO
+            {
+                Id = p.Id,
+                FechaInicio = p.FechaInicio,
+                FechaFin = p.FechaFin,
+                NombreSocio = p.Socio != null ? $"{p.Socio.NombreCompleto}" : "Desconocido",
+                EmailSocio = p.Socio != null ? $"{p.Socio.Email.Valor}" : "Desconocido",
+                DescripcionTelescopio = p.Telescopio != null ? $"{p.Telescopio.Marca} {p.Telescopio.Modelo}" : "Ninguno",
+                DescripcionMontura = p.Montura != null ? $"{p.Montura.Marca} | {p.Montura.Modelo}" : "Ninguno",
+                DescripcionCamara = p.Camara != null ? $"{p.Camara.Marca} | {p.Camara.Modelo}" : "Sin cámara seleccionada",
+                DescripcionOcular = p.Ocular != null ? $"{p.Ocular.Marca} | {p.Ocular.Diametro_mm}mm" : "Sin ocular seleccionado",
+                NombreCoordinador = p.Coordinador != null ? p.Coordinador.NombreCompleto : "Sistema"
+            };
+        }
+
+        public static IEnumerable<PrestamoListadoDTO> ToListDTO(IEnumerable<Prestamo> lista)
+        {
+            if (lista == null) return new List<PrestamoListadoDTO>();
+
+            return lista.Select(p => ToListadoDTO(p)).ToList();
+        }
+
     }
 }
