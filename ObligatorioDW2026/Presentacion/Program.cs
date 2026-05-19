@@ -18,6 +18,7 @@ namespace Presentacion
             builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();
             builder.Services.AddScoped<IRepositorioEquipos, RepositorioEquipos>();
             builder.Services.AddScoped<IRepositorioPrestamos, RepositorioPrestamos>();
+            builder.Services.AddScoped<IRepositorioAuditoria, RepositorioAuditoria>();
 
             builder.Services.AddScoped<IAltaSocio, CUAltaSocio>();
             builder.Services.AddScoped<IAltaAdministrador, CUAltaAdministrador>();
@@ -27,6 +28,7 @@ namespace Presentacion
             builder.Services.AddScoped<ILoginUsuarios, CULoginUsuarios>();
             builder.Services.AddScoped<IAltaCamara, CUAltaCamara>();
             builder.Services.AddScoped<IListarEquipos, CUListarEquipos>();
+            builder.Services.AddScoped<IListarPrestamos, CUListarPrestamos>();
             builder.Services.AddScoped<IBuscarEquipo, CUBuscarEquipo>();
             builder.Services.AddScoped<IAltaTelescopio, CUAltaTelescopio>();
             builder.Services.AddScoped<IAltaMontura, CUAltaMontura>();

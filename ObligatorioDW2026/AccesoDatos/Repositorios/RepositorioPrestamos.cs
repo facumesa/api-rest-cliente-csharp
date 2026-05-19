@@ -1,4 +1,5 @@
 ﻿using AccesoDatos.EF;
+using Microsoft.EntityFrameworkCore;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
@@ -37,7 +38,14 @@ namespace AccesoDatos.Repositorios
 
         public IEnumerable<Prestamo> FindAll()
         {
-            return Contexto.Prestamos.ToList();
+            return Contexto.Prestamos
+                    .Include(p => p.Socio)
+                    .Include(p => p.Telescopio)
+                    .Include(p => p.Montura)
+                    .Include(p => p.Camara)
+                    .Include(p => p.Ocular)
+                    .Include(p => p.Coordinador)
+                    .ToList();
         }
 
         public Prestamo FindById(int id)

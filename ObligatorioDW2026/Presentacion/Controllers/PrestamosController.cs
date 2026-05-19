@@ -16,16 +16,18 @@ namespace Presentacion.Controllers
         public IAltaPrestamo CUAltaPrestamo { get; set; }
         public IListarSocios CUListarSocios { get; set; }
         public IListarEquipos CUListarEquipos { get; set; }
-        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos)
+        public IListarPrestamos CUListarPrestamos { get; set; }
+        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos)
         {
             CUAltaPrestamo = cUAltaPrestamo;
             CUListarSocios = cUListarSocios;
             CUListarEquipos = cUListarEquipos;
+            CUListarPrestamos = cUlistarPrestamos;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(CUListarPrestamos.ObtenerListado());
         }
 
         public IActionResult Create()
@@ -42,12 +44,9 @@ namespace Presentacion.Controllers
             int? idLogueado = HttpContext.Session.GetInt32("id");
             try
             {
-                if (ModelState.IsValid)
-                {
-                    vm.Prestamo.CoordinadorId = idLogueado.Value;
-                    CUAltaPrestamo.Ejecutar(vm.Prestamo);
-                    return RedirectToAction("Index");
-                }
+                vm.Prestamo.CoordinadorId = idLogueado.Value;
+                CUAltaPrestamo.Ejecutar(vm.Prestamo);
+                return RedirectToAction("Index");
             }
             catch (DatosInvalidosException ex)
             {
@@ -67,9 +66,6 @@ namespace Presentacion.Controllers
                 CargarListasViewModel(vm);
                 return View(vm);
             }
-
-            CargarListasViewModel(vm);
-            return View(vm);
         }
 
         public void CargarListasViewModel(PrestamoViewModel model)

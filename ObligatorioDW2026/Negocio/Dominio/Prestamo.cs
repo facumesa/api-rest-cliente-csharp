@@ -29,6 +29,9 @@ namespace Negocio.Dominio
 
         public void Validar()
         {
+            if (FechaFin == DateTime.MinValue || FechaInicio == DateTime.MinValue)
+                throw new DatosInvalidosException("Debe ingresar fechas válidas. No pueden quedar vacías.");
+
             if (FechaFin < FechaInicio)
                 throw new DatosInvalidosException("La fecha de fin no puede ser previa al inicio.");
 
