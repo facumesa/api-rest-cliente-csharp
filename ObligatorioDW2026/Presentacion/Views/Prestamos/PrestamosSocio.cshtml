@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CasosUso.DTOs.PrestamoListadoDTO>
+
+@{
+    ViewData["Title"] = "PrestamosSocio";
+}
+
+<h1>PrestamosSocio</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (Model == null || !Model.Any())
+{
+    <p>No se encontraron préstamos activos para este socio.</p>
+}
+else
+
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreSocio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailSocio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCoordinador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionTelescopio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionMontura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionCamara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionOcular)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreSocio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailSocio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCoordinador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionTelescopio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionMontura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionCamara)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionOcular)
+                </td>
+                    <td>
+                        <form asp-action="DevolverPrestamo" method="post">
+                            <input type="hidden" name="prestamoId" value="@item.Id" />
+                
+                            <input type="hidden" name="socioId" value="@ViewBag.SocioId" />
+                
+                            <button type="submit" class="btn btn-success">Devolver</button>
+                        </form>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}
+

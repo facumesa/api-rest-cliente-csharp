@@ -17,12 +17,18 @@ namespace Presentacion.Controllers
         public IListarSocios CUListarSocios { get; set; }
         public IListarEquipos CUListarEquipos { get; set; }
         public IListarPrestamos CUListarPrestamos { get; set; }
-        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos)
+        public IListarSociosConPrestamo CUListarSociosConPrestamo { get; set; }
+        public IListarPrestamosPorSocio CUListarPrestamosPorSocio { get; set; }
+        public IDevolucionPrestamo CUDevolucionPrestamo { get; set; }
+        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo)
         {
             CUAltaPrestamo = cUAltaPrestamo;
             CUListarSocios = cUListarSocios;
             CUListarEquipos = cUListarEquipos;
             CUListarPrestamos = cUlistarPrestamos;
+            CUListarSociosConPrestamo = cUListarSociosConPrestamo;
+            CUListarPrestamosPorSocio = cUListarPrestamosPorSocio;
+            CUDevolucionPrestamo = cUDevolucionPrestamo;
         }
 
         public IActionResult Index()
@@ -65,6 +71,35 @@ namespace Presentacion.Controllers
                 ViewBag.Error = "No se pudo dar de alta el prestamo";
                 CargarListasViewModel(vm);
                 return View(vm);
+            }
+        }
+
+        public IActionResult SociosConPrestamo () 
+        {
+            return View(CUListarSociosConPrestamo.ObtenerListado());
+        }
+
+        public IActionResult PrestamosSocio(int id) 
+        {
+            ViewBag.SocioId = id;
+            return View(CUListarPrestamosPorSocio.ObtenerListado(id));
+        }
+
+        //REVISAR | CORREGIR ID SOCIO PARA LA VISTA
+        [HttpPost]
+        public IActionResult DevolverPrestamo(int prestamoId, int id) 
+        {
+            int? idLogueado = HttpContext.Session.GetInt32("id");
+            try
+            {
+                CUDevolucionPrestamo.Ejecutar(prestamoId, idLogueado.Value);
+                return RedirectToAction("SociosConPrestamo");
+            }
+            catch (Exception ex)
+            {
+
+                ViewBag.Error = "No se pudo devolver el préstamo";
+                return RedirectToAction("PrestamosSocio", id);
             }
         }
 

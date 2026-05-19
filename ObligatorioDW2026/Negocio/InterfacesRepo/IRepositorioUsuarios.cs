@@ -10,5 +10,7 @@ namespace Negocio.InterfacesRepo
         Usuario Login(string nombreUsuario, string password);
 
         IEnumerable<Socio> GetSocios();
+        IEnumerable<Socio> ObtenerSociosConPrestamosActivos();
+
     }
 }

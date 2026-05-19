@@ -36,16 +36,7 @@ namespace AccesoDatos.Repositorios
 
         public IEnumerable<Socio> GetSocios()
         {
-            //SOLO MODO DE PRUEBA, SE REMPLAZARA CON LINQ
-            List<Socio> socios = new List<Socio>();
-            foreach (Usuario u in Contexto.Usuarios.ToList())
-            {
-                if (u is Socio s)
-                {
-                    socios.Add(s);
-                }
-            }
-            return socios;
+            return Contexto.Socios.ToList();
         }
 
         public Usuario Login(string nombreUsuario, string password)
@@ -67,6 +58,15 @@ namespace AccesoDatos.Repositorios
         public void Update(Usuario nuevo)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Socio> ObtenerSociosConPrestamosActivos()
+        {
+            return Contexto.Prestamos
+                               .Where(p => p.Estado == EstadoPrestamo.PRESTADO)
+                               .Select(p => p.Socio)
+                               .Distinct()
+                               .ToList();
         }
     }
 }
