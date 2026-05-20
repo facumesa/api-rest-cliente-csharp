@@ -16,5 +16,6 @@ namespace CasosUso.DTOs
         public string DescripcionCamara { get; set; }
         public string DescripcionOcular { get; set; }
         public string NombreCoordinador { get; set; }
+        public string Estado { get; set; }
     }
 }
