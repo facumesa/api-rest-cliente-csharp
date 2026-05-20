@@ -36,6 +36,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DescripcionOcular)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -67,10 +70,13 @@
                     @Html.DisplayFor(modelItem => item.DescripcionOcular)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                @* <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                </td> *@
             </tr>
         }
     </tbody>

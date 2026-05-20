@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,16 @@ namespace Aplicacion.CasosDeUso
         }
         public IEnumerable<PrestamoListadoDTO> ObtenerListado(int id)
         {
-            return PrestamoMapper.ToListDTO(Repo.ObtenerActivosPorSocio(id));
+            IEnumerable<PrestamoListadoDTO> prestamos = PrestamoMapper.ToListDTO(Repo.ObtenerActivosPorSocio(id));
+
+            foreach (PrestamoListadoDTO p in prestamos)
+            {
+                if (p.Estado == EstadoPrestamo.PRESTADO.ToString() && p.FechaFin < DateTime.Now)
+                {
+                    p.Estado = "ATRASADO";
+                }
+            }
+            return prestamos;
         }
     }
 }

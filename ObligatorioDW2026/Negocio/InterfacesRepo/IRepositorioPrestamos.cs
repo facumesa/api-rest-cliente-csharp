@@ -12,5 +12,8 @@ namespace Negocio.InterfacesRepo
         List<Prestamo> PrestamosActivos();
 
         IEnumerable<Prestamo> ObtenerActivosPorSocio(int socioId);
+
+        IEnumerable<Prestamo> ObtenerPrestamosPorFechas(int socioId, int mes, int año);
+
     }
 }

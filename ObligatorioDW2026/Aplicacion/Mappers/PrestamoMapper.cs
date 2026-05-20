@@ -65,7 +65,8 @@ namespace Aplicacion.Mappers
                 DescripcionMontura = p.Montura != null ? $"{p.Montura.Marca} | {p.Montura.Modelo}" : "Ninguno",
                 DescripcionCamara = p.Camara != null ? $"{p.Camara.Marca} | {p.Camara.Modelo}" : "Sin cámara seleccionada",
                 DescripcionOcular = p.Ocular != null ? $"{p.Ocular.Marca} | {p.Ocular.Diametro_mm}mm" : "Sin ocular seleccionado",
-                NombreCoordinador = p.Coordinador != null ? p.Coordinador.NombreCompleto : "Sistema"
+                NombreCoordinador = p.Coordinador != null ? p.Coordinador.NombreCompleto : "Sistema",
+                Estado = p.Estado != null ? $"{p.Estado.ToString()}" : "Sin estado"
             };
         }
 

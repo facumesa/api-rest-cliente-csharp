@@ -79,7 +79,21 @@ namespace AccesoDatos.Repositorios
                     .Include(p => p.Camara)
                     .Include(p => p.Ocular)
                     .Include(p => p.Coordinador)
-                   .ToList();
+                    .ToList();
+        }
+
+        public IEnumerable<Prestamo> ObtenerPrestamosPorFechas(int socioId, int mes, int año)
+        {
+            return Contexto.Prestamos
+                           .Where(p => p.SocioId == socioId && p.Estado == EstadoPrestamo.PRESTADO && p.FechaPrestamo.Month == mes && p.FechaPrestamo.Year == año)
+                            .Include(p => p.Socio)
+                            .Include(p => p.Telescopio)
+                            .Include(p => p.Montura)
+                            .Include(p => p.Camara)
+                            .Include(p => p.Ocular)
+                            .Include(p => p.Coordinador)
+                            .ToList();
+
         }
     }
 }

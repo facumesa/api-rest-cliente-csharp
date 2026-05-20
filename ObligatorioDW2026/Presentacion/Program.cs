@@ -42,6 +42,7 @@ namespace Presentacion
             builder.Services.AddScoped<IEditarOcular, CUEditarOcular>();
             builder.Services.AddScoped<IEditarTelescopio, CUEditarTelescopio>();
             builder.Services.AddScoped<IAltaPrestamo, CUAltaPrestamo>();
+            builder.Services.AddScoped<IListarPrestamosEntreFechas, CUListarPrestamosEntreFechas>();
 
             string conBD = builder.Configuration.GetConnectionString("MiConexion");
             builder.Services.AddDbContext<StellarContext>(options =>

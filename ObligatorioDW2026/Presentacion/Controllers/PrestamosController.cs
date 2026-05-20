@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Mono.TextTemplating;
 using Negocio.Dominio;
 using Presentacion.Models.ViewModels;
+using System.Collections;
 
 namespace Presentacion.Controllers
 {
@@ -20,7 +21,8 @@ namespace Presentacion.Controllers
         public IListarSociosConPrestamo CUListarSociosConPrestamo { get; set; }
         public IListarPrestamosPorSocio CUListarPrestamosPorSocio { get; set; }
         public IDevolucionPrestamo CUDevolucionPrestamo { get; set; }
-        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo)
+        public IListarPrestamosEntreFechas CUListarPrestamosEntreFechas { get; set; }
+        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo, IListarPrestamosEntreFechas cUListarPrestamosEntreFechas)
         {
             CUAltaPrestamo = cUAltaPrestamo;
             CUListarSocios = cUListarSocios;
@@ -29,6 +31,7 @@ namespace Presentacion.Controllers
             CUListarSociosConPrestamo = cUListarSociosConPrestamo;
             CUListarPrestamosPorSocio = cUListarPrestamosPorSocio;
             CUDevolucionPrestamo = cUDevolucionPrestamo;
+            CUListarPrestamosEntreFechas = cUListarPrestamosEntreFechas;
         }
 
         public IActionResult Index()
@@ -79,10 +82,47 @@ namespace Presentacion.Controllers
             return View(CUListarSociosConPrestamo.ObtenerListado());
         }
 
-        public IActionResult PrestamosSocio(int id) 
+        public IActionResult MisPrestamos()
         {
+            int? idLogueado = HttpContext.Session.GetInt32("id");
+
+            if (idLogueado == null)
+            {
+                return RedirectToAction("Login", "Usuarios");
+            }
+
+            return RedirectToAction("PrestamosSocio", new { id = idLogueado.Value });
+        }
+
+        public IActionResult PrestamosSocio(int id, string? fecha) 
+        {
+            int? usuarioId = HttpContext.Session.GetInt32("id");
+            string? rol = HttpContext.Session.GetString("rol");
+
+            if (rol == "Socio")
+            {
+                if (usuarioId == null || usuarioId != id)
+                {
+                    return RedirectToAction("Login", "Usuarios");
+                }
+            }
+
             ViewBag.SocioId = id;
-            return View(CUListarPrestamosPorSocio.ObtenerListado(id));
+            ViewBag.EsFiltro = !string.IsNullOrEmpty(fecha);
+
+            if (!string.IsNullOrEmpty(fecha))
+            {
+                string[] partes = fecha.Split('-');
+                int anio = int.Parse(partes[0]);
+                int mes = int.Parse(partes[1]);
+
+                return View(CUListarPrestamosEntreFechas.ObtenerListado(id, mes, anio));
+            }
+            else
+            {
+                return View(CUListarPrestamosPorSocio.ObtenerListado(id));
+            }
+
         }
 
         [HttpPost]
