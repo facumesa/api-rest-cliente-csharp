@@ -85,7 +85,6 @@ namespace Presentacion.Controllers
             return View(CUListarPrestamosPorSocio.ObtenerListado(id));
         }
 
-        //REVISAR | CORREGIR ID SOCIO PARA LA VISTA
         [HttpPost]
         public IActionResult DevolverPrestamo(int prestamoId, int id) 
         {
@@ -98,8 +97,8 @@ namespace Presentacion.Controllers
             catch (Exception ex)
             {
 
-                ViewBag.Error = "No se pudo devolver el préstamo";
-                return RedirectToAction("PrestamosSocio", id);
+                TempData["Error"] = "No se pudo devolver el préstamo";
+                return RedirectToAction("PrestamosSocio", new { id = id });
             }
         }
 

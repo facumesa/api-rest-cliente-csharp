@@ -11,6 +11,66 @@
       "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\prestamos\\prestamossocio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\cudevolucionprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\cudevolucionprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarprestamosporsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarprestamosporsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarsociosconprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarsociosconprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarsocios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarsocios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\cualtaprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\cualtaprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositoriousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositoriousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioauditoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositorioauditoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositorioequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositorioprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\ef\\stellarcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\ef\\stellarcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\views\\prestamos\\sociosconprestamo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\prestamos\\sociosconprestamo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\views\\equipos\\edittelescopio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\equipos\\edittelescopio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -19,36 +79,8 @@
       "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\equipos\\crearcamara.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositorioprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\views\\prestamos\\sociosconprestamo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\prestamos\\sociosconprestamo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\cudevolucionprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\cudevolucionprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositorioequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositoriousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositoriousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\mappers\\prestamomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\mappers\\prestamomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarprestamosporsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarprestamosporsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D02957E2-A58C-D5BF-9AD0-5B7C340CA49B}|CasosUso\\CasosUso.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\casosuso\\interfacescu\\ilistarprestamosporsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\views\\prestamos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\prestamos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D02957E2-A58C-D5BF-9AD0-5B7C340CA49B}|CasosUso\\CasosUso.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\casosuso\\interfacescu\\idevolucionprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -73,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\negocio\\interfacesrepo\\irepositorioprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|solutionrelative:negocio\\interfacesrepo\\irepositorioprestamos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarsociosconprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarsociosconprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D02957E2-A58C-D5BF-9AD0-5B7C340CA49B}|CasosUso\\CasosUso.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\casosuso\\interfacescu\\ilistarsociosconprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -111,16 +135,8 @@
       "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\cueditarcamara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\cualtaprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\cualtaprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D02957E2-A58C-D5BF-9AD0-5B7C340CA49B}|CasosUso\\CasosUso.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\casosuso\\interfacescu\\ialtaprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D02957E2-A58C-D5BF-9AD0-5B7C340CA49B}|CasosUso\\CasosUso.csproj|solutionrelative:casosuso\\interfacescu\\ialtaprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioauditoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\repositorios\\repositorioauditoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\repositorios\\repositorioobjetoscelestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -147,10 +163,6 @@
       "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\prestamos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\accesodatos\\ef\\stellarcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC8B56AF-C884-1B79-740F-D48CDB7C9D05}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\ef\\stellarcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\negocio\\interfacesrepo\\irepositorioauditoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|solutionrelative:negocio\\interfacesrepo\\irepositorioauditoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -169,14 +181,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\negocio\\dominio\\ocular.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|solutionrelative:negocio\\dominio\\ocular.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarequipos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\aplicacion\\casosdeuso\\culistarsocios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\casosdeuso\\culistarsocios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\controllers\\equiposcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -201,10 +205,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\negocio\\dominio\\equipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|solutionrelative:negocio\\dominio\\equipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\presentacion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8C5A260A-AA20-2985-40BF-010A1EDAD0C9}|Presentacion\\Presentacion.csproj|solutionrelative:presentacion\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5F253F4-6495-3F7A-8440-B0CB17D5BBB9}|Negocio\\Negocio.csproj|c:\\users\\famesa\\desktop\\cosas\\dwobligatorio\\obligatoriodw2026\\negocio\\dominio\\coordinador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -462,45 +462,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CrearCamara.cshtml",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
-              "RelativeDocumentMoniker": "Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
-              "RelativeToolTip": "Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:51:47.448Z",
+              "DocumentIndex": 6,
+              "Title": "CUListarEquipos.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T16:42:44.593Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EditTelescopio.cshtml",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
-              "RelativeDocumentMoniker": "Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
-              "RelativeToolTip": "Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:51:42.692Z",
+              "DocumentIndex": 5,
+              "Title": "CUListarPrestamos.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T20:07:08.353Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "RepositorioPrestamos.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
-              "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAiwDwAAAAtAAAAAAAAAA==",
+              "Title": "CUListarSociosConPrestamo.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:59.145Z",
+              "WhenOpened": "2026-05-19T17:24:22.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CUListarPrestamosPorSocio.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:33:40.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CUDevolucionPrestamo.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T20:06:45.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PrestamosController.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Controllers\\PrestamosController.cs",
+              "RelativeDocumentMoniker": "Presentacion\\Controllers\\PrestamosController.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Controllers\\PrestamosController.cs*",
+              "RelativeToolTip": "Presentacion\\Controllers\\PrestamosController.cs*",
+              "ViewState": "AgIAAEsAAAAAAAAAAAApwGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T19:55:43.565Z",
               "EditorCaption": ""
             },
             {
@@ -511,72 +550,72 @@
               "RelativeDocumentMoniker": "Presentacion\\Views\\Prestamos\\PrestamosSocio.cshtml",
               "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\PrestamosSocio.cshtml",
               "RelativeToolTip": "Presentacion\\Views\\Prestamos\\PrestamosSocio.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAE8AAABXAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAE8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-19T18:05:06.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CUDevolucionPrestamo.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwEAAAAABAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "CUListarSocios.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSocios.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarSocios.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSocios.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarSocios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:06:45.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SociosConPrestamo.cshtml",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
-              "RelativeDocumentMoniker": "Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
-              "RelativeToolTip": "Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:00:39.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PrestamosController.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Controllers\\PrestamosController.cs",
-              "RelativeDocumentMoniker": "Presentacion\\Controllers\\PrestamosController.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Controllers\\PrestamosController.cs",
-              "RelativeToolTip": "Presentacion\\Controllers\\PrestamosController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAADwv1oAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:55:43.565Z",
+              "WhenOpened": "2026-04-28T15:55:42.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "CUAltaPrestamo.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
+              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAewBgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T20:06:15.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "RepositorioUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioUsuarios.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioUsuarios.cs",
               "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioUsuarios.cs",
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioUsuarios.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAA4wEYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-20T12:49:24.024Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
+              "Title": "RepositorioAuditoria.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
+              "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T14:11:29.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "RepositorioEquipos.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioEquipos.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioEquipos.cs",
               "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioEquipos.cs",
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioEquipos.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAwwCgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-09T20:15:35.371Z",
               "EditorCaption": ""
@@ -584,79 +623,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "IListarPrestamosPorSocio.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
-              "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
-              "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAAAAAAAAAAAA==",
+              "Title": "RepositorioPrestamos.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
+              "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:32:52.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PrestamoMapper.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\Mappers\\PrestamoMapper.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\Mappers\\PrestamoMapper.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\Mappers\\PrestamoMapper.cs",
-              "RelativeToolTip": "Aplicacion\\Mappers\\PrestamoMapper.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwEUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:09:07.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CUListarPrestamos.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:07:08.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CUListarPrestamosPorSocio.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:33:40.778Z",
+              "WhenOpened": "2026-04-09T20:15:59.145Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\Index.cshtml",
-              "RelativeDocumentMoniker": "Presentacion\\Views\\Prestamos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\Index.cshtml",
-              "RelativeToolTip": "Presentacion\\Views\\Prestamos\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T13:43:11.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IRepositorioPrestamos.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
-              "RelativeDocumentMoniker": "Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
-              "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "Title": "StellarContext.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\EF\\StellarContext.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\EF\\StellarContext.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\EF\\StellarContext.cs",
+              "RelativeToolTip": "AccesoDatos\\EF\\StellarContext.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAewBYAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:17:10.686Z",
+              "WhenOpened": "2026-04-16T13:55:43.524Z",
               "EditorCaption": ""
             },
             {
@@ -667,27 +654,112 @@
               "RelativeDocumentMoniker": "Presentacion\\Program.cs",
               "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Program.cs",
               "RelativeToolTip": "Presentacion\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAQwCEAAABUAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAewC8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-20T11:29:18.336Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CUListarSociosConPrestamo.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:24:22.634Z",
+              "DocumentIndex": 15,
+              "Title": "SociosConPrestamo.cshtml",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
+              "RelativeDocumentMoniker": "Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
+              "RelativeToolTip": "Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-19T18:00:39.834Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Presentacion\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "Presentacion\\Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T14:44:26.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EditTelescopio.cshtml",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
+              "RelativeDocumentMoniker": "Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
+              "RelativeToolTip": "Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-19T18:51:42.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CrearCamara.cshtml",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
+              "RelativeDocumentMoniker": "Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
+              "RelativeToolTip": "Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-19T18:51:47.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IListarPrestamosPorSocio.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
+              "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
+              "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:32:52.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PrestamoMapper.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\Mappers\\PrestamoMapper.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Mappers\\PrestamoMapper.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\Mappers\\PrestamoMapper.cs",
+              "RelativeToolTip": "Aplicacion\\Mappers\\PrestamoMapper.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwEUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T20:09:07.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\Index.cshtml",
+              "RelativeDocumentMoniker": "Presentacion\\Views\\Prestamos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\Index.cshtml",
+              "RelativeToolTip": "Presentacion\\Views\\Prestamos\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-19T13:43:11.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IRepositorioPrestamos.cs",
+              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
+              "RelativeDocumentMoniker": "Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
+              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
+              "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T20:17:10.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "IDevolucionPrestamo.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IDevolucionPrestamo.cs",
               "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IDevolucionPrestamo.cs",
@@ -695,12 +767,11 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IDevolucionPrestamo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:02:20.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:02:20.945Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "IListarSociosConPrestamo.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarSociosConPrestamo.cs",
               "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IListarSociosConPrestamo.cs",
@@ -708,12 +779,11 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarSociosConPrestamo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:23:11.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:23:11.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": "IListarPrestamos.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarPrestamos.cs",
               "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IListarPrestamos.cs",
@@ -721,12 +791,11 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarPrestamos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:03:02.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:03:02.004Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "IListarSociosConTelescopio.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarSociosConTelescopio.cs",
               "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IListarSociosConTelescopio.cs",
@@ -734,12 +803,11 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarSociosConTelescopio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:03:16.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:03:16.508Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "Socio.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Socio.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Socio.cs",
@@ -747,12 +815,11 @@
               "RelativeToolTip": "Negocio\\Dominio\\Socio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:46:19.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:46:19.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "IRepositorioUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioUsuarios.cs",
               "RelativeDocumentMoniker": "Negocio\\InterfacesRepo\\IRepositorioUsuarios.cs",
@@ -760,12 +827,11 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioUsuarios.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:19:50.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:19:50.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "CUAltaAdministrador.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUAltaAdministrador.cs",
               "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUAltaAdministrador.cs",
@@ -773,12 +839,11 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUAltaAdministrador.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T13:25:02.154Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T13:25:02.154Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "IListarSocios.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IListarSocios.cs",
               "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IListarSocios.cs",
@@ -786,12 +851,11 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarSocios.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T14:13:52.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T14:13:52.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Usuario.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Usuario.cs",
@@ -799,12 +863,11 @@
               "RelativeToolTip": "Negocio\\Dominio\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:45:55.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:45:55.88Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "CUEditarCamara.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUEditarCamara.cs",
               "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUEditarCamara.cs",
@@ -812,25 +875,11 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUEditarCamara.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T16:09:30.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T16:09:30.868Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "CUAltaPrestamo.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAMwCUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:06:15.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "IAltaPrestamo.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\InterfacesCU\\IAltaPrestamo.cs",
               "RelativeDocumentMoniker": "CasosUso\\InterfacesCU\\IAltaPrestamo.cs",
@@ -838,25 +887,11 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IAltaPrestamo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:00:07.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:00:07.103Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "RepositorioAuditoria.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
-              "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:11:29.61Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "RepositorioObjetosCelestes.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioObjetosCelestes.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioObjetosCelestes.cs",
@@ -864,12 +899,11 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioObjetosCelestes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:42.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:15:42.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "RepositorioObservaciones.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\Repositorios\\RepositorioObservaciones.cs",
               "RelativeDocumentMoniker": "AccesoDatos\\Repositorios\\RepositorioObservaciones.cs",
@@ -877,12 +911,11 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioObservaciones.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:51.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:15:51.658Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "CUBajaEquipo.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUBajaEquipo.cs",
               "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUBajaEquipo.cs",
@@ -890,12 +923,11 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUBajaEquipo.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:06:38.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:06:38.016Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Prestamos\\Create.cshtml",
               "RelativeDocumentMoniker": "Presentacion\\Views\\Prestamos\\Create.cshtml",
@@ -903,12 +935,11 @@
               "RelativeToolTip": "Presentacion\\Views\\Prestamos\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-28T15:35:47.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T15:35:47.778Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "Prestamo.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Prestamo.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Prestamo.cs",
@@ -916,12 +947,11 @@
               "RelativeToolTip": "Negocio\\Dominio\\Prestamo.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:48:06.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:48:06.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "Auditoria.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Auditoria.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Auditoria.cs",
@@ -929,25 +959,11 @@
               "RelativeToolTip": "Negocio\\Dominio\\Auditoria.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:09:20.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T14:09:20.289Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "StellarContext.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\EF\\StellarContext.cs",
-              "RelativeDocumentMoniker": "AccesoDatos\\EF\\StellarContext.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\AccesoDatos\\EF\\StellarContext.cs",
-              "RelativeToolTip": "AccesoDatos\\EF\\StellarContext.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T13:55:43.524Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "IRepositorioAuditoria.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioAuditoria.cs",
               "RelativeDocumentMoniker": "Negocio\\InterfacesRepo\\IRepositorioAuditoria.cs",
@@ -955,12 +971,11 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioAuditoria.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:10:16.176Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T14:10:16.176Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Socios\\Index.cshtml",
               "RelativeDocumentMoniker": "Presentacion\\Views\\Socios\\Index.cshtml",
@@ -968,12 +983,11 @@
               "RelativeToolTip": "Presentacion\\Views\\Socios\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-29T14:28:13.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T14:28:13.681Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "IRepositorioEquipos.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\InterfacesRepo\\IRepositorioEquipos.cs",
               "RelativeDocumentMoniker": "Negocio\\InterfacesRepo\\IRepositorioEquipos.cs",
@@ -981,12 +995,11 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioEquipos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:16:31.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:16:31.912Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "PrestamoListadoDTO.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\DTOs\\PrestamoListadoDTO.cs",
               "RelativeDocumentMoniker": "CasosUso\\DTOs\\PrestamoListadoDTO.cs",
@@ -994,12 +1007,11 @@
               "RelativeToolTip": "CasosUso\\DTOs\\PrestamoListadoDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T13:24:03.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T13:24:03.667Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "Ocular.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Ocular.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Ocular.cs",
@@ -1007,38 +1019,11 @@
               "RelativeToolTip": "Negocio\\Dominio\\Ocular.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:47:56.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:47:56.364Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "CUListarEquipos.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:42:44.593Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "CUListarSocios.cs",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSocios.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\CasosDeUso\\CUListarSocios.cs",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\CasosDeUso\\CUListarSocios.cs",
-              "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarSocios.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T15:55:42.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "EquiposController.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Controllers\\EquiposController.cs",
               "RelativeDocumentMoniker": "Presentacion\\Controllers\\EquiposController.cs",
@@ -1046,12 +1031,11 @@
               "RelativeToolTip": "Presentacion\\Controllers\\EquiposController.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAAAAAKsAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T13:46:42.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T13:46:42.226Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "EquipoMapper.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Aplicacion\\Mappers\\EquipoMapper.cs",
               "RelativeDocumentMoniker": "Aplicacion\\Mappers\\EquipoMapper.cs",
@@ -1059,12 +1043,11 @@
               "RelativeToolTip": "Aplicacion\\Mappers\\EquipoMapper.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAYwDUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T17:32:08.071Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T17:32:08.071Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "PrestamoDTO.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\CasosUso\\DTOs\\PrestamoDTO.cs",
               "RelativeDocumentMoniker": "CasosUso\\DTOs\\PrestamoDTO.cs",
@@ -1072,12 +1055,11 @@
               "RelativeToolTip": "CasosUso\\DTOs\\PrestamoDTO.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA9wA4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T14:14:17.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T14:14:17.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "PrestamoViewModel.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Models\\ViewModels\\PrestamoViewModel.cs",
               "RelativeDocumentMoniker": "Presentacion\\Models\\ViewModels\\PrestamoViewModel.cs",
@@ -1085,12 +1067,11 @@
               "RelativeToolTip": "Presentacion\\Models\\ViewModels\\PrestamoViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:12:10.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:12:10.073Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "Camara.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Camara.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Camara.cs",
@@ -1098,12 +1079,11 @@
               "RelativeToolTip": "Negocio\\Dominio\\Camara.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:47:46.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:47:46.46Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "Equipo.cs",
               "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Negocio\\Dominio\\Equipo.cs",
               "RelativeDocumentMoniker": "Negocio\\Dominio\\Equipo.cs",
@@ -1111,8 +1091,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Equipo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:47:17.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:47:17.627Z"
             },
             {
               "$type": "Document",
@@ -1125,19 +1104,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-09T19:46:30.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Presentacion\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\famesa\\Desktop\\Cosas\\DWObligatorio\\ObligatorioDW2026\\Presentacion\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Presentacion\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T14:44:26.084Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
