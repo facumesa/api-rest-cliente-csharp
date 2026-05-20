@@ -16,6 +16,12 @@
 else
 
 {
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
     <table class="table">
     <thead>
         <tr>
@@ -77,7 +83,7 @@ else
                         <form asp-action="DevolverPrestamo" method="post">
                             <input type="hidden" name="prestamoId" value="@item.Id" />
                 
-                            <input type="hidden" name="socioId" value="@ViewBag.SocioId" />
+                            <input type="hidden" name="id" value="@ViewBag.SocioId" />
                 
                             <button type="submit" class="btn btn-success">Devolver</button>
                         </form>
@@ -88,4 +94,5 @@ else
 </table>
 
 }
+
 

@@ -474,8 +474,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Equipos\\CrearCamara.cshtml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:51:47.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T18:51:47.448Z"
             },
             {
               "$type": "Document",
@@ -487,8 +486,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Equipos\\EditTelescopio.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:51:42.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T18:51:42.692Z"
             },
             {
               "$type": "Document",
@@ -500,8 +498,7 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioPrestamos.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAiwDwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:59.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:15:59.145Z"
             },
             {
               "$type": "Document",
@@ -513,8 +510,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Prestamos\\PrestamosSocio.cshtml",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAE8AAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:05:06.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T18:05:06.46Z"
             },
             {
               "$type": "Document",
@@ -526,8 +522,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUDevolucionPrestamo.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwEAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:06:45.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:06:45.934Z"
             },
             {
               "$type": "Document",
@@ -539,8 +534,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Prestamos\\SociosConPrestamo.cshtml",
               "ViewState": "AgIAABgAAAAAAAAAAAAAADkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T18:00:39.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T18:00:39.834Z"
             },
             {
               "$type": "Document",
@@ -565,8 +559,7 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioUsuarios.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAA4wEYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T12:49:24.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T12:49:24.024Z"
             },
             {
               "$type": "Document",
@@ -578,8 +571,7 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioEquipos.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAwwCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:35.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:15:35.371Z"
             },
             {
               "$type": "Document",
@@ -591,8 +583,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarPrestamosPorSocio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:32:52.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:32:52.826Z"
             },
             {
               "$type": "Document",
@@ -604,8 +595,7 @@
               "RelativeToolTip": "Aplicacion\\Mappers\\PrestamoMapper.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAgwEUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:09:07.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:09:07.57Z"
             },
             {
               "$type": "Document",
@@ -617,8 +607,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarPrestamos.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:07:08.353Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:07:08.353Z"
             },
             {
               "$type": "Document",
@@ -630,8 +619,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarPrestamosPorSocio.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:33:40.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:33:40.778Z"
             },
             {
               "$type": "Document",
@@ -643,8 +631,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Prestamos\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-19T13:43:11.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T13:43:11.417Z"
             },
             {
               "$type": "Document",
@@ -656,8 +643,7 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioPrestamos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:17:10.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:17:10.686Z"
             },
             {
               "$type": "Document",
@@ -669,8 +655,7 @@
               "RelativeToolTip": "Presentacion\\Program.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAQwCEAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T11:29:18.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T11:29:18.336Z"
             },
             {
               "$type": "Document",
@@ -682,8 +667,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarSociosConPrestamo.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:24:22.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:24:22.634Z"
             },
             {
               "$type": "Document",
@@ -695,8 +679,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IDevolucionPrestamo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:02:20.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:02:20.945Z"
             },
             {
               "$type": "Document",
@@ -708,8 +691,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarSociosConPrestamo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:23:11.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:23:11.631Z"
             },
             {
               "$type": "Document",
@@ -721,8 +703,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarPrestamos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:03:02.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:03:02.004Z"
             },
             {
               "$type": "Document",
@@ -734,8 +715,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarSociosConTelescopio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:03:16.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:03:16.508Z"
             },
             {
               "$type": "Document",
@@ -747,8 +727,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Socio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:46:19.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:46:19.047Z"
             },
             {
               "$type": "Document",
@@ -760,8 +739,7 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioUsuarios.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T17:19:50.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T17:19:50.405Z"
             },
             {
               "$type": "Document",
@@ -773,8 +751,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUAltaAdministrador.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T13:25:02.154Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T13:25:02.154Z"
             },
             {
               "$type": "Document",
@@ -786,8 +763,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IListarSocios.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T14:13:52.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T14:13:52.66Z"
             },
             {
               "$type": "Document",
@@ -799,8 +775,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:45:55.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:45:55.88Z"
             },
             {
               "$type": "Document",
@@ -812,8 +787,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUEditarCamara.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T16:09:30.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T16:09:30.868Z"
             },
             {
               "$type": "Document",
@@ -825,8 +799,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUAltaPrestamo.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAMwCUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:06:15.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:06:15.631Z"
             },
             {
               "$type": "Document",
@@ -838,8 +811,7 @@
               "RelativeToolTip": "CasosUso\\InterfacesCU\\IAltaPrestamo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:00:07.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:00:07.103Z"
             },
             {
               "$type": "Document",
@@ -851,8 +823,7 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioAuditoria.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:11:29.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T14:11:29.61Z"
             },
             {
               "$type": "Document",
@@ -864,8 +835,7 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioObjetosCelestes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:42.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:15:42.94Z"
             },
             {
               "$type": "Document",
@@ -877,8 +847,7 @@
               "RelativeToolTip": "AccesoDatos\\Repositorios\\RepositorioObservaciones.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:15:51.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:15:51.658Z"
             },
             {
               "$type": "Document",
@@ -890,8 +859,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUBajaEquipo.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:06:38.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:06:38.016Z"
             },
             {
               "$type": "Document",
@@ -903,8 +871,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Prestamos\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-28T15:35:47.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T15:35:47.778Z"
             },
             {
               "$type": "Document",
@@ -916,8 +883,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Prestamo.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:48:06.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:48:06.189Z"
             },
             {
               "$type": "Document",
@@ -929,8 +895,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Auditoria.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:09:20.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T14:09:20.289Z"
             },
             {
               "$type": "Document",
@@ -942,8 +907,7 @@
               "RelativeToolTip": "AccesoDatos\\EF\\StellarContext.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAA1wBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T13:55:43.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T13:55:43.524Z"
             },
             {
               "$type": "Document",
@@ -955,8 +919,7 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioAuditoria.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:10:16.176Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T14:10:16.176Z"
             },
             {
               "$type": "Document",
@@ -968,8 +931,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Socios\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-29T14:28:13.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-29T14:28:13.681Z"
             },
             {
               "$type": "Document",
@@ -981,8 +943,7 @@
               "RelativeToolTip": "Negocio\\InterfacesRepo\\IRepositorioEquipos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T20:16:31.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T20:16:31.912Z"
             },
             {
               "$type": "Document",
@@ -994,8 +955,7 @@
               "RelativeToolTip": "CasosUso\\DTOs\\PrestamoListadoDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T13:24:03.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T13:24:03.667Z"
             },
             {
               "$type": "Document",
@@ -1007,8 +967,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Ocular.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:47:56.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:47:56.364Z"
             },
             {
               "$type": "Document",
@@ -1020,8 +979,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarEquipos.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:42:44.593Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:42:44.593Z"
             },
             {
               "$type": "Document",
@@ -1033,8 +991,7 @@
               "RelativeToolTip": "Aplicacion\\CasosDeUso\\CUListarSocios.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T15:55:42.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T15:55:42.269Z"
             },
             {
               "$type": "Document",
@@ -1046,8 +1003,7 @@
               "RelativeToolTip": "Presentacion\\Controllers\\EquiposController.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAAAAAKsAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T13:46:42.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T13:46:42.226Z"
             },
             {
               "$type": "Document",
@@ -1059,8 +1015,7 @@
               "RelativeToolTip": "Aplicacion\\Mappers\\EquipoMapper.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAYwDUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T17:32:08.071Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T17:32:08.071Z"
             },
             {
               "$type": "Document",
@@ -1072,8 +1027,7 @@
               "RelativeToolTip": "CasosUso\\DTOs\\PrestamoDTO.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA9wA4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T14:14:17.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T14:14:17.216Z"
             },
             {
               "$type": "Document",
@@ -1085,8 +1039,7 @@
               "RelativeToolTip": "Presentacion\\Models\\ViewModels\\PrestamoViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:12:10.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:12:10.073Z"
             },
             {
               "$type": "Document",
@@ -1098,8 +1051,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Camara.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:47:46.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:47:46.46Z"
             },
             {
               "$type": "Document",
@@ -1111,8 +1063,7 @@
               "RelativeToolTip": "Negocio\\Dominio\\Equipo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T19:47:17.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-09T19:47:17.627Z"
             },
             {
               "$type": "Document",
@@ -1136,8 +1087,7 @@
               "RelativeToolTip": "Presentacion\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T14:44:26.084Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T14:44:26.084Z"
             },
             {
               "$type": "Document",
