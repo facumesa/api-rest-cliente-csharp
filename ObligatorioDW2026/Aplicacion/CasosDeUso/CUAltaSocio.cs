@@ -19,7 +19,10 @@ namespace Aplicacion.CasosDeUso
         }
         public void Ejecutar(SocioDTO nuevo)
         {
-            Repo.Add(SocioMapper.ToSocio(nuevo));
+            Socio soc = SocioMapper.ToSocio(nuevo);
+            Repo.Add(soc);
+            nuevo.Id = soc.Id;
+            nuevo.Rol = soc.Rol;
         }
     }
 }

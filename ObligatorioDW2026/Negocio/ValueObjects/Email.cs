@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Negocio.ValueObjects
 
         private void Validar()
         {
-            if(string.IsNullOrEmpty(Valor) || !Valor.Contains('@')) throw new Exception("El email debe contener una arroba (@).");
+            if(string.IsNullOrEmpty(Valor) || !Valor.Contains('@')) throw new DatosInvalidosException("El email debe contener una arroba (@).");
         }
     }
 }

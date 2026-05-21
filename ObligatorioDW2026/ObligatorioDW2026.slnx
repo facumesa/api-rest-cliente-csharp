@@ -5,4 +5,5 @@
   <Project Path="Excepciones/Excepciones.csproj" />
   <Project Path="Negocio/Negocio.csproj" />
   <Project Path="Presentacion/Presentacion.csproj" />
+  <Project Path="WebAPI/WebAPI.csproj" Id="03045b43-e25c-4787-a942-f8b61c81f7a2" />
 </Solution>

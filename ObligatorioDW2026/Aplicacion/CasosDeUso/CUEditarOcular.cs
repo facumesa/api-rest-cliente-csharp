@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace Aplicacion.CasosDeUso
 
         public void Ejecutar(OcularDTO o)
         {
-            Repo.Update(OcularMapper.ToOcular(o));
+            Ocular ocu = OcularMapper.ToOcular(o);
+            Repo.Update(ocu);
+            o.TipoEquipo = "Ocular";
         }
     }
 }

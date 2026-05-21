@@ -22,7 +22,7 @@ namespace Aplicacion.Mappers
                 Direccion = usu.Direccion,
                 Telefono = usu.Telefono,
                 Email = usu.Email.Valor,
-                NombreUsuario = usu.Email.Valor,
+                NombreUsuario = usu.NombreUsuario,
                 Contrasenia = usu.Contrasenia.Valor,
                 Rol = usu.Rol
             };

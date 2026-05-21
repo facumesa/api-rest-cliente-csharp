@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,10 @@ namespace Aplicacion.CasosDeUso
         }
         public void Ejecutar(AdministradorDTO nuevo)
         {
-            Repo.Add(AdministradorMapper.ToAdministrador(nuevo));
+            Administrador admin = AdministradorMapper.ToAdministrador(nuevo);
+            Repo.Add(admin);
+            nuevo.Id = admin.Id;
+            nuevo.Rol = admin.Rol;
         }
     }
 }
