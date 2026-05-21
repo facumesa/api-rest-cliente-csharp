@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Negocio.ValueObjects
         {
             if (string.IsNullOrEmpty(Valor) || Valor.Length < 8)
             {
-                throw new Exception("La contraseña debe contener 8 caracteres como minimo");
+                throw new DatosInvalidosException("La contraseña debe contener 8 caracteres como minimo");
             }
             bool tieneMayuscula = false;
             bool tieneMinuscula = false;
@@ -37,7 +38,7 @@ namespace Negocio.ValueObjects
 
             if (!tieneMayuscula || !tieneMinuscula || !tieneNumero || !tieneEspecial)
             {
-                throw new Exception("La contraseña debe tener: mayúscula, minúscula, número y un carácter especial.");
+                throw new DatosInvalidosException("La contraseña debe tener: mayúscula, minúscula, número y un carácter especial.");
             }
         }
 

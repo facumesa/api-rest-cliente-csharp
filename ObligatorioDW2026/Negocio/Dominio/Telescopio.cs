@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,11 @@ namespace Negocio.Dominio
         public override void Validar()
         {
             base.Validar();
+            if (Apertura_mm <= 0) throw new DatosInvalidosException("La apertura no puede ser menor o igual a 0");
+            if (DistanciaFocal_mm <= 0) throw new DatosInvalidosException("La distancia focal no puede ser menor o igual a 0");
+            if (string.IsNullOrEmpty(RelacionFocal)) throw new DatosInvalidosException("La relacion focal no puede ser vacía");
+            if (Peso <= 0) throw new DatosInvalidosException("El peso no puede ser menor o igual a 0");
+
         }
     }
 }

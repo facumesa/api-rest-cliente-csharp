@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Excepciones;
+using Negocio.InterfacesDominio;
+using Negocio.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Text;
-using Negocio.InterfacesDominio;
-using Negocio.ValueObjects;
 
 namespace Negocio.Dominio
 {
@@ -29,12 +30,12 @@ namespace Negocio.Dominio
             NombreUsuario = nombreUsuario;
             Contrasenia = contrasenia;
         }
-
+         
         public virtual void Validar()
         {
-            if(string.IsNullOrEmpty(NombreUsuario)) throw new Exception("El nombre de usuario no debe ser vacio");
-            if (string.IsNullOrEmpty(NombreCompleto)) throw new Exception("El nombre no puede estar vacío.");
-            if (string.IsNullOrEmpty(Direccion)) throw new Exception("La dirección es requerida.");
+            if(string.IsNullOrEmpty(NombreUsuario)) throw new DatosInvalidosException("El nombre de usuario no debe ser vacio");
+            if (string.IsNullOrEmpty(NombreCompleto)) throw new DatosInvalidosException("El nombre no puede estar vacío.");
+            if (string.IsNullOrEmpty(Direccion)) throw new DatosInvalidosException("La dirección es requerida.");
         }
     }
 }

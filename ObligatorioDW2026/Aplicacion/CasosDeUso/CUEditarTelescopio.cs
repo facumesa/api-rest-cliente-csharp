@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace Aplicacion.CasosDeUso
 
         public void Ejecutar(TelescopioDTO t)
         {
-            Repo.Update(TelescopioMapper.ToTelescopio(t));
+            Telescopio tel = TelescopioMapper.ToTelescopio(t);
+            Repo.Update(tel);
+            t.TipoEquipo = "Telescopio";
         }
     }
 }

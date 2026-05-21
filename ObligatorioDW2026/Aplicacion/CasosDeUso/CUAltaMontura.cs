@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,10 @@ namespace Aplicacion.CasosDeUso
 
         public void Ejecutar(MonturaDTO nuevo)
         {
-            Repo.Add(MonturaMapper.ToMontura(nuevo));
+            Montura mon = MonturaMapper.ToMontura(nuevo);
+            Repo.Add(mon);
+            nuevo.Id = mon.Id;
+            nuevo.TipoEquipo = "Montura";
         }
     }
 }

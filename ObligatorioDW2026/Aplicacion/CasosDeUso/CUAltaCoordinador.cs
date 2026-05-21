@@ -19,7 +19,10 @@ namespace Aplicacion.CasosDeUso
         }
         public void Ejecutar(CoordinadorDTO nuevo)
         {
-            Repo.Add(CoordinadorMapper.ToCoordinador(nuevo));
+            Coordinador coord = CoordinadorMapper.ToCoordinador(nuevo);
+            Repo.Add(coord);
+            nuevo.Id = coord.Id;
+            nuevo.Rol = coord.Rol;
         }
     }
 }

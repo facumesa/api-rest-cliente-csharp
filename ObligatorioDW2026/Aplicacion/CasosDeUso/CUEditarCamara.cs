@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace Aplicacion.CasosDeUso
 
         public void Ejecutar(CamaraDTO c)
         {
-            Repo.Update(CamaraMapper.ToCamara(c));
+            Camara cam = CamaraMapper.ToCamara(c);
+            Repo.Update(cam);
+            c.TipoEquipo = "Camara";
         }
     }
 }
