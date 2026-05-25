@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Mappers;
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Excepciones;
 using Excepciones.ExcepcionesPropias;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
@@ -27,7 +28,10 @@ namespace Aplicacion.CasosDeUso
         public void Ejecutar(PrestamoDTO nuevo)
         {
             Socio socioPrestamo = (Socio)RepoUsuarios.FindById(nuevo.SocioId);
-            if (socioPrestamo == null) throw new Exception("El socio no existe.");
+            if (socioPrestamo == null) throw new DatosInvalidosException("El socio no existe.");
+            Coordinador coordPrestamo = (Coordinador)RepoUsuarios.FindById(nuevo.CoordinadorId);
+            if (coordPrestamo == null) throw new DatosInvalidosException("El coordinador no existe.");
+
 
             Prestamo p = PrestamoMapper.ToPrestamo(nuevo);
 
@@ -77,11 +81,12 @@ namespace Aplicacion.CasosDeUso
 
             RepoPrestamos.Add(p);
 
-            Auditoria log = new Auditoria 
+            Auditoria log = new Auditoria
             {
                 Fecha = DateTime.Now,
                 TipoAccion = "ALTA PRÉSTAMO",
                 CoordinadorId = nuevo.CoordinadorId,
+                PrestamoId = p.Id,
                 Detalle = $"Se registró el préstamo ID {p.Id} para el socio {socioPrestamo.NombreCompleto} | (ID: {p.SocioId})."
             };
 

@@ -54,7 +54,7 @@ namespace Presentacion.Controllers
             }
             catch (DatosInvalidosException ex)
             {
-                ViewBag.Erorr = ex.Message;
+                ViewBag.Error = ex.Message;
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace Presentacion.Controllers
             }
             catch (DatosInvalidosException ex)
             {
-                ViewBag.Erorr = ex.Message;
+                ViewBag.Error = ex.Message;
             }
             catch (Exception ex)
             {
@@ -109,7 +109,7 @@ namespace Presentacion.Controllers
             }
             catch (DatosInvalidosException ex)
             {
-                ViewBag.Erorr = ex.Message;
+                ViewBag.Error = ex.Message;
             }
             catch (Exception ex)
             {

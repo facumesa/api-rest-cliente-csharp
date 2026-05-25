@@ -1,5 +1,6 @@
 ﻿using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
+using Excepciones;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
@@ -24,8 +25,10 @@ namespace Aplicacion.CasosDeUso
         public void Ejecutar(int id, int coordId)
         {
             Prestamo p = RepoPrestamos.FindById(id);
+            Coordinador coordPrestamo = (Coordinador)RepoUsuarios.FindById(coordId);
             if (p == null) throw new Exception("El préstamo no existe");
             if (p.Estado == EstadoPrestamo.DEVUELTO) throw new Exception("Este préstamo ya fue devuelto anteriormente");
+            if (coordPrestamo == null) throw new DatosInvalidosException("El coordinador no existe.");
 
             p.Estado = EstadoPrestamo.DEVUELTO;
             p.FechaFin = DateTime.Now;
@@ -56,6 +59,7 @@ namespace Aplicacion.CasosDeUso
                 Fecha = DateTime.Now,
                 TipoAccion = "DEVOLUCION PRESTAMO",
                 CoordinadorId = coordId,
+                PrestamoId = p.Id,
                 Detalle = $"Devolución registrada para el préstamo ID {p.Id}. El socio {p.Socio.NombreCompleto} devolvió los equipos"
             };
 
