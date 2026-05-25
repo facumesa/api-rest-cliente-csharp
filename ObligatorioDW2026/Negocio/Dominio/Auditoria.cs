@@ -13,5 +13,7 @@ namespace Negocio.Dominio
         public string Detalle { get; set; } 
         public int CoordinadorId { get; set; }
         public Coordinador Coordinador { get; set; }
+        public int PrestamoId { get; set; }
+        public Prestamo Prestamo { get; set; }
     }
 }

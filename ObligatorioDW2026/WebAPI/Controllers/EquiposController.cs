@@ -13,14 +13,6 @@ namespace WebAPI.Controllers
     [ApiController]
     public class EquiposController : ControllerBase
     {
-        public IAltaCamara CUAltaCamara { get; set; }
-        public IAltaTelescopio CUAltaTelescopio { get; set; }
-        public IAltaMontura CUAltaMontura { get; set; }
-        public IAltaOcular CUAltaOcular { get; set; }
-        public IEditarTelescopio CUEditarTelescopio { get; set; }
-        public IEditarCamara CUEditarCamara { get; set; }
-        public IEditarMontura CUEditarMontura { get; set; }
-        public IEditarOcular CUEditarOcular { get; set; }
         public IBajaEquipo CUBajaEquipo { get; set; }
         public IListarEquipos CUListarEquipos { get; set; }
         public IBuscarEquipo CUBuscarEquipo { get; set; }

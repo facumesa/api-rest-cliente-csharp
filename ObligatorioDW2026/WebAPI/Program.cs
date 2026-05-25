@@ -51,11 +51,9 @@ namespace WebAPI
 
             builder.Services.AddControllers()
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
             .ConfigureApiBehaviorOptions(options =>
              {
-                 // ¡ESTA LÍNEA ES LA MAGIA! 
-                 // Le dice a la API: "No generes respuestas automáticas de error 400 por los campos,
-                 // dejá que la petición entre al controlador que yo lo manejo con mis excepciones."
                  options.SuppressModelStateInvalidFilter = true;
              });
 

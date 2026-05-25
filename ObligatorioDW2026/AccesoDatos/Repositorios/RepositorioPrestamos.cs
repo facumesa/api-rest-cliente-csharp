@@ -82,6 +82,21 @@ namespace AccesoDatos.Repositorios
                     .ToList();
         }
 
+        public IEnumerable<Prestamo> ObtenerVigentesYNoDevueltosPorSocio(int socioId)
+        {
+            return Contexto.Prestamos
+                   .Where(p => p.SocioId == socioId
+                          && p.Estado == EstadoPrestamo.PRESTADO
+                          && p.FechaFin >= DateTime.Now)
+                    .Include(p => p.Socio)
+                    .Include(p => p.Telescopio)
+                    .Include(p => p.Montura)
+                    .Include(p => p.Camara)
+                    .Include(p => p.Ocular)
+                    .Include(p => p.Coordinador)
+                    .ToList();
+        }
+
         public IEnumerable<Prestamo> ObtenerPrestamosPorFechas(int socioId, int mes, int año)
         {
             return Contexto.Prestamos
