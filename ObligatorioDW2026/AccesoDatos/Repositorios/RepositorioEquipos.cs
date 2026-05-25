@@ -43,7 +43,7 @@ namespace AccesoDatos.Repositorios
         public Equipo FindById(int id)
         {
 
-            return Contexto.Equipos.Find(id); ;
+            return Contexto.Equipos.Find(id);
 
         }
 

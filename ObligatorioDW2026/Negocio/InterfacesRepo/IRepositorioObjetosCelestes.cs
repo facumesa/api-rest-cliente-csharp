@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Negocio.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Negocio.InterfacesRepo
 {
-    public interface IRepositorioObjetosCelestes
+    public interface IRepositorioObjetosCelestes : IRepositorio<ObjetoCeleste>
     {
     }
 }
