@@ -19,6 +19,8 @@ namespace AccesoDatos.EF
         public DbSet<Ocular> Oculares { get; set; }
         public DbSet<Prestamo> Prestamos { get; set; }
         public DbSet<Auditoria> Auditorias { get; set; }
+        public DbSet<ObjetoCeleste> ObjetosCelestes { get; set; }
+        public DbSet<Observacion> Observaciones { get; set; }
 
         public StellarContext(DbContextOptions options) : base(options) { }
 
