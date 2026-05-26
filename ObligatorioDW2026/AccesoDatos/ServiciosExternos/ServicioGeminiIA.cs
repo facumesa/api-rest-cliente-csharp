@@ -1,0 +1,119 @@
+﻿using Negocio.Dominio;
+using Negocio.InterfacesServicios;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace AccesoDatos.ServiciosExternos
+{
+    public class ServicioGeminiIA : IServicioGeminiIA
+    {
+        private readonly HttpClient _httpClient;
+        private readonly string _apiKey = "AIzaSyBuLNMQnvKSfvkEl00FOdZxR-wG_2UBuFw"; // Idealmente leer de un appsettings.json
+
+        public ServicioGeminiIA(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        public ResultadoEvaluacionIA EvaluarAdecuacion(Telescopio telescopio, Montura montura, Camara camaraOpcional, Ocular ocularOpcional, ObjetoCeleste objetoCeleste)
+        {
+            try
+            {
+                // 1. Forzar protocolos TLS modernos (Google rechaza conexiones viejas de .NET)
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls13;
+
+                string infoCamaraOpcional = camaraOpcional != null ? $"Cámara: {camaraOpcional.Marca} Tamaño pixel: {camaraOpcional.TamanioPixel} Tipo {camaraOpcional.TipoSensor.ToString()}" : "Ninguno";
+                string infoOcularOpcional = ocularOpcional != null ? $"Ocular: {ocularOpcional.Marca} Diametro en milimetros: {ocularOpcional.Diametro_mm} Angulo de vision en grados: {ocularOpcional.AnguloVision_grados}" : "Ninguno";
+                string computarizado = montura.EsComputarizado ? "Computarizado: SI" : "Computarizado: NO";
+
+                string prompt = $@"
+            Actúa como un experto en astronomía. Evalúa la adecuación del siguiente equipamiento para observar el objeto celeste especificado:
+            - Telescopio: {telescopio.Marca} (Apertura en mm: {telescopio.Apertura_mm}, Distancia Focal en mm: {telescopio.DistanciaFocal_mm})
+            - Montura: {montura.Marca} (Tipo: {montura.Tipo.ToString()} Carga: {montura.CargaUtil_kg} {computarizado})
+            - {infoCamaraOpcional}
+            - {infoOcularOpcional}
+            - Objeto Celeste: {objetoCeleste.Nombre} (Tipo: {objetoCeleste.Tipo}, Magnitud: {objetoCeleste.MagnitudAparente})
+
+            REQUISITOS OBLIGATORIOS DE RESPUESTA:
+            Debes responder estrictamente en formato JSON con la siguiente estructura exacta:
+            {{
+                ""indicador"": ""VALOR"",
+                ""motivo"": ""TEXTO""
+            }}
+            Donde ""indicador"" DEBE ser únicamente uno de estos tres valores: IDEAL, ADECUADO o NO RECOMENDABLE.
+            Donde ""motivo"" debe ser una breve explicación técnica de un máximo de 300 caracteres.";
+
+                // Armamos el JSON exactamente como lo exige la API v1 de Google
+                var bodyObjetos = new
+                {
+                    contents = new[]
+                    {
+                        new
+                        {
+                            parts = new[]
+                            {
+                                new { text = prompt }
+                            }
+                        }
+                    }
+                };
+
+                var opcionesSerializar = new JsonSerializerOptions { PropertyNamingPolicy = null };
+                string jsonBody = JsonSerializer.Serialize(bodyObjetos, opcionesSerializar);
+
+                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={_apiKey}";
+                var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+                // 2. EVITAR EL DEADLOCK: Task.Run evita que el hilo principal se congele en aplicaciones web
+                HttpResponseMessage response = Task.Run(() => _httpClient.PostAsync(url, content)).GetAwaiter().GetResult();
+
+                // 3. Capturar el error real si Google responde un código de error (como 400 o 403)
+                if (!response.IsSuccessStatusCode)
+                {
+                    string errorContent = Task.Run(() => response.Content.ReadAsStringAsync()).GetAwaiter().GetResult();
+                    return new ResultadoEvaluacionIA
+                    {
+                        Indicador = "NO RECOMENDABLE",
+                        Motivo = $"Error Google ({response.StatusCode}): {errorContent}"
+                    };
+                }
+
+                string jsonResponse = Task.Run(() => response.Content.ReadAsStringAsync()).GetAwaiter().GetResult();
+
+                using (JsonDocument doc = JsonDocument.Parse(jsonResponse))
+                {
+                    string textoGeneradoJson = doc.RootElement
+                        .GetProperty("candidates")[0]
+                        .GetProperty("content")
+                        .GetProperty("parts")[0]
+                        .GetProperty("text").GetString();
+
+                    // Limpieza básica de Markdown si la IA lo incluyó
+                    if (textoGeneradoJson.Contains("```json"))
+                        textoGeneradoJson = textoGeneradoJson.Replace("```json", "").Replace("```", "").Trim();
+                    else if (textoGeneradoJson.Contains("```"))
+                        textoGeneradoJson = textoGeneradoJson.Replace("```", "").Trim();
+
+                    var resultadoFinal = JsonSerializer.Deserialize<ResultadoEvaluacionIA>(textoGeneradoJson, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    return resultadoFinal ?? new ResultadoEvaluacionIA { Indicador = "NO RECOMENDABLE", Motivo = "Formato vacío devuelto por la IA." };
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si hay una falla física de red, el mensaje aparecerá directo en la pantalla en el campo Motivo
+                return new ResultadoEvaluacionIA
+                {
+                    Indicador = "NO RECOMENDABLE",
+                    Motivo = $"Excepción interna: {ex.Message} -> {ex.InnerException?.Message}"
+                };
+            }
+        }
+    }
+}

@@ -11,20 +11,20 @@ namespace AccesoDatos.Repositorios
     {
         public StellarContext Contexto { get; set; }
 
-        public RepositorioEquipos(StellarContext contexto)
+        public RepositorioObservaciones(StellarContext contexto)
         {
             Contexto = contexto;
         }
         public void Add(Observacion nuevo)
         {
             nuevo.Validar();
-            Contexto.Observacion.Add(nuevo);
+            Contexto.Observaciones.Add(nuevo);
             Contexto.SaveChanges();
         }
 
         public IEnumerable<Observacion> FindAll()
         {
-            Contexto.Observaciones.ToList();
+            return Contexto.Observaciones.ToList();
         }
 
         public Observacion FindById(int id)
