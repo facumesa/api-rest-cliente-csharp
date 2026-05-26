@@ -19,11 +19,18 @@ namespace Negocio.Dominio
 
         public void Validar()
         {
-            if (FechaObservacion == DateTime.MinValue)
+            if (FechaObservacion == DateTime.MinValue || FechaObservacion < DateTime.Now)
                 throw new DatosInvalidosException("La fecha de observación es inválida.");
 
             if (string.IsNullOrEmpty(ResultadoAdecuacion))
                 throw new DatosInvalidosException("Debe evaluar la adecuación antes de registrar el alta.");
+
+            if (ResultadoAdecuacion != "IDEAL" &&
+                ResultadoAdecuacion != "ADECUADO" &&
+                ResultadoAdecuacion != "NO RECOMENDABLE")
+            {
+                throw new Exception("El indicador de adecuación no es válido.");
+            }
         }
     }
 }

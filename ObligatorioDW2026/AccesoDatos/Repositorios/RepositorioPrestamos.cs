@@ -47,6 +47,10 @@ namespace AccesoDatos.Repositorios
         {
             return Contexto.Prestamos
                    .Include(p => p.Socio)
+                    .Include(p => p.Telescopio)
+                    .Include(p => p.Montura)
+                    .Include(p => p.Camara)
+                    .Include(p => p.Ocular)
                    .FirstOrDefault(p => p.Id == id);
         }
 

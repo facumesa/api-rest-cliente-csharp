@@ -11,7 +11,7 @@ namespace AccesoDatos.Repositorios
     {
         public StellarContext Contexto { get; set; }
 
-        public RepositorioEquipos(StellarContext contexto)
+        public RepositorioObjetosCelestes(StellarContext contexto)
         {
             Contexto = contexto;
         }

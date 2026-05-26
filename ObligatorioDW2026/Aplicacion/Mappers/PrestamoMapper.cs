@@ -61,10 +61,10 @@ namespace Aplicacion.Mappers
                 FechaFin = p.FechaFin,
                 NombreSocio = p.Socio != null ? $"{p.Socio.NombreCompleto}" : "Desconocido",
                 EmailSocio = p.Socio != null ? $"{p.Socio.Email.Valor}" : "Desconocido",
-                DescripcionTelescopio = p.Telescopio != null ? $"{p.Telescopio.Marca} {p.Telescopio.Modelo}" : "Ninguno",
-                DescripcionMontura = p.Montura != null ? $"{p.Montura.Marca} | {p.Montura.Modelo}" : "Ninguno",
-                DescripcionCamara = p.Camara != null ? $"{p.Camara.Marca} | {p.Camara.Modelo}" : "Sin cámara seleccionada",
-                DescripcionOcular = p.Ocular != null ? $"{p.Ocular.Marca} | {p.Ocular.Diametro_mm}mm" : "Sin ocular seleccionado",
+                DescripcionTelescopio = p.Telescopio != null ? $"{p.Telescopio.Marca}, {p.Telescopio.Modelo}" : "Ninguno",
+                DescripcionMontura = p.Montura != null ? $"{p.Montura.Marca}, {p.Montura.Modelo}" : "Ninguno",
+                DescripcionCamara = p.Camara != null ? $"{p.Camara.Marca}, {p.Camara.Modelo}" : "Sin cámara seleccionada",
+                DescripcionOcular = p.Ocular != null ? $"{p.Ocular.Marca}, {p.Ocular.Diametro_mm}mm" : "Sin ocular seleccionado",
                 NombreCoordinador = p.Coordinador != null ? p.Coordinador.NombreCompleto : "Sistema",
                 Estado = p.Estado != null ? $"{p.Estado.ToString()}" : "Sin estado"
             };

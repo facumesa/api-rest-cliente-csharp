@@ -82,6 +82,64 @@ namespace AccesoDatos.Migrations
                     b.UseTptMappingStrategy();
                 });
 
+            modelBuilder.Entity("Negocio.Dominio.ObjetoCeleste", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("MagnitudAparente")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ObjetosCelestes");
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Observacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("FechaObservacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MotivoAdecuacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ObjetoCelesteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrestamoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResultadoAdecuacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ObjetoCelesteId");
+
+                    b.HasIndex("PrestamoId");
+
+                    b.ToTable("Observaciones");
+                });
+
             modelBuilder.Entity("Negocio.Dominio.Prestamo", b =>
                 {
                     b.Property<int>("Id")
@@ -284,6 +342,25 @@ namespace AccesoDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Coordinador");
+
+                    b.Navigation("Prestamo");
+                });
+
+            modelBuilder.Entity("Negocio.Dominio.Observacion", b =>
+                {
+                    b.HasOne("Negocio.Dominio.ObjetoCeleste", "ObjetoCeleste")
+                        .WithMany()
+                        .HasForeignKey("ObjetoCelesteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Negocio.Dominio.Prestamo", "Prestamo")
+                        .WithMany()
+                        .HasForeignKey("PrestamoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ObjetoCeleste");
 
                     b.Navigation("Prestamo");
                 });
