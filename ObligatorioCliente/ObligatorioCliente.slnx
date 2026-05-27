@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Excepciones/Excepciones.csproj" Id="307a5997-ffb4-457a-b460-0011eff5ffe7" />
   <Project Path="ObligatorioCliente/ObligatorioCliente.csproj" />
 </Solution>

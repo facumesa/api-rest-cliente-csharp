@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ObligatorioCliente.Models;
+using Presentacion.Models;
 using System.Diagnostics;
+using ObligatorioCliente.DTOs;
 
 namespace ObligatorioCliente.Controllers
 {
@@ -8,6 +10,7 @@ namespace ObligatorioCliente.Controllers
     {
         public IActionResult Index()
         {
+            //if(HttpContext.Session.GetString("nombre") == null) return RedirectToAction("Login", "Usuarios");
             return View();
         }
 
