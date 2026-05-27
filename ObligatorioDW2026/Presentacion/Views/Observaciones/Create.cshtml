@@ -79,6 +79,13 @@
     </div>
 }
 
+@if (ViewBag.Exito != null)
+{
+    <div class="alert alert-success mt-3">
+        <strong>Éxito:</strong> @ViewBag.Exito
+    </div>
+}
+
 <div class="mt-3">
     <a asp-action="Index" class="btn btn-link">Volver al Listado</a>
 </div>

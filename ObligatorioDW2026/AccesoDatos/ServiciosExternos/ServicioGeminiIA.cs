@@ -64,7 +64,7 @@ namespace AccesoDatos.ServiciosExternos
                 var opcionesSerializar = new JsonSerializerOptions { PropertyNamingPolicy = null };
                 string jsonBody = JsonSerializer.Serialize(bodyObjetos, opcionesSerializar);
 
-                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={_apiKey}";
+                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={_apiKey}";
                 var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
                 // 2. EVITAR EL DEADLOCK: Task.Run evita que el hilo principal se congele en aplicaciones web

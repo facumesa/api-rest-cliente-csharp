@@ -1,10 +1,12 @@
 
 using AccesoDatos.EF;
 using AccesoDatos.Repositorios;
+using AccesoDatos.ServiciosExternos;
 using Aplicacion.CasosDeUso;
 using CasosUso.InterfacesCU;
 using Microsoft.EntityFrameworkCore;
 using Negocio.InterfacesRepo;
+using Negocio.InterfacesServicios;
 
 namespace WebAPI
 {
@@ -20,6 +22,8 @@ namespace WebAPI
             builder.Services.AddScoped<IRepositorioEquipos, RepositorioEquipos>();
             builder.Services.AddScoped<IRepositorioPrestamos, RepositorioPrestamos>();
             builder.Services.AddScoped<IRepositorioAuditoria, RepositorioAuditoria>();
+            builder.Services.AddScoped<IRepositorioObjetosCelestes, RepositorioObjetosCelestes>();
+            builder.Services.AddScoped<IRepositorioObservaciones, RepositorioObservaciones>();
 
             builder.Services.AddScoped<IAltaSocio, CUAltaSocio>();
             builder.Services.AddScoped<IAltaAdministrador, CUAltaAdministrador>();
@@ -44,6 +48,11 @@ namespace WebAPI
             builder.Services.AddScoped<IEditarTelescopio, CUEditarTelescopio>();
             builder.Services.AddScoped<IAltaPrestamo, CUAltaPrestamo>();
             builder.Services.AddScoped<IListarPrestamosEntreFechas, CUListarPrestamosEntreFechas>();
+            builder.Services.AddScoped<IListarPrestamosPorSocioVigentes, CUListarPrestamosPorSocioVigentes>();
+            builder.Services.AddScoped<IListarObjetosCelestes, CUListarObjetosCelestes>();
+            builder.Services.AddScoped<IAltaObservacion, CUAltaObservacion>();
+            builder.Services.AddHttpClient<IServicioGeminiIA, ServicioGeminiIA>();
+            builder.Services.AddScoped<IEvaluarAdecuacion, CUEvaluarAdecuacion>();
 
             string conBD = builder.Configuration.GetConnectionString("MiConexion");
             builder.Services.AddDbContext<StellarContext>(options =>

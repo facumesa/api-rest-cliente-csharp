@@ -2,6 +2,7 @@
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
 using Excepciones;
+using Excepciones.ExcepcionesPropias;
 using Microsoft.AspNetCore.Mvc;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
@@ -41,12 +42,20 @@ namespace Presentacion.Controllers
                         throw new Exception("Debe evaluar la observación con la IA antes de guardar.");
                     }
                     CUAltaObservacion.Ejecutar(vm.Observacion);
+                    ViewBag.Exito = "Se ha guardado su observación";
                 }
                 catch (DatosInvalidosException ex)
                 {
                     ViewBag.Error = ex.Message;
                     ViewBag.IndicadorIA = vm.Observacion.ResultadoAdecuacion;
                     ViewBag.MotivoIA = vm.Observacion.MotivoAdecuacion;
+
+                    CargarListas(vm);
+                    return View(vm);
+                }
+                catch (OperacionInvalidaException ex) 
+                {
+                    ViewBag.Error = ex.Message;
 
                     CargarListas(vm);
                     return View(vm);
@@ -67,11 +76,9 @@ namespace Presentacion.Controllers
                 try
                 {
                     var resultadoIA = CUEvaluarAdecuacion.Ejecutar(vm.Observacion.PrestamoId, vm.Observacion.ObjetoCelesteId);
-                    // Cargamos los datos en el ViewBag para que la vista los dibuje
-                    ViewBag.IndicadorIA = resultadoIA.ResultadoAdecuacion; // "IDEAL", "ADECUADO", etc.
+                    ViewBag.IndicadorIA = resultadoIA.ResultadoAdecuacion;
                     ViewBag.MotivoIA = resultadoIA.MotivoAdecuacion;
 
-                    // Recargamos los combos para que la pantalla no se rompa
                     CargarListas(vm);
                     return View(vm);
                 }

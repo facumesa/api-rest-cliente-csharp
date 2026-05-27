@@ -1,4 +1,5 @@
 ﻿using AccesoDatos.EF;
+using Microsoft.EntityFrameworkCore;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
 using System;
@@ -40,6 +41,21 @@ namespace AccesoDatos.Repositorios
         public void Update(Observacion nuevo)
         {
             throw new NotImplementedException();
+        }
+
+        public bool ExisteObservacionDuplicada(Observacion obs)
+        {
+            if (obs == null) return false;
+
+            DateTime fechaFiltro = obs.FechaObservacion.Date;
+            int? objetoCelesteId = obs.ObjetoCelesteId;
+            int? prestamoId = obs.PrestamoId;
+
+            return Contexto.Observaciones.Any(o =>
+                o.FechaObservacion.Date == fechaFiltro &&
+                o.ObjetoCelesteId == objetoCelesteId &&
+                o.PrestamoId == prestamoId
+            );
         }
     }
 }
