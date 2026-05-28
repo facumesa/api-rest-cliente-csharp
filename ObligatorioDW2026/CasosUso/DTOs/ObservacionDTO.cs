@@ -12,5 +12,6 @@ namespace CasosUso.DTOs
         public int ObjetoCelesteId { get; set; }
         public string ResultadoAdecuacion { get; set; }
         public string MotivoAdecuacion { get; set; }
+        public string TipoObservacion { get; set; }
     }
 }

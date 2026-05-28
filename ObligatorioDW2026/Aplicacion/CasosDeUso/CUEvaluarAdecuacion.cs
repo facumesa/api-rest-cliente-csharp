@@ -40,7 +40,7 @@ namespace Aplicacion.CasosDeUso
             {
                 PrestamoId = prestamoId,
                 ResultadoAdecuacion = resultadoIA.Indicador?.ToUpper().Trim(),
-                MotivoAdecuacion = resultadoIA.Motivo
+                MotivoAdecuacion = resultadoIA.Detalle
             };
 
             return nuevaObservacion;

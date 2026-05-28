@@ -1,4 +1,5 @@
-﻿using Negocio.Dominio;
+﻿using AccesoDatos.Migrations;
+using Negocio.Dominio;
 using Negocio.InterfacesServicios;
 using System;
 using System.Collections.Generic;
@@ -25,26 +26,27 @@ namespace AccesoDatos.ServiciosExternos
                 // 1. Forzar protocolos TLS modernos (Google rechaza conexiones viejas de .NET)
                 System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12 | System.Net.SecurityProtocolType.Tls13;
 
-                string infoCamaraOpcional = camaraOpcional != null ? $"Cámara: {camaraOpcional.Marca} Tamaño pixel: {camaraOpcional.TamanioPixel} Tipo {camaraOpcional.TipoSensor.ToString()}" : "Ninguno";
-                string infoOcularOpcional = ocularOpcional != null ? $"Ocular: {ocularOpcional.Marca} Diametro en milimetros: {ocularOpcional.Diametro_mm} Angulo de vision en grados: {ocularOpcional.AnguloVision_grados}" : "Ninguno";
-                string computarizado = montura.EsComputarizado ? "Computarizado: SI" : "Computarizado: NO";
+                var datosParaEvaluacion = new
+                {
+                    Telescopio = telescopio != null ? new { telescopio.Apertura_mm, telescopio.RelacionFocal, telescopio.DistanciaFocal_mm } : null,
+                    Montura = montura != null ? new { montura.Tipo, montura.CargaUtil_kg, montura.EsComputarizado } : null,
+                    Camara = camaraOpcional != null ? new { camaraOpcional.Resolucion, camaraOpcional.TipoSensor, camaraOpcional.TamanioPixel } : null,
+                    Ocular = ocularOpcional != null ? new { ocularOpcional.Diametro_mm, ocularOpcional.AnguloVision_grados } : null,
+                    Objeto_Celeste = objetoCeleste != null ? new { objetoCeleste.Nombre, objetoCeleste.MagnitudAparente, objetoCeleste.Tipo } : null
+                };
+
+                string datosJson = JsonSerializer.Serialize(datosParaEvaluacion);
 
                 string prompt = $@"
-            Actúa como un experto en astronomía. Evalúa la adecuación del siguiente equipamiento para observar el objeto celeste especificado:
-            - Telescopio: {telescopio.Marca} (Apertura en mm: {telescopio.Apertura_mm}, Distancia Focal en mm: {telescopio.DistanciaFocal_mm})
-            - Montura: {montura.Marca} (Tipo: {montura.Tipo.ToString()} Carga: {montura.CargaUtil_kg} {computarizado})
-            - {infoCamaraOpcional}
-            - {infoOcularOpcional}
-            - Objeto Celeste: {objetoCeleste.Nombre} (Tipo: {objetoCeleste.Tipo}, Magnitud: {objetoCeleste.MagnitudAparente})
-
-            REQUISITOS OBLIGATORIOS DE RESPUESTA:
-            Debes responder estrictamente en formato JSON con la siguiente estructura exacta:
-            {{
-                ""indicador"": ""VALOR"",
-                ""motivo"": ""TEXTO""
-            }}
-            Donde ""indicador"" DEBE ser únicamente uno de estos tres valores: IDEAL, ADECUADO o NO RECOMENDABLE.
-            Donde ""motivo"" debe ser una breve explicación técnica de un máximo de 300 caracteres.";
+                Actúa como un experto en astronomía. Evalúa la adecuación de la siguiente observacion astronómica basada en este JSON:\n{datosJson}\n
+                REQUISITOS OBLIGATORIOS DE RESPUESTA:
+                Debes responder estrictamente en formato JSON con la siguiente estructura exacta:
+                {{
+                    ""indicador"": ""VALOR"",
+                    ""detalle"": ""TEXTO""
+                }}
+                Donde ""indicador"" DEBE ser únicamente uno de estos tres valores: IDEAL, ADECUADO o NO RECOMENDABLE.
+                Donde ""detalle"" debe ser una breve explicación técnica de un máximo de 300 caracteres.";
 
                 // Armamos el JSON exactamente como lo exige la API v1 de Google
                 var bodyObjetos = new
@@ -77,7 +79,7 @@ namespace AccesoDatos.ServiciosExternos
                     return new ResultadoEvaluacionIA
                     {
                         Indicador = "NO RECOMENDABLE",
-                        Motivo = $"Error Google ({response.StatusCode}): {errorContent}"
+                        Detalle = $"Error Google ({response.StatusCode}): {errorContent}"
                     };
                 }
 
@@ -102,7 +104,7 @@ namespace AccesoDatos.ServiciosExternos
                         PropertyNameCaseInsensitive = true
                     });
 
-                    return resultadoFinal ?? new ResultadoEvaluacionIA { Indicador = "NO RECOMENDABLE", Motivo = "Formato vacío devuelto por la IA." };
+                    return resultadoFinal ?? new ResultadoEvaluacionIA { Indicador = "NO RECOMENDABLE", Detalle = "Formato vacío devuelto por la IA." };
                 }
             }
             catch (Exception ex)
@@ -111,7 +113,7 @@ namespace AccesoDatos.ServiciosExternos
                 return new ResultadoEvaluacionIA
                 {
                     Indicador = "NO RECOMENDABLE",
-                    Motivo = $"Excepción interna: {ex.Message} -> {ex.InnerException?.Message}"
+                    Detalle = $"Excepción interna: {ex.Message} -> {ex.InnerException?.Message}"
                 };
             }
         }

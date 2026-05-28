@@ -8,6 +8,7 @@ using Negocio.InterfacesRepo;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Negocio.Dominio.Observacion;
 
 namespace Aplicacion.CasosDeUso
 {
@@ -24,6 +25,16 @@ namespace Aplicacion.CasosDeUso
         {
             Observacion obs = ObservacionMapper.ToObservacion(nuevo);
             Prestamo prestamoReal = RepoPrestamos.FindById(obs.PrestamoId);
+
+            if (prestamoReal.Camara != null)
+            {
+                obs.TipoObservacion = TipoObservacion.Astrofotografia;
+            }
+            else
+            {
+                obs.TipoObservacion = TipoObservacion.VisualDirecta;
+            }
+
             if (prestamoReal == null)
             {
                 throw new DatosInvalidosException("El préstamo especificado no existe.");

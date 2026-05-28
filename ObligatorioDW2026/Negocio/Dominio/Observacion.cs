@@ -16,6 +16,7 @@ namespace Negocio.Dominio
         public ObjetoCeleste ObjetoCeleste { get; set; }
         public string ResultadoAdecuacion { get; set; }
         public string MotivoAdecuacion { get; set; }
+        public TipoObservacion TipoObservacion { get; set; }
 
         public void Validar()
         {
