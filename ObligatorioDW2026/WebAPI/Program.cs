@@ -4,9 +4,13 @@ using AccesoDatos.Repositorios;
 using AccesoDatos.ServiciosExternos;
 using Aplicacion.CasosDeUso;
 using CasosUso.InterfacesCU;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Negocio.InterfacesRepo;
 using Negocio.InterfacesServicios;
+using System.Security.Claims;
+using System.Text;
 
 namespace WebAPI
 {
@@ -15,6 +19,29 @@ namespace WebAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            var claveSecreta = "Tq16r6NC.+t)I4#~nD/$Thh%1G{M;B123";
+
+            builder.Services.AddAuthentication(aut =>
+            {
+                aut.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                aut.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(aut =>
+            {
+                aut.RequireHttpsMetadata = false;
+                aut.SaveToken = true;
+                aut.TokenValidationParameters = new TokenValidationParameters
+                {
+                    RoleClaimType = ClaimTypes.Role,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(claveSecreta)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true
+                };
+            });
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

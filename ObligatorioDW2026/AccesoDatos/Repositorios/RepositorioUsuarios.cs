@@ -41,13 +41,8 @@ namespace AccesoDatos.Repositorios
 
         public Usuario Login(string nombreUsuario, string password)
         {
-            //SOLO MODO DE PRUEBA, SE REMPLAZARA CON LINQ
-            foreach (var usuario in Contexto.Usuarios.ToList())
-            {
-                if (usuario.NombreUsuario == nombreUsuario && usuario.Contrasenia.Valor == password) return usuario;
-            }
-
-            return null;
+            return Contexto.Usuarios
+                .FirstOrDefault(u => u.NombreUsuario == nombreUsuario && u.Contrasenia.Valor == password);
         }
 
         public void Remove(int id)

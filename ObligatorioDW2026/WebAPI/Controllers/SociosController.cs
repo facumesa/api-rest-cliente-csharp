@@ -2,6 +2,7 @@
 using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
 using Excepciones;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -37,13 +38,12 @@ namespace WebAPI.Controllers
         }
 
         // POST api/<SociosController>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult CrearSocio([FromBody] SocioDTO nuevo)
         {
-            // if (!UsuarioEsAdmin(HttpContext)) return Unauthorized();
             try
             {
-                //if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (nuevo == null) return BadRequest("No se proporcionan datos para el alta");
                 if (nuevo.Id != 0) return BadRequest("No se debe proporcionar id para el alta");
 

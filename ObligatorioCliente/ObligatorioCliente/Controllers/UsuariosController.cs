@@ -8,12 +8,18 @@ namespace Presentacion.Controllers
     public class UsuariosController : Controller
     {
         public string URLApiUsuarios { get; set; }
+        public string URLApiSocios { get; set; }
+        public string URLApiAdministradores { get; set; }
+        public string URLApiCoordinadores { get; set; }
 
         public UsuariosController(IConfiguration config, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 URLApiUsuarios = config.GetValue<string>("UrlApiUsuariosDesarrollo");
+                URLApiSocios = config.GetValue<string>("URLApiSociosDesarrollo");
+                URLApiAdministradores = config.GetValue<string>("URLApiAdministradoresDesarrollo");
+                URLApiCoordinadores = config.GetValue<string>("URLApiCoordinadoresDesarrollo");
             }
             else if (env.IsProduction())
             {
@@ -23,8 +29,10 @@ namespace Presentacion.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
             List<UsuarioDTO> usus = new List<UsuarioDTO>();
-            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiUsuarios);
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiUsuarios, null, token);
 
             if (respuesta.IsSuccessStatusCode)
             {
@@ -39,122 +47,156 @@ namespace Presentacion.Controllers
 
             return View(usus);
         }
-        //public IActionResult Create()
-        //{
-        //    if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
-        //    return View();
-        //}
+        public IActionResult Create()
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            return View();
+        }
 
-        //public IActionResult CrearSocio()
-        //{
-        //    if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
-        //    return View();
-        //}
-        //[HttpPost]
-        //public IActionResult CrearSocio(SocioDTO dto)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            CUAltaSocio.Ejecutar(dto);
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //    }
-        //    catch (DatosInvalidosException ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //    }
+        public IActionResult CrearSocio()
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CrearSocio(SocioDTO dto)
+        {
+            if (ModelState.IsValid) 
+            {
+                try
+                {
+                    string token = HttpContext.Session.GetString("token");
+                    var respuesta = AuxliarClienteHttp.EnviarSolicitud("POST", URLApiSocios, dto, token);
 
-        //    return View();
-        //}
-        //public IActionResult CrearCoordinador()
-        //{
-        //    if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
-        //    return View();
-        //}
-        //[HttpPost]
-        //public IActionResult CrearCoordinador(CoordinadorDTO dto)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            CUAltaCoord.Ejecutar(dto);
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //    }
-        //    catch (DatosInvalidosException ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //    }
+                    if (respuesta.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else 
+                    {
+                        ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+                    }
 
-        //    return View();
-        //}
+                }
+                catch (Exception ex) { 
+                
+                    ViewBag.Error = "Ocurrió un problema inesperado";
+                }
+            }
 
-        //public IActionResult CrearAdministrador()
-        //{
-        //    if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
-        //    return View();
-        //}
-        //[HttpPost]
-        //public IActionResult CrearAdministrador(AdministradorDTO dto)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            CUAltaAdmin.Ejecutar(dto);
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //    }
-        //    catch (DatosInvalidosException ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //    }
+            return View(dto);
+        }
 
-        //    return View();
-        //}
+        public IActionResult CrearCoordinador()
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            return View();
+        }
 
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult CrearCoordinador(CoordinadorDTO dto)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    string token = HttpContext.Session.GetString("token");
+                    var respuesta = AuxliarClienteHttp.EnviarSolicitud("POST", URLApiCoordinadores, dto, token);
 
-        //[HttpPost]
-        //public IActionResult Login(UsuarioDTO dto)
-        //{
-        //    UsuarioDTO usuario = CULogin.Ejecutar(dto.NombreUsuario, dto.Contrasenia);
-        //    if (usuario == null)
-        //    {
-        //        ViewBag.Error = "El email o la contraseña no son correctos";
-        //    }
-        //    else
-        //    {
-        //        HttpContext.Session.SetString("rol", usuario.Rol);
-        //        HttpContext.Session.SetString("nombre", usuario.NombreUsuario);
-        //        HttpContext.Session.SetInt32("id", usuario.Id);
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    return View();
-        //}
+                    if (respuesta.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+                    }
 
-        //public IActionResult Logout()
-        //{
-        //    HttpContext.Session.Clear();
-        //    return RedirectToAction("Index", "Home");
-        //}
+                }
+                catch (Exception ex)
+                {
+
+                    ViewBag.Error = "Ocurrió un problema inesperado";
+                }
+            }
+
+            return View(dto);
+        }
+
+        public IActionResult CrearAdministrador()
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CrearAdministrador(AdministradorDTO dto)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    string token = HttpContext.Session.GetString("token");
+                    var respuesta = AuxliarClienteHttp.EnviarSolicitud("POST", URLApiAdministradores, dto, token);
+
+                    if (respuesta.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    ViewBag.Error = "Ocurrió un problema inesperado";
+                }
+            }
+
+            return View(dto);
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(UsuarioDTO dto)
+        {
+            try
+            {
+                var respuesta = AuxliarClienteHttp.EnviarSolicitud("POST", URLApiUsuarios, dto);
+
+                if (respuesta.IsSuccessStatusCode)
+                {
+                    var tarea2 = respuesta.Content.ReadFromJsonAsync<UsuarioDTO>();
+                    tarea2.Wait();
+
+                    UsuarioDTO usu = tarea2.Result;
+                    HttpContext.Session.SetString("rol", usu.Rol);
+                    HttpContext.Session.SetString("token", usu.Token);
+                    return RedirectToAction("Index", "Home");
+                }
+                else 
+                {
+                    ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+                }
+            }
+            catch
+            {
+                ViewBag.Error = "Ocurrió un error. Intente de nuevo más tarde";
+            }
+            return View(dto);
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -1,10 +1,18 @@
-﻿namespace LibreriaWebMVC.Auxiliar
+﻿using System.Net.Http.Headers;
+
+namespace LibreriaWebMVC.Auxiliar
 {
     public class AuxliarClienteHttp
     {
-        public static HttpResponseMessage EnviarSolicitud(string verbo, string url, object obj = null)
+        public static HttpResponseMessage EnviarSolicitud(string verbo, string url, object obj = null, string token = null)
         {
             HttpClient cliente = new HttpClient();
+
+            if (token != null)
+            {
+                cliente.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+            }
+
             HttpResponseMessage respuesta = null;
             Task<HttpResponseMessage> tarea = null;
 

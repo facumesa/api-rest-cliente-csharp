@@ -3,6 +3,7 @@ using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
 using Excepciones;
 using Excepciones.ExcepcionesPropias;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -23,6 +24,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/<OcularesController>
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult CrearOcular([FromBody] OcularDTO nuevo)
         {
@@ -48,6 +50,7 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<OcularesController>/5
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public IActionResult Modificar(int? id, [FromBody] OcularDTO? aModificar)
         {

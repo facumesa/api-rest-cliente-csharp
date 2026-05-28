@@ -2,6 +2,7 @@
 using CasosUso.InterfacesCU;
 using Excepciones;
 using Excepciones.ExcepcionesPropias;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Negocio.Dominio;
 
@@ -21,6 +22,7 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/observaciones/evaluar
+        [Authorize(Roles = "Socio, Admin")]
         [HttpPost("evaluar")]
         public IActionResult Evaluar([FromBody] ObservacionDTO request)
         {
@@ -45,6 +47,7 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/observaciones/
+        [Authorize(Roles = "Socio, Admin")]
         [HttpPost]
         public IActionResult Guardar([FromBody] ObservacionDTO nuevaObservacion)
         {

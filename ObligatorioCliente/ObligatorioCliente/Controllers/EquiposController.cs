@@ -1,32 +1,95 @@
-﻿using ObligatorioCliente.DTOs;
-using Excepciones;
-using Microsoft.AspNetCore.Mvc;
+﻿using Excepciones;
 using LibreriaWebMVC.Auxiliar;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using ObligatorioCliente.DTOs;
+using System.Text.Json;
 
 namespace Presentacion.Controllers
 {
     public class EquiposController : Controller
     {
+        public string URLApiEquipos { get; set; }
+        public string URLApiCamaras { get; set; }
+        public string URLApiTelescopios { get; set; }
+        public string URLApiOculares { get; set; }
+        public string URLApiMonturas { get; set; }
 
-        //public IActionResult Create()
-        //{
-        //    if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
-        //    return View();
-        //}
-        //public IActionResult Details(int id)
-        //{
-        //    if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+        public EquiposController(IConfiguration config, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                URLApiEquipos = config.GetValue<string>("UrlApiEquiposDesarrollo");
+                URLApiCamaras = config.GetValue<string>("UrlApiCamarasDesarrollo");
+                URLApiTelescopios = config.GetValue<string>("UrlApiTelescopiosDesarrollo");
+                URLApiOculares = config.GetValue<string>("UrlApiOcularesDesarrollo");
+                URLApiMonturas = config.GetValue<string>("UrlApiMonturasDesarrollo");
+            }
+            else if (env.IsProduction())
+            {
+                URLApiEquipos = config.GetValue<string>("UrlApiEquiposProduccion");
+                URLApiCamaras = config.GetValue<string>("UrlApiCamarasProduccion");
+                URLApiTelescopios = config.GetValue<string>("UrlApiTelescopiosProduccion");
+                URLApiOculares = config.GetValue<string>("UrlApiOcularesProduccion");
+                URLApiMonturas = config.GetValue<string>("UrlApiMonturasProduccion");
+            }
+        }
+        public IActionResult Create()
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            return View();
+        }
 
-        //    EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);
-        //    if (equipo == null) ViewBag.Error = "El equipo con id " + id + " no existe";
+        public IActionResult Details(int id)
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
 
-        //    if (equipo is CamaraDTO) return View("DetailsCamara", equipo);
-        //    if (equipo is TelescopioDTO) return View("DetailsTelescopio", equipo);
-        //    if (equipo is MonturaDTO) return View("DetailsMontura", equipo);
-        //    if (equipo is OcularDTO) return View("DetailsOcular", equipo);
+            EquipoDTO equipo = null;
 
-        //    return View(equipo);
-        //}
+            try
+            {
+                string token = HttpContext.Session.GetString("token");
+
+                HttpResponseMessage respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiEquipos + id, null, token);
+
+                if (respuesta.IsSuccessStatusCode)
+                {
+                    var tarea2 = respuesta.Content.ReadAsStringAsync();
+                    tarea2.Wait();
+                    string jsonResponse = tarea2.Result;
+
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    equipo = JsonSerializer.Deserialize<EquipoDTO>(jsonResponse, options);
+
+                    if (equipo != null)
+                    {
+                        if (equipo.TipoEquipo == "Camara")
+                            return View("DetailsCamara", JsonSerializer.Deserialize<CamaraDTO>(jsonResponse, options));
+
+                        if (equipo.TipoEquipo == "Telescopio")
+                            return View("DetailsTelescopio", JsonSerializer.Deserialize<TelescopioDTO>(jsonResponse, options));
+
+                        if (equipo.TipoEquipo == "Montura")
+                            return View("DetailsMontura", JsonSerializer.Deserialize<MonturaDTO>(jsonResponse, options));
+
+                        if (equipo.TipoEquipo == "Ocular")
+                            return View("DetailsOcular", JsonSerializer.Deserialize<OcularDTO>(jsonResponse, options));
+                    }
+                }
+                else
+                {
+                    string mensajeError = AuxliarClienteHttp.ObtenerError(respuesta);
+                    ViewBag.Error = $"Error en la API: {mensajeError} (Código: {respuesta.StatusCode})";
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Ocurrió un problema al conectar con el servicio: " + ex.Message;
+            }
+
+            ViewBag.Error = "No se pudo reconocer el tipo específico de equipo astronómico.";
+            return View("Error");
+        }
 
         //public IActionResult Edit(int id)
         //{
@@ -135,25 +198,26 @@ namespace Presentacion.Controllers
         //    return View(o);
         //}
 
-        //public IActionResult Index()
-        //{
-        //    //if (HttpContext.Session.GetString("nombre") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
-        //    List<UsuarioDTO> usus = new List<UsuarioDTO>();
-        //    var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", );
+        public IActionResult Index()
+        {
+            if (HttpContext.Session.GetString("token") == null || HttpContext.Session.GetString("rol") != "Admin") return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            List<EquipoDTO> eq = new List<EquipoDTO>();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiEquipos, null, token);
 
-        //    if (respuesta.IsSuccessStatusCode)
-        //    {
-        //        var tarea2 = respuesta.Content.ReadFromJsonAsync<List<UsuarioDTO>>();
-        //        tarea2.Wait();
-        //        usus = tarea2.Result;
-        //    }
-        //    else 
-        //    {
-        //        ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
-        //    }
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<List<EquipoDTO>>();
+                tarea2.Wait();
+                eq = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
 
-        //    return View(usus);
-        //}
+            return View(eq);
+        }
 
         //public IActionResult CrearCamara()
         //{

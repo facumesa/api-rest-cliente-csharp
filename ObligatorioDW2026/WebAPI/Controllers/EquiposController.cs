@@ -3,6 +3,7 @@ using CasosUso.DTOs;
 using CasosUso.InterfacesCU;
 using Excepciones;
 using Excepciones.ExcepcionesPropias;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,6 +26,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<EquiposController>
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult ObtenerTodos()
         {
@@ -40,6 +42,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<EquiposController>/5
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}", Name = "ObtenerEquipoPorId")]
         public IActionResult Get(int id)
         {
@@ -59,6 +62,7 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<EquiposController>/5
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
