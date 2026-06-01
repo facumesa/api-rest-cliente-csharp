@@ -24,7 +24,7 @@ namespace WebAPI.JWT
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, usu.NombreUsuario),
-                    new Claim(ClaimTypes.Role, usu.Rol)
+                    new Claim(ClaimTypes.Role, usu.Rol),
                 }),
                 Expires = DateTime.UtcNow.AddMonths(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(clave),

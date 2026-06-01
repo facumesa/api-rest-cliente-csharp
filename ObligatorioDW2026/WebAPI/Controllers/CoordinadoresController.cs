@@ -11,16 +11,16 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CordinadoresController : ControllerBase
+    public class CoordinadoresController : ControllerBase
     {
         public IAltaCoordinador CUAltaCoord { get; set; }
 
-        public CordinadoresController(IAltaCoordinador cUAltaCoord)
+        public CoordinadoresController(IAltaCoordinador cUAltaCoord)
         {
             CUAltaCoord = cUAltaCoord;
         }
 
-        // POST api/<CordinadoresController>
+        // POST api/<CoordinadoresController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult CrearCoord([FromBody] CoordinadorDTO nuevo)

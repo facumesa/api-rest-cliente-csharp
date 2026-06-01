@@ -59,5 +59,14 @@
             </td>
         </tr>
 }
+
+        @if (TempData["Exito"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Exito"]
+            </div>
+        }
+
+
     </tbody>
 </table>

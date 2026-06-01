@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/<EquiposController>
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Coordinador")]
         [HttpGet]
         public IActionResult ObtenerTodos()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -20,6 +21,8 @@ namespace Negocio.Dominio
         public override void Validar()
         {
             base.Validar();
+            if (Diametro_mm <= 0) throw new DatosInvalidosException("El diámetro no puede ser menor o igual a 0");
+            if (AnguloVision_grados <= 0) throw new DatosInvalidosException("El ángulo de visión no puede ser menor o igual a 0");
         }
     }
 }

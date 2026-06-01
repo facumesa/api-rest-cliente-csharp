@@ -28,10 +28,8 @@ namespace WebAPI.Controllers
         [HttpPost]
         public IActionResult CrearOcular([FromBody] OcularDTO nuevo)
         {
-            // if (!UsuarioEsAdmin(HttpContext)) return Unauthorized();
             try
             {
-                //if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (nuevo == null) return BadRequest("No se proporcionan datos para el alta");
                 if (nuevo.Id != 0) return BadRequest("No se debe proporcionar id para el alta");
 

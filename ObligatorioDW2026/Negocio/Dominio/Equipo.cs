@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Excepciones;
 using Negocio.InterfacesDominio;
 
 namespace Negocio.Dominio
@@ -23,9 +24,9 @@ namespace Negocio.Dominio
 
         public virtual void Validar()
         {
-            if (string.IsNullOrEmpty(Marca)) throw new Exception("La marca no puede ser vacía");
-            if (string.IsNullOrEmpty(Modelo)) throw new Exception("El modelo no puede ser vacío");
-            if (Cantidad < 0) throw new Exception("La cantidad no puede ser menor a 0");
+            if (string.IsNullOrEmpty(Marca)) throw new DatosInvalidosException("La marca no puede ser vacía");
+            if (string.IsNullOrEmpty(Modelo)) throw new DatosInvalidosException("El modelo no puede ser vacío");
+            if (Cantidad < 0) throw new DatosInvalidosException("La cantidad no puede ser menor a 0");
         }
     }
 

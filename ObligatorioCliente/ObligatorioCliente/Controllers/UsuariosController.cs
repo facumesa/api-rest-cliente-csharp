@@ -179,6 +179,7 @@ namespace Presentacion.Controllers
                     UsuarioDTO usu = tarea2.Result;
                     HttpContext.Session.SetString("rol", usu.Rol);
                     HttpContext.Session.SetString("token", usu.Token);
+                    HttpContext.Session.SetInt32("id", usu.Id);
                     return RedirectToAction("Index", "Home");
                 }
                 else 

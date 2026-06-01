@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
 
         // GET: api/prestamos/socio/5
         // GET: api/prestamos/socio/5?fecha=2026-05
-        [Authorize(Roles = "Socio, Admin")]
+        [Authorize]
         [HttpGet("socio/{id}")]
         public IActionResult GetPrestamosSocio(int id, [FromQuery] string? fecha)
         {
@@ -112,11 +112,11 @@ namespace WebAPI.Controllers
             try
             {
                 CUDevolucionPrestamo.Ejecutar(prestamoId, coordinadorId);
-                return Ok(new { mensaje = "Devolución registrada con éxito." });
+                return Ok("Devolución registrada con éxito.");
             }
             catch (Exception ex)
             {
-                return BadRequest(new { mensaje = "No se pudo registrar la devolución.", detalle = ex.Message });
+                return BadRequest("No se pudo registrar la devolución: " + ex.Message);
             }
         }
 

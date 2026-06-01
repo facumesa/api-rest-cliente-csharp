@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -22,6 +23,8 @@ namespace Negocio.Dominio
         public override void Validar()
         {
             base.Validar();
+            if (Tipo == null) throw new DatosInvalidosException("El tipo de montura no puede ser vacía");
+            if (CargaUtil_kg <= 0) throw new DatosInvalidosException("La carga útil no puede ser menor o igual a 0");
         }
     }
 }

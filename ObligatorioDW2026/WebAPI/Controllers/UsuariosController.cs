@@ -43,7 +43,6 @@ namespace WebAPI.Controllers
             try
             {
                 if (dto == null) return BadRequest("No se provee información para el login");
-                //OTROS CHEQUEOS ADICIONALES 
 
                 UsuarioDTO usu = CULogin.Ejecutar(dto.NombreUsuario, dto.Contrasenia);
 
@@ -51,7 +50,7 @@ namespace WebAPI.Controllers
 
                 string token = ManejadorJWT.GenerarToken(usu);
 
-                return Ok(new { usu.Rol, Token = token }); //PARA LOGIN SE PERMITE STATUS CODE 200 DE ÉXITO
+                return Ok(new { usu.Rol, usu.Id, Token = token }); //PARA LOGIN SE PERMITE STATUS CODE 200 DE ÉXITO
             }
             catch
             {
