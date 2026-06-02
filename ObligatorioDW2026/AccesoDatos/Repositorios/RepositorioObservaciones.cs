@@ -57,5 +57,10 @@ namespace AccesoDatos.Repositorios
                 o.PrestamoId == prestamoId
             );
         }
+
+        public IEnumerable<ObjetoCeleste> RankingObjetosMasObservados()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

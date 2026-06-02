@@ -63,5 +63,16 @@ namespace AccesoDatos.Repositorios
                                .Distinct()
                                .ToList();
         }
+
+        public IEnumerable<Socio> SociosConTelecopioDado(int idTelescopio)
+        {
+            return Contexto.Prestamos
+                            .Where(p => p.TelescopioId == idTelescopio)
+                            .Select(p => p.Socio)
+                            .Distinct()
+                            .OrderByDescending(s => s.NombreCompleto)
+                            .ToList();
+                            
+        }
     }
 }

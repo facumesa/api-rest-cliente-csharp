@@ -51,6 +51,11 @@ namespace AccesoDatos.Repositorios
         {
             return Contexto.Equipos.ToList();
         }
+
+        public IEnumerable<Telescopio> ObtenerTelescopios()
+        {
+            return Contexto.Telescopios.ToList();
+        }
     }
 
     }

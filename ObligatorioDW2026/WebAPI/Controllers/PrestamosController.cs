@@ -20,7 +20,8 @@ namespace WebAPI.Controllers
         public IListarPrestamosPorSocio CUListarPrestamosPorSocio { get; set; }
         public IDevolucionPrestamo CUDevolucionPrestamo { get; set; }
         public IListarPrestamosEntreFechas CUListarPrestamosEntreFechas { get; set; }
-        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo, IListarPrestamosEntreFechas cUListarPrestamosEntreFechas)
+        public IListarPrestamosPorSocioVigentes CUPrestamosVigentes { get; set; }
+        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo, IListarPrestamosEntreFechas cUListarPrestamosEntreFechas, IListarPrestamosPorSocioVigentes cUPrestamosVigentes)
         {
             CUAltaPrestamo = cUAltaPrestamo;
             CUListarPrestamos = cUlistarPrestamos;
@@ -28,6 +29,7 @@ namespace WebAPI.Controllers
             CUListarPrestamosPorSocio = cUListarPrestamosPorSocio;
             CUDevolucionPrestamo = cUDevolucionPrestamo;
             CUListarPrestamosEntreFechas = cUListarPrestamosEntreFechas;
+            CUPrestamosVigentes = cUPrestamosVigentes;
         }
 
         // GET: api/<PrestamosController>
@@ -36,6 +38,15 @@ namespace WebAPI.Controllers
         public IActionResult Get()
         {
             var prestamos = CUListarPrestamos.ObtenerListado();
+            return Ok(prestamos);
+        }
+
+        // GET: api/prestamos/socios-con-prestamo-vigente
+        [Authorize]
+        [HttpGet("socios-con-prestamo-vigente/{id}")]
+        public IActionResult GetSociosConPrestamosVigentes(int id) 
+        {
+            var prestamos = CUPrestamosVigentes.ObtenerListado(id);
             return Ok(prestamos);
         }
 
@@ -71,7 +82,7 @@ namespace WebAPI.Controllers
             }
             catch (Exception)
             {
-                return BadRequest(new { mensaje = "Formato de fecha o ID inválido." });
+                return BadRequest("Formato de fecha o ID inválido.");
             }
         }
 

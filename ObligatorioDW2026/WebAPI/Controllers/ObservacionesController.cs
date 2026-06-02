@@ -30,19 +30,17 @@ namespace WebAPI.Controllers
             {
                 if (request == null) return BadRequest("Datos insuficientes para evaluar.");
 
-                // Ejecutamos el Caso de Uso de evaluación pasándole los IDs
                 var resultadoIA = CUEvaluar.Ejecutar(request.PrestamoId, request.ObjetoCelesteId);
 
-                // En Web API devolvemos un HTTP 200 OK con el objeto JSON puro
                 return Ok(resultadoIA);
             }
             catch (DatosInvalidosException ex)
             {
-                return BadRequest(new { mensaje = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { mensaje = "Error al conectar con la IA: " + ex.Message });
+                return StatusCode(500, "Error al conectar con la IA: " + ex.Message);
             }
         }
 
@@ -53,7 +51,7 @@ namespace WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); // Te va a escupir qué propiedad no pudo parsear
+                return BadRequest(ModelState);
             }
             try
             {
@@ -62,24 +60,24 @@ namespace WebAPI.Controllers
 
                 if (string.IsNullOrEmpty(nuevaObservacion.ResultadoAdecuacion))
                 {
-                    return BadRequest(new { mensaje = "Debe evaluar la observación con la IA antes de guardar." });
+                    return BadRequest("Debe evaluar la observación con la IA antes de guardar.");
                 }
 
                 CUAltaObservacion.Ejecutar(nuevaObservacion);
 
-                return Created("", new { mensaje = "Se ha guardado su observación con éxito." });
+                return Created("", "Se ha guardado su observación con éxito.");
             }
             catch (DatosInvalidosException ex)
             {
-                return BadRequest(new { mensaje = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (OperacionInvalidaException ex)
             {
-                return BadRequest(new { mensaje = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (Exception)
             {
-                return StatusCode(500, new { mensaje = "Ocurrió un problema y no fue posible crear la observación." });
+                return StatusCode(500, "Ocurrió un problema y no fue posible crear la observación.");
             }
         }
     }

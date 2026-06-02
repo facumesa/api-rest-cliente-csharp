@@ -45,5 +45,20 @@ namespace Aplicacion.Mappers
                 TipoEquipo = "Telescopio"
             };
         }
+
+        public static IEnumerable<TelescopioDTO> ToListDTO(IEnumerable<Telescopio> telescopios)
+        {
+            List<TelescopioDTO> dtos = new List<TelescopioDTO>();
+
+            if (telescopios != null)
+            {
+                foreach (Telescopio t in telescopios)
+                {
+                    dtos.Add(ToDTO(t));
+                }
+            }
+
+            return dtos;
+        }
     }
 }

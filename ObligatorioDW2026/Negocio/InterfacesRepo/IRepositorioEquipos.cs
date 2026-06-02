@@ -7,6 +7,6 @@ namespace Negocio.InterfacesRepo
 {
     public interface IRepositorioEquipos : IRepositorio<Equipo>
     {
-
+        IEnumerable<Telescopio> ObtenerTelescopios();
     }
 }

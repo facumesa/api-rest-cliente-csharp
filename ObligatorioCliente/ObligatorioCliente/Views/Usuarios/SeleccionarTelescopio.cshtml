@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ObligatorioCliente.DTOs.TelescopioDTO>
+
+@{
+    ViewData["Title"] = "SeleccionarTelescopio";
+}
+
+<h1>SeleccionarTelescopio</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apertura_mm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DistanciaFocal_mm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RelacionFocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoEquipo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apertura_mm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistanciaFocal_mm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RelacionFocal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoEquipo)
+                </td>
+                <td>
+                    <a asp-action="ListarSociosPorTelescopio"
+                           asp-route-id="@item.Id"
+                           class="btn btn-sm btn-info">
+                        Ver Socios
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

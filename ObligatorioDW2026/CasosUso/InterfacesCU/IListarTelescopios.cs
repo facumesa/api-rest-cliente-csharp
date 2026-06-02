@@ -5,8 +5,8 @@ using System.Text;
 
 namespace CasosUso.InterfacesCU
 {
-    public interface IListarSociosConTelescopio
+    public interface IListarTelescopios
     {
-        IEnumerable<SocioDTO> ObtenerListado(int id);
+        IEnumerable<TelescopioDTO> ObtenerListado();
     }
 }

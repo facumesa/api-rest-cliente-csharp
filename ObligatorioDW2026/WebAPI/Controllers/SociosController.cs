@@ -4,6 +4,7 @@ using CasosUso.InterfacesCU;
 using Excepciones;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Negocio.Dominio;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,11 +16,13 @@ namespace WebAPI.Controllers
     {
         public IAltaSocio CUAltaSocio { get; set; }
         public IListarSocios CUListarSocios { get; set; }
+        public IListarSociosConTelescopio CUListarSociosTelescopio { get; set; }
 
-        public SociosController(IAltaSocio cuAltaSocio, IListarSocios cuListarSocios)
+        public SociosController(IAltaSocio cuAltaSocio, IListarSocios cuListarSocios, IListarSociosConTelescopio cUListarSociosTelescopio)
         {
             CUAltaSocio = cuAltaSocio;
             CUListarSocios = cuListarSocios;
+            CUListarSociosTelescopio = cUListarSociosTelescopio;
         }
 
         // GET: api/<SociosController>
@@ -58,6 +61,27 @@ namespace WebAPI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, "Ocurrió un problema y no se pudo realizar el alta.");
+            }
+        }
+
+        // GET api/<SociosController>/contelescopio
+        [Authorize(Roles = "Admin, Coordinador")]
+        [HttpGet("contelescopio/{id}")]
+        public IActionResult SociosPorTelescopio(int id) 
+        {
+            try
+            {
+                IEnumerable<SocioDTO> socios = CUListarSociosTelescopio.ObtenerListado(id);
+
+                if(socios == null || !socios.Any())
+                return NotFound("No se encontraron socios que hayan solicitado este telescopio.");
+
+
+                return Ok(socios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("No se pudo obtener la lista de socios: " + ex.Message);
             }
         }
     }

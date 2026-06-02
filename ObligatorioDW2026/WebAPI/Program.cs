@@ -80,12 +80,16 @@ namespace WebAPI
             builder.Services.AddScoped<IAltaObservacion, CUAltaObservacion>();
             builder.Services.AddHttpClient<IServicioGeminiIA, ServicioGeminiIA>();
             builder.Services.AddScoped<IEvaluarAdecuacion, CUEvaluarAdecuacion>();
+            builder.Services.AddScoped<IListarTelescopios, CUListarTelescopios>();
+            builder.Services.AddScoped<IListarSociosConTelescopio, CUListarSociosConTelescopio>();
+
 
             string conBD = builder.Configuration.GetConnectionString("MiConexion");
             builder.Services.AddDbContext<StellarContext>(options =>
                 options.UseSqlServer(conBD));
 
             builder.Services.AddControllers()
+
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
             .ConfigureApiBehaviorOptions(options =>

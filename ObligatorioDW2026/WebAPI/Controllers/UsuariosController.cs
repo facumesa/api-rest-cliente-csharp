@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
         }
 
         //POST DEL LOGIN
-        [HttpPost] // PARA LOGIN SE PERMITE VERBO POST AUNQUE NO SEA UN ALTA
+        [HttpPost]
         public IActionResult Login([FromBody] UsuarioDTO? dto)
         {
             try
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
 
                 string token = ManejadorJWT.GenerarToken(usu);
 
-                return Ok(new { usu.Rol, usu.Id, Token = token }); //PARA LOGIN SE PERMITE STATUS CODE 200 DE ÉXITO
+                return Ok(new { usu.Rol, usu.Id, Token = token });
             }
             catch
             {

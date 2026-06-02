@@ -53,6 +53,7 @@ namespace Aplicacion.CasosDeUso
             }
             RepoObs.Add(obs);
             nuevo.Id = obs.Id;
+            nuevo.TipoObservacion = obs.TipoObservacion.ToString();
         }
     }
 }

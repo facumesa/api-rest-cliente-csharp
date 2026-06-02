@@ -16,11 +16,13 @@ namespace WebAPI.Controllers
     {
         public IAltaTelescopio CUAltaTelescopio { get; set; }
         public IEditarTelescopio CUEditarTelescopio { get; set; }
+        public IListarTelescopios CUListarTelescopios{ get; set; }
 
-        public TelescopiosController(IAltaTelescopio cuAltaTelescopio, IEditarTelescopio cuEditarTelescopio)
+        public TelescopiosController(IAltaTelescopio cuAltaTelescopio, IEditarTelescopio cuEditarTelescopio, IListarTelescopios cUListarTelescopios)
         {
             CUAltaTelescopio = cuAltaTelescopio;
             CUEditarTelescopio = cuEditarTelescopio;
+            CUListarTelescopios = cUListarTelescopios;
         }
 
         // POST api/<TelescopiosController>
@@ -28,10 +30,8 @@ namespace WebAPI.Controllers
         [HttpPost]
         public IActionResult CrearTelescopio([FromBody] TelescopioDTO nuevo)
         {
-            // if (!UsuarioEsAdmin(HttpContext)) return Unauthorized();
             try
             {
-                //if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (nuevo == null) return BadRequest("No se proporcionan datos para el alta");
                 if (nuevo.Id != 0) return BadRequest("No se debe proporcionar id para el alta");
 
@@ -74,6 +74,22 @@ namespace WebAPI.Controllers
             catch
             {
                 return StatusCode(500, "Ocurrió un problema y no se pudo realizar la modificación.");
+            }
+        }
+
+        // GET: api/<TelescopiosController>
+        [Authorize(Roles = "Admin, Coordinador")]
+        [HttpGet]
+        public IActionResult TraerTodos()
+        {
+            try
+            {
+                IEnumerable<TelescopioDTO> telescopios = CUListarTelescopios.ObtenerListado();
+                return Ok(telescopios);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocurrio un error inesperado");
             }
         }
 

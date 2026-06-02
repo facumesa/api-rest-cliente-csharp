@@ -11,6 +11,7 @@ namespace Presentacion.Controllers
         public string URLApiSocios { get; set; }
         public string URLApiAdministradores { get; set; }
         public string URLApiCoordinadores { get; set; }
+        public string URLApiTelescopios { get; set; }
 
         public UsuariosController(IConfiguration config, IWebHostEnvironment env)
         {
@@ -20,10 +21,12 @@ namespace Presentacion.Controllers
                 URLApiSocios = config.GetValue<string>("URLApiSociosDesarrollo");
                 URLApiAdministradores = config.GetValue<string>("URLApiAdministradoresDesarrollo");
                 URLApiCoordinadores = config.GetValue<string>("URLApiCoordinadoresDesarrollo");
+                URLApiTelescopios = config.GetValue<string>("UrlApiTelescopiosDesarrollo");
             }
             else if (env.IsProduction())
             {
                 URLApiUsuarios = config.GetValue<string>("URLApiUsuariosProduccion");
+                URLApiTelescopios = config.GetValue<string>("UrlApiTelescopiosProduccion");
             }
         }
 
@@ -157,6 +160,49 @@ namespace Presentacion.Controllers
             }
 
             return View(dto);
+        }
+
+        public IActionResult SeleccionarTelescopio() 
+        {
+            if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin" && HttpContext.Session.GetString("rol") != "Coordinador")) return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            List<TelescopioDTO> teles = new List<TelescopioDTO>();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiTelescopios, null, token);
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<List<TelescopioDTO>>();
+                tarea2.Wait();
+                teles = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
+
+            return View(teles);
+        }
+
+        [HttpGet]
+        public IActionResult ListarSociosPorTelescopio(int id)
+        {
+            if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin" && HttpContext.Session.GetString("rol") != "Coordinador")) return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            List<SocioDTO> socios = new List<SocioDTO>();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", $"{URLApiSocios}contelescopio/{id}", null, token);
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<List<SocioDTO>>();
+                tarea2.Wait();
+                socios = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
+
+            return View(socios);
         }
 
         public IActionResult Login()

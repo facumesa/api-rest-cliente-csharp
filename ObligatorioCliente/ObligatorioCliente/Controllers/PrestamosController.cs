@@ -63,6 +63,12 @@ namespace ObligatorioCliente.Controllers
             if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin" && HttpContext.Session.GetString("rol") != "Coordinador")) return RedirectToAction("Login", "Usuarios");
 
             PrestamoViewModel model = new PrestamoViewModel();
+            if (model.Prestamo == null)
+            {
+                model.Prestamo = new PrestamoDTO();
+            }
+            model.Prestamo.FechaInicio = DateTime.Today;
+            model.Prestamo.FechaFin = DateTime.Today;   
             CargarListasViewModel(model);
             return View(model);
         }
@@ -162,7 +168,7 @@ namespace ObligatorioCliente.Controllers
                 int anio = int.Parse(partes[0]);
                 int mes = int.Parse(partes[1]);
 
-                url = $"{URLApiPrestamos}socio/{id}?{fecha}";
+                url = $"{URLApiPrestamos}socio/{id}?fecha={fecha}";
             }
             else
             {
@@ -204,7 +210,7 @@ namespace ObligatorioCliente.Controllers
                 {
                     string mensajeExito = response.Content.ReadAsStringAsync().Result;
                     TempData["Exito"] = mensajeExito;
-                    return RedirectToAction("SociosConPrestamo");
+                    return RedirectToAction("SociosConPrestamo");   
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized ||
                          response.StatusCode == System.Net.HttpStatusCode.Forbidden)

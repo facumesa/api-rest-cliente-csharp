@@ -11,6 +11,7 @@ namespace Negocio.InterfacesRepo
 
         IEnumerable<Socio> GetSocios();
         IEnumerable<Socio> ObtenerSociosConPrestamosActivos();
+        IEnumerable<Socio> SociosConTelecopioDado(int idTelescopio);
 
     }
 }
