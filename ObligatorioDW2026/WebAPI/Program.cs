@@ -82,6 +82,11 @@ namespace WebAPI
             builder.Services.AddScoped<IEvaluarAdecuacion, CUEvaluarAdecuacion>();
             builder.Services.AddScoped<IListarTelescopios, CUListarTelescopios>();
             builder.Services.AddScoped<IListarSociosConTelescopio, CUListarSociosConTelescopio>();
+            builder.Services.AddScoped<IRankingObjetosCelestes, CURankingObjetosCelestes>();
+            builder.Services.AddScoped<IPrestamosPorCoord, CUPrestamosPorCoord>();
+            builder.Services.AddScoped<IListarCoordinadores, CUListarCoordinadores>();
+            builder.Services.AddScoped<IBuscarPrestamo, CUBuscarPrestamo>();
+            builder.Services.AddScoped<IBuscarAuditoriaPorPrestamo, CUBuscarAuditoriaPorPrestamo>();
 
 
             string conBD = builder.Configuration.GetConnectionString("MiConexion");

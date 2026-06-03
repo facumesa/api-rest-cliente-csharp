@@ -1,0 +1,83 @@
+﻿@model IEnumerable<CasosUso.DTOs.AuditoriaDTO>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+
+        <p>No existen auditorias para el préstamo seleccionado.</p>
+
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoAccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Detalle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoordinadorId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrestamoId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoAccion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Detalle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CoordinadorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrestamoId)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@* Arreglar *@
+@foreach (var item in Model)
+{
+    <a asp-action="Coordinador"
+           asp-route-id="@item.CoordinadorId"
+           class="btn btn-sm btn-info">
+        Volver a los préstamos del coordinador
+    </a>
+}
+
+<a asp-action="Detalle"
+       asp-route-id="@ViewBag.Id"
+       class="btn btn-sm btn-info">
+    Ver detalle del préstamo
+</a>
+
+
+
+

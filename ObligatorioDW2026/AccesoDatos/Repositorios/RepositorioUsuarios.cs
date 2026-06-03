@@ -74,5 +74,10 @@ namespace AccesoDatos.Repositorios
                             .ToList();
                             
         }
+
+        public IEnumerable<Coordinador> GetCoordinadores()
+        {
+            return Contexto.Coordinadores.ToList();
+        }
     }
 }

@@ -10,8 +10,10 @@ namespace Negocio.InterfacesRepo
         Usuario Login(string nombreUsuario, string password);
 
         IEnumerable<Socio> GetSocios();
+        IEnumerable<Coordinador> GetCoordinadores();
         IEnumerable<Socio> ObtenerSociosConPrestamosActivos();
         IEnumerable<Socio> SociosConTelecopioDado(int idTelescopio);
+        
 
     }
 }

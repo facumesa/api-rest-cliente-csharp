@@ -114,5 +114,18 @@ namespace AccesoDatos.Repositorios
                             .ToList();
 
         }
+
+        public IEnumerable<Prestamo> PrestamosPorCoordinador(int id)
+        {
+            return Contexto.Prestamos
+                           .Where(p => p.CoordinadorId == id)
+                            .Include(p => p.Socio)
+                            .Include(p => p.Telescopio)
+                            .Include(p => p.Montura)
+                            .Include(p => p.Camara)
+                            .Include(p => p.Ocular)
+                            .Include(p => p.Coordinador)
+                            .ToList();
+        }
     }
 }

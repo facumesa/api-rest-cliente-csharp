@@ -1,4 +1,5 @@
-﻿using Excepciones;
+﻿using CasosUso.DTOs;
+using Excepciones;
 using LibreriaWebMVC.Auxiliar;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,6 +18,7 @@ namespace ObligatorioCliente.Controllers
         public string URLApiEquipos { get; set; }
         public string URLApiSocios { get; set; }
         public string URLApiSociosConPrestamo { get; set; }
+        public string URLApiCoordinadores { get; set; }
 
         public PrestamosController(IConfiguration config, IWebHostEnvironment env)
         {
@@ -26,6 +28,7 @@ namespace ObligatorioCliente.Controllers
                 URLApiEquipos = config.GetValue<string>("UrlApiEquiposDesarrollo");
                 URLApiSocios = config.GetValue<string>("URLApiSociosDesarrollo");
                 URLApiSociosConPrestamo = config.GetValue<string>("UrlApiSociosConPrestamoDesarrollo");
+                URLApiCoordinadores = config.GetValue<string>("UrlApiCoordinadoresDesarrollo");
             }
             else if (env.IsProduction())
             {
@@ -33,6 +36,7 @@ namespace ObligatorioCliente.Controllers
                 URLApiEquipos = config.GetValue<string>("UrlApiEquiposProduccion");
                 URLApiSocios = config.GetValue<string>("URLApiSociosProduccion");
                 URLApiSociosConPrestamo = config.GetValue<string>("UrlApiSociosConPrestamoProduccion");
+                URLApiCoordinadores = config.GetValue<string>("UrlApiCoordinadoresProduccion");
 
             }
         }
@@ -229,6 +233,92 @@ namespace ObligatorioCliente.Controllers
                 TempData["Error"] = "Ocurrió un error de comunicación con el servicio.";
                 return RedirectToAction("PrestamosSocio", new { id = id });
             }
+        }
+
+        public IActionResult SeleccionarCoordinador()
+        {
+            if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin")) return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            List<CoordinadorDTO> coords = new List<CoordinadorDTO>();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiCoordinadores, null, token);
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<List<CoordinadorDTO>>();
+                tarea2.Wait();
+                coords = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
+
+            return View(coords);
+        }
+
+        public IActionResult Coordinador(int id)
+        {
+            if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin")) return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            List<PrestamoDTO> prestamos = new List<PrestamoDTO>();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", $"{URLApiPrestamos}coordinador/{id}", null, token);
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<List<PrestamoDTO>>();
+                tarea2.Wait();
+                prestamos = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
+
+            return View(prestamos);
+        }
+
+        public IActionResult Auditoria(int id)
+        {
+            if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin")) return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            List<AuditoriaDTO> auditorias = new List<AuditoriaDTO>();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", $"{URLApiPrestamos}auditoria/{id}", null, token);
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<List<AuditoriaDTO>>();
+                tarea2.Wait();
+                auditorias = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
+
+            ViewBag.Id = id;
+            return View(auditorias);
+        }
+
+        public IActionResult Detalle(int id)
+        {
+            if (HttpContext.Session.GetString("token") == null || (HttpContext.Session.GetString("rol") != "Admin")) return RedirectToAction("Login", "Usuarios");
+            string token = HttpContext.Session.GetString("token");
+            PrestamoListadoDTO prestamo = new PrestamoListadoDTO();
+            var respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", $"{URLApiPrestamos}{id}", null, token);
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var tarea2 = respuesta.Content.ReadFromJsonAsync<PrestamoListadoDTO>();
+                tarea2.Wait();
+                prestamo = tarea2.Result;
+            }
+            else
+            {
+                ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+            }
+
+            ViewBag.Id = id;
+            return View(prestamo);
         }
 
         public void CargarListasViewModel(PrestamoViewModel model)

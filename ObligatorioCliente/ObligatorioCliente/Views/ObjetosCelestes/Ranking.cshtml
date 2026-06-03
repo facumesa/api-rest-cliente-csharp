@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CasosUso.DTOs.RankingObjetoDTO>
+
+<h1>Ranking de objetos celestes</h1>
+
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+
+        <p>No se han observado objetos celestes.</p>
+
+    </div>
+}
+else
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                Cantidad de veces observado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}

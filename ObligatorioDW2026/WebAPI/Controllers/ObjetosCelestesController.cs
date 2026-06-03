@@ -10,10 +10,12 @@ namespace WebAPI.Controllers
     public class ObjetosCelestesController : ControllerBase
     {
         public IListarObjetosCelestes CUListar { get; set; }
+        public IRankingObjetosCelestes CURanking{ get; set; }
 
-        public ObjetosCelestesController(IListarObjetosCelestes cUListar)
+        public ObjetosCelestesController(IListarObjetosCelestes cUListar, IRankingObjetosCelestes cURanking)
         {
             CUListar = cUListar;
+            CURanking = cURanking;
         }
 
         // GET: api/<ObjetosCelestesController>
@@ -23,6 +25,15 @@ namespace WebAPI.Controllers
         {
             var objetos = CUListar.ObtenerListado();
             return Ok(objetos);
+        }
+
+        // GET: api/<ObjetosCelestesController>/ranking
+        [Authorize]
+        [HttpGet("ranking")]
+        public IActionResult Ranking() 
+        {
+            var ranking = CURanking.Ejecutar();
+            return Ok(ranking);
         }
 
     }

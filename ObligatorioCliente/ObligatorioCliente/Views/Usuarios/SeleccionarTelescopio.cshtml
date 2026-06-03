@@ -6,6 +6,16 @@
 
 <h1>SeleccionarTelescopio</h1>
 
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+
+        <p>No hay telescopios disponibles para seleccionar.</p>
+
+    </div>
+}
+else
+{  
 <table class="table">
     <thead>
         <tr>
@@ -81,3 +91,4 @@
         }
     </tbody>
 </table>
+}

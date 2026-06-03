@@ -21,7 +21,10 @@ namespace WebAPI.Controllers
         public IDevolucionPrestamo CUDevolucionPrestamo { get; set; }
         public IListarPrestamosEntreFechas CUListarPrestamosEntreFechas { get; set; }
         public IListarPrestamosPorSocioVigentes CUPrestamosVigentes { get; set; }
-        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo, IListarPrestamosEntreFechas cUListarPrestamosEntreFechas, IListarPrestamosPorSocioVigentes cUPrestamosVigentes)
+        public IPrestamosPorCoord CUPrestamosPorCoord { get; set; }
+        public IBuscarAuditoriaPorPrestamo CUAuditoriasPrestamo { get; set; }
+        public IBuscarPrestamo CUBuscarPrestamo { get; set; }
+        public PrestamosController(IAltaPrestamo cUAltaPrestamo, IListarSocios cUListarSocios, IListarEquipos cUListarEquipos, IListarPrestamos cUlistarPrestamos, IListarSociosConPrestamo cUListarSociosConPrestamo, IListarPrestamosPorSocio cUListarPrestamosPorSocio, IDevolucionPrestamo cUDevolucionPrestamo, IListarPrestamosEntreFechas cUListarPrestamosEntreFechas, IListarPrestamosPorSocioVigentes cUPrestamosVigentes, IPrestamosPorCoord cUPrestamosPorCoord, IBuscarAuditoriaPorPrestamo cUAuditoriasPrestamo, IBuscarPrestamo cUBuscarPrestamo)
         {
             CUAltaPrestamo = cUAltaPrestamo;
             CUListarPrestamos = cUlistarPrestamos;
@@ -30,6 +33,9 @@ namespace WebAPI.Controllers
             CUDevolucionPrestamo = cUDevolucionPrestamo;
             CUListarPrestamosEntreFechas = cUListarPrestamosEntreFechas;
             CUPrestamosVigentes = cUPrestamosVigentes;
+            CUPrestamosPorCoord = cUPrestamosPorCoord;
+            CUAuditoriasPrestamo = cUAuditoriasPrestamo;
+            CUBuscarPrestamo = cUBuscarPrestamo;
         }
 
         // GET: api/<PrestamosController>
@@ -131,5 +137,31 @@ namespace WebAPI.Controllers
             }
         }
 
+        // GET: api/prestamos/coordinador/4
+        [Authorize(Roles = "Admin")]
+        [HttpGet("coordinador/{id}")]
+        public IActionResult PrestamosPorCoord(int id)
+        {
+            var prestamos = CUPrestamosPorCoord.ObtenerListado(id);
+            return Ok(prestamos);
+        }
+
+        // GET: api/prestamos/auditoria/7
+        [Authorize(Roles = "Admin")]
+        [HttpGet("auditoria/{id}")]
+        public IActionResult AuditoriasPorPrestamo(int id)
+        {
+            var auditorias = CUAuditoriasPrestamo.Ejecutar(id);
+            return Ok(auditorias);
+        }
+
+        // GET: api/prestamos/7
+        [Authorize(Roles = "Admin")]
+        [HttpGet("{id}")]
+        public IActionResult GetPrestamo(int id)
+        {
+            var prestamo = CUBuscarPrestamo.Ejecutar(id);
+            return Ok(prestamo);
+        }
     }
 }

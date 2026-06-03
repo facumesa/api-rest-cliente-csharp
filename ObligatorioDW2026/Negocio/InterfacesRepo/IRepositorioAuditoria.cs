@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Negocio.InterfacesRepo
 {
-    public interface IRepositorioAuditoria
+    public interface IRepositorioAuditoria : IRepositorio<Auditoria>
     {
-        void Add(Auditoria auditoria);
+        IEnumerable<Auditoria> AuditoriasPorPrestamo(int id);
     }
 }

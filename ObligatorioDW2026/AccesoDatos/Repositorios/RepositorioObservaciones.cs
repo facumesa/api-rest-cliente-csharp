@@ -58,9 +58,19 @@ namespace AccesoDatos.Repositorios
             );
         }
 
-        public IEnumerable<ObjetoCeleste> RankingObjetosMasObservados()
+        public IEnumerable<(ObjetoCeleste Objeto, int Cantidad)> ObtenerRankingObjetos()
         {
-            throw new NotImplementedException();
+            return Contexto.Observaciones
+                .Where(o => o.ObjetoCeleste != null)
+                .GroupBy(o => o.ObjetoCeleste)
+                .Select(g => new
+                {
+                    Objeto = g.Key,
+                    Cantidad = g.Count()
+                })
+                .OrderByDescending(x => x.Cantidad)
+                .ToList()
+                .Select(x => (x.Objeto, x.Cantidad));
         }
     }
 }

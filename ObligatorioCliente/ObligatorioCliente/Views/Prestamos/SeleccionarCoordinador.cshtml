@@ -1,18 +1,16 @@
-﻿@model IEnumerable<ObligatorioCliente.DTOs.SocioDTO>
-
-<h1>Listado de socios por telescopio</h1>
+﻿@model IEnumerable<ObligatorioCliente.DTOs.CoordinadorDTO>
 
 
 @if (Model == null || !Model.Any())
 {
     <div class="alert alert-info">
 
-        <p>No existen socios que hayan pedido prestado el telescopio seleccionado.</p>
+        <p>No hay coordinadores para mostrar.</p>
 
     </div>
 }
 else
-{
+{   
 <table class="table">
     <thead>
         <tr>
@@ -39,9 +37,6 @@ else
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Rol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
             </th>
             <th></th>
         </tr>
@@ -72,23 +67,16 @@ else
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
+                    </td>
+                    <td>
+                        <a asp-action="Coordinador"
+                               asp-route-id="@item.Id"
+                               class="btn btn-sm btn-info">
+                            Ver Prestamos
+                        </a>
+                    </td>
         </tr>
 }
     </tbody>
 </table>
-}
-
-<div class="text-center mt-4">
-    <a asp-action="SeleccionarTelescopio" asp-controller="Usuarios" class="btn btn-link text-secondary">Volver al listado</a>
-</div>
-
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
-    </div>
 }

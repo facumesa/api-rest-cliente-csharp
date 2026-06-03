@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Negocio.Dominio
 {
-    //MODIFICAR PARA RF11
     public class Auditoria
     {
         public int Id { get; set; }

@@ -51,7 +51,6 @@ namespace Aplicacion.Mappers
                 FechaPrestamo = prestamo.FechaPrestamo
             };
         }
-
         public static PrestamoListadoDTO ToListadoDTO(Prestamo p)
         {
             return new PrestamoListadoDTO
@@ -75,6 +74,20 @@ namespace Aplicacion.Mappers
             if (lista == null) return new List<PrestamoListadoDTO>();
 
             return lista.Select(p => ToListadoDTO(p)).ToList();
+        }
+
+        public static IEnumerable<PrestamoDTO> ToListDTOP(IEnumerable<Prestamo> prestamos)
+        {
+            List<PrestamoDTO> dtos = new List<PrestamoDTO>();
+
+            if (prestamos != null)
+            {
+                foreach (Prestamo pre in prestamos)
+                {
+                    dtos.Add(ToDTO(pre));
+                }
+            }
+            return dtos;
         }
 
     }

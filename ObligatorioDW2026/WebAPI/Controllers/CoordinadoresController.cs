@@ -14,10 +14,12 @@ namespace WebAPI.Controllers
     public class CoordinadoresController : ControllerBase
     {
         public IAltaCoordinador CUAltaCoord { get; set; }
+        public IListarCoordinadores CUListarCoordinadores { get; set; }
 
-        public CoordinadoresController(IAltaCoordinador cUAltaCoord)
+        public CoordinadoresController(IAltaCoordinador cUAltaCoord, IListarCoordinadores cUListarCoordinadores)
         {
             CUAltaCoord = cUAltaCoord;
+            CUListarCoordinadores = cUListarCoordinadores;
         }
 
         // POST api/<CoordinadoresController>
@@ -44,6 +46,15 @@ namespace WebAPI.Controllers
             {
                 return StatusCode(500, "Ocurrió un problema y no se pudo realizar el alta.");
             }
+        }
+
+        // GET: api/coordinadores/
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult GetCoordinadores()
+        {
+            var coords = CUListarCoordinadores.ObtenerListado();
+            return Ok(coords);
         }
 
     }

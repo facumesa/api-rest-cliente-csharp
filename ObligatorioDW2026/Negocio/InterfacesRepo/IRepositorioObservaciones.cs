@@ -9,6 +9,6 @@ namespace Negocio.InterfacesRepo
     {
         bool ExisteObservacionDuplicada(Observacion obs);
 
-        IEnumerable<ObjetoCeleste> RankingObjetosMasObservados();
+        IEnumerable<(ObjetoCeleste Objeto, int Cantidad)> ObtenerRankingObjetos();
     }
 }
