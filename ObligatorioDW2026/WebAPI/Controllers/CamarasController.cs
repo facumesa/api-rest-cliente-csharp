@@ -84,9 +84,9 @@ namespace WebAPI.Controllers
         {
             try
             {
-                if (id == null) return BadRequest("No se proporciona el id del tema a modificar");
+                if (id == null) return BadRequest("No se proporciona el id de la cámara a modificar");
                 if (aModificar == null) return BadRequest("No se proporcionan datos para la modificación");
-                if (aModificar.Id != id) return BadRequest("No coinciden los id del tema");
+                if (aModificar.Id != id) return BadRequest("No coinciden los id de la cámara");
 
                 CUEditarCamara.Ejecutar(aModificar);
                 return Ok(aModificar);

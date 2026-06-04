@@ -1,5 +1,5 @@
 ﻿using Excepciones;
-using LibreriaWebMVC.Auxiliar;
+using ObligatorioCliente.Auxiliar;
 using Microsoft.AspNetCore.Mvc;
 using ObligatorioCliente.DTOs;
 using ObligatorioCliente.Models.ViewModels;

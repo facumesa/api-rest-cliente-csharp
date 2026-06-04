@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Headers;
 
-namespace LibreriaWebMVC.Auxiliar
+namespace ObligatorioCliente.Auxiliar
 {
     public class AuxliarClienteHttp
     {

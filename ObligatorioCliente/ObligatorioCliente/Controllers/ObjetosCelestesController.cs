@@ -1,5 +1,5 @@
 ﻿using CasosUso.DTOs;
-using LibreriaWebMVC.Auxiliar;
+using ObligatorioCliente.Auxiliar;
 using Microsoft.AspNetCore.Mvc;
 using ObligatorioCliente.DTOs;
 

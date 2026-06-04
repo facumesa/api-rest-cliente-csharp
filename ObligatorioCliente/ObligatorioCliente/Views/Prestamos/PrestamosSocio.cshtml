@@ -11,21 +11,21 @@
 <h1>PrestamosSocio</h1>
 
 
-    @if (rol == "Socio")
-    {
-        <form asp-action="PrestamosSocio" method="get" class="row g-3 mb-4 align-items-end">
-            <input type="hidden" name="id" value="@ViewBag.SocioId" />
+@if (rol == "Socio")
+{
+    <form asp-action="PrestamosSocio" method="get" class="row g-3 mb-4 align-items-end">
+        <input type="hidden" name="id" value="@ViewBag.SocioId" />
     
-            <div class="col-auto">
-                <label for="fecha" class="form-label">Seleccionar Periodo:</label>
-                <input type="month" id="fecha" name="fecha" class="form-control" required>
-            </div>
+        <div class="col-auto">
+            <label for="fecha" class="form-label">Seleccionar Periodo:</label>
+            <input type="month" id="fecha" name="fecha" class="form-control" required>
+        </div>
     
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Filtrar</button>
-            </div>
-        </form>
-    }
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+}
 
 @if (Model == null || !Model.Any())
 {
@@ -49,70 +49,70 @@ else
         </div>
     }
     <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreSocio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmailSocio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreCoordinador)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionTelescopio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionMontura)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionCamara)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionOcular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreSocio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmailSocio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreCoordinador)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescripcionTelescopio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescripcionMontura)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescripcionCamara)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescripcionOcular)
-                </td>
-                 <td>
-                    @Html.DisplayFor(modelItem => item.Estado)
-                 </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreSocio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailSocio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreCoordinador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescripcionTelescopio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescripcionMontura)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescripcionCamara)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescripcionOcular)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreSocio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailSocio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreCoordinador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionTelescopio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionMontura)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionCamara)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionOcular)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
                     @if (rol == "Admin" || rol == "Coordinador")
-                    {  
+                    {
                         <td>
                             <form asp-action="DevolverPrestamo" method="post">
                                 <input type="hidden" name="prestamoId" value="@item.Id" />
@@ -124,15 +124,17 @@ else
                         </td>
                     }
 
-            </tr>
-        }
-    </tbody>
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-
+@if (rol == "Admin" || rol == "Coordinador")
+{
+    <div class="text-center mt-4">
+        <a asp-action="SociosConPrestamo" asp-controller="Prestamos" class="btn btn-link text-secondary">Volver a seleccionar préstamo</a>
+    </div>
 }
 
 

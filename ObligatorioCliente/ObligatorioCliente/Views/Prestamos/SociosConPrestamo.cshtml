@@ -9,6 +9,17 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+
+        <p>No hay socios con préstamos para mostrar.</p>
+
+    </div>
+}
+else
+{
 <table class="table">
     <thead>
         <tr>
@@ -70,3 +81,4 @@
 
     </tbody>
 </table>
+}

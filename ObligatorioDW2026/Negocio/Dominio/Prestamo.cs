@@ -35,9 +35,6 @@ namespace Negocio.Dominio
             if (FechaFin < FechaInicio)
                 throw new DatosInvalidosException("La fecha de fin no puede ser previa al inicio.");
 
-            if (FechaInicio.Date != DateTime.Today)
-                throw new DatosInvalidosException("La fecha de inicio debe ser el dia de Hoy.");
-
             if (Telescopio == null || Montura == null)
                 throw new DatosInvalidosException("El telescopio y la montura son obligatorios.");
 
