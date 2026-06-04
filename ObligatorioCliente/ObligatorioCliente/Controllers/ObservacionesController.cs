@@ -125,7 +125,7 @@ namespace ObligatorioCliente.Controllers
             IEnumerable<PrestamoListadoDTO> prestamos = new List<PrestamoListadoDTO>();
             IEnumerable<ObjetoCelesteDTO> objetos = new List<ObjetoCelesteDTO>();
 
-            HttpResponseMessage respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", $"{URLApiPrestamos}socios-con-prestamo-vigente/{idLogueado}", null, token);
+            HttpResponseMessage respuesta = AuxliarClienteHttp.EnviarSolicitud("GET", $"{URLApiPrestamos}prestamos-vigentes-por-socio/{idLogueado}", null, token);
 
             if (respuesta.IsSuccessStatusCode)
             {
