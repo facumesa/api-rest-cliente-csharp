@@ -3,12 +3,11 @@
 <h1>Listado de socios por telescopio</h1>
 
 
-@if (Model == null || !Model.Any())
+
+@if (ViewBag.Error != null)
 {
-    <div class="alert alert-info">
-
-        <p>No existen socios que hayan pedido prestado el telescopio seleccionado.</p>
-
+    <div class="alert alert-danger">
+        @ViewBag.Error
     </div>
 }
 else
@@ -86,9 +85,3 @@ else
     <a asp-action="SeleccionarTelescopio" asp-controller="Usuarios" class="btn btn-link text-secondary">Volver al listado</a>
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
-    </div>
-}

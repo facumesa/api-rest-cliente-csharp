@@ -61,22 +61,22 @@ else
         </tbody>
     </table>
 }
-
-@* Arreglar *@
-@foreach (var item in Model)
-{
-    <a asp-action="Coordinador"
-           asp-route-id="@item.CoordinadorId"
-           class="btn btn-sm btn-info">
-        Volver a los préstamos del coordinador
-    </a>
-}
-
 <a asp-action="Detalle"
        asp-route-id="@ViewBag.Id"
        class="btn btn-sm btn-info">
     Ver detalle del préstamo
 </a>
+
+
+@if (Model.Any())
+{
+    <div class="text-center mt-4">
+        <a asp-action="Coordinador" asp-controller="Prestamos" asp-route-id="@Model.First().CoordinadorId" class="btn btn-link text-secondary">Volver a seleccionar coordinador</a>
+    </div>
+}
+
+
+
 
 
 
