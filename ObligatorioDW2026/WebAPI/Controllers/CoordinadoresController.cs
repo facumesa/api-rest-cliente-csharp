@@ -22,6 +22,16 @@ namespace WebAPI.Controllers
             CUListarCoordinadores = cUListarCoordinadores;
         }
 
+        /// <summary>
+        /// Alta de coordinador
+        /// </summary>
+        /// <remarks>
+        /// Permite crear un nuevo coordinador.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información del nuevo coordinador.</param>
+        [ProducesResponseType(typeof(CoordinadorDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<CoordinadoresController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -48,13 +58,28 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Listado de coordinadores
+        /// </summary>
+        /// <remarks>
+        /// Retorna el listado de todos los coordinadores registrados en el sistema.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<CoordinadorDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/coordinadores/
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult GetCoordinadores()
         {
-            var coords = CUListarCoordinadores.ObtenerListado();
-            return Ok(coords);
+            try
+            {
+                var coords = CUListarCoordinadores.ObtenerListado();
+                return Ok(coords);
+            }
+            catch
+            {
+                return StatusCode(500, "Ocurrió un problema al obtener los coordinadores.");
+            }
         }
 
     }

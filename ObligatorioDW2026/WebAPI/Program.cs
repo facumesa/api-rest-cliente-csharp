@@ -7,8 +7,10 @@ using CasosUso.InterfacesCU;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Negocio.InterfacesRepo;
 using Negocio.InterfacesServicios;
+using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 
@@ -41,6 +43,38 @@ namespace WebAPI
                     ValidateLifetime = true
                 };
             });
+
+            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Mi API",
+                    Version = "v1"
+                });
+                options.AddSecurityDefinition("bearer", new
+               OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = JwtBearerDefaults.AuthenticationScheme, // "Bearer"
+                    BearerFormat = "JWT",
+                    Description = "Ingrese el token JWT. No es necesario escribir la palabra Bearer."
+                });
+                options.AddSecurityRequirement(document => new
+               OpenApiSecurityRequirement
+                {
+                    [new OpenApiSecuritySchemeReference("bearer", document)] =
+               []
+                });
+
+                var xmlFile =
+                $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);
+
+            });
+
 
 
             // Add services to the container.
@@ -114,6 +148,8 @@ namespace WebAPI
 
             app.UseAuthorization();
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.MapControllers();
 

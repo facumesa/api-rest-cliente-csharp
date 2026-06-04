@@ -23,6 +23,16 @@ namespace WebAPI.Controllers
             CUEditarOcular = cUEditarOcular;
         }
 
+        /// <summary>
+        /// Alta de ocular
+        /// </summary>
+        /// <remarks>
+        /// Permite crear un nuevo ocular.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información del nuevo ocular.</param>
+        [ProducesResponseType(typeof(OcularDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<OcularesController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -47,6 +57,18 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Modificación de ocular
+        /// </summary>
+        /// <remarks>
+        /// Permite modificar los datos de un ocular existente.
+        /// </remarks>
+        /// <param name="id">Identificador del ocular a modificar.</param>
+        /// <param name="aModificar">Objeto DTO con los datos actualizados del ocular.</param>
+        [ProducesResponseType(typeof(OcularDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // PUT api/<OcularesController>/5
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
@@ -54,9 +76,10 @@ namespace WebAPI.Controllers
         {
             try
             {
-                if (id == null) return BadRequest("No se proporciona el id del tema a modificar");
+                if (id <= 0) return BadRequest("El id debe ser mayor a cero.");
+                if (id == null) return BadRequest("No se proporciona el id del ocular a modificar");
                 if (aModificar == null) return BadRequest("No se proporcionan datos para la modificación");
-                if (aModificar.Id != id) return BadRequest("No coinciden los id del tema");
+                if (aModificar.Id != id) return BadRequest("No coinciden los id del ocular");
 
                 CUEditarOcular.Ejecutar(aModificar);
                 return Ok(aModificar);

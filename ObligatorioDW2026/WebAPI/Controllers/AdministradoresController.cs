@@ -19,6 +19,14 @@ namespace WebAPI.Controllers
             CUAltaAdmin = cUAltaAdmin;
         }
 
+        /// <summary>
+        /// Alta de administrador
+        /// </summary>
+        /// <remarks>Permite crear un nuevo administrador. Solo los usuarios con rol "Admin" pueden acceder a este endpoint.</remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información del nuevo administrador.</param>
+        [ProducesResponseType(typeof(AdministradorDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         // POST api/<AdministradoresController>
         [Authorize(Roles = "Admin")]
         [HttpPost]

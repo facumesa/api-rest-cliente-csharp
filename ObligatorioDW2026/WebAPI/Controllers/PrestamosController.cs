@@ -38,6 +38,14 @@ namespace WebAPI.Controllers
             CUBuscarPrestamo = cUBuscarPrestamo;
         }
 
+        /// <summary>
+        /// Listado de préstamos
+        /// </summary>
+        /// <remarks>
+        /// Retorna el listado de todos los préstamos registrados en el sistema.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<PrestamoDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/<PrestamosController>
         [Authorize(Roles = "Coordinador, Admin")]
         [HttpGet]
@@ -47,6 +55,15 @@ namespace WebAPI.Controllers
             return Ok(prestamos);
         }
 
+        /// <summary>
+        /// Listado de préstamos vigentes por socio
+        /// </summary>
+        /// <remarks>
+        /// Retorna los préstamos vigentes y no devueltos de un socio determinado.
+        /// </remarks>
+        /// <param name="id">Identificador del socio.</param>
+        [ProducesResponseType(typeof(IEnumerable<PrestamoDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/prestamos/prestamos-vigentes-por-socio/5
         [Authorize]
         [HttpGet("prestamos-vigentes-por-socio/{id}")]
@@ -56,6 +73,14 @@ namespace WebAPI.Controllers
             return Ok(prestamos);
         }
 
+        /// <summary>
+        /// Listado de socios con préstamos activos
+        /// </summary>
+        /// <remarks>
+        /// Retorna los socios que tienen préstamos en estado EN PRÉSTAMO.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<SocioDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/prestamos/socios-con-prestamo
         [Authorize(Roles = "Coordinador, Admin")]
         [HttpGet("socios-con-prestamo")]
@@ -65,6 +90,16 @@ namespace WebAPI.Controllers
             return Ok(socios);
         }
 
+        /// <summary>
+        /// Listado de préstamos por socio
+        /// </summary>
+        /// <remarks>
+        /// Retorna los préstamos de un socio. Opcionalmente permite filtrar por mes y año usando el parámetro fecha con formato yyyy-MM.
+        /// </remarks>
+        /// <param name="id">Identificador del socio.</param>
+        /// <param name="fecha">Fecha opcional en formato yyyy-MM para filtrar los préstamos.</param>
+        [ProducesResponseType(typeof(IEnumerable<PrestamoDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         // GET: api/prestamos/socio/5
         // GET: api/prestamos/socio/5?fecha=2026-05
         [Authorize]
@@ -92,6 +127,16 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Alta de préstamo
+        /// </summary>
+        /// <remarks>
+        /// Permite registrar un nuevo préstamo de equipos para un socio.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información del nuevo préstamo.</param>
+        [ProducesResponseType(typeof(PrestamoDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<PrestamosController>
         [Authorize(Roles = "Coordinador, Admin")]
         [HttpPost]
@@ -121,6 +166,16 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Devolución de préstamo
+        /// </summary>
+        /// <remarks>
+        /// Registra la devolución de un préstamo y actualiza la disponibilidad de los equipos asociados.
+        /// </remarks>
+        /// <param name="prestamoId">Identificador del préstamo a devolver.</param>
+        /// <param name="coordinadorId">Identificador del coordinador que registra la devolución.</param>
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         // POST: api/prestamos/devolver
         [Authorize(Roles = "Coordinador, Admin")]
         [HttpPost("devolver")]
@@ -137,31 +192,84 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Listado de préstamos por coordinador
+        /// </summary>
+        /// <remarks>
+        /// Retorna los préstamos asociados a un coordinador determinado.
+        /// </remarks>
+        /// <param name="id">Identificador del coordinador.</param>
+        [ProducesResponseType(typeof(IEnumerable<PrestamoDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/prestamos/coordinador/4
         [Authorize(Roles = "Admin")]
         [HttpGet("coordinador/{id}")]
         public IActionResult PrestamosPorCoord(int id)
         {
-            var prestamos = CUPrestamosPorCoord.ObtenerListado(id);
-            return Ok(prestamos);
+            try
+            {
+                var prestamos = CUPrestamosPorCoord.ObtenerListado(id);
+                return Ok(prestamos);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocurrió un problema al retornar los préstamos.");
+            }
+
         }
 
+        /// <summary>
+        /// Auditorías de préstamo
+        /// </summary>
+        /// <remarks>
+        /// Retorna la información de auditoría asociada a un préstamo determinado.
+        /// </remarks>
+        /// <param name="id">Identificador del préstamo.</param>
+        [ProducesResponseType(typeof(IEnumerable<AuditoriaDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/prestamos/auditoria/7
         [Authorize(Roles = "Admin")]
         [HttpGet("auditoria/{id}")]
         public IActionResult AuditoriasPorPrestamo(int id)
         {
-            var auditorias = CUAuditoriasPrestamo.Ejecutar(id);
-            return Ok(auditorias);
+            try
+            {
+                var auditorias = CUAuditoriasPrestamo.Ejecutar(id);
+                return Ok(auditorias);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocurrió un problema al retornar las auditorías.");
+            }
+
         }
 
+        /// <summary>
+        /// Búsqueda de préstamo por Id
+        /// </summary>
+        /// <remarks>
+        /// Retorna la información de un préstamo específico según su identificador.
+        /// </remarks>
+        /// <param name="id">Identificador del préstamo.</param>
+        [ProducesResponseType(typeof(PrestamoDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         // GET: api/prestamos/7
         [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public IActionResult GetPrestamo(int id)
         {
-            var prestamo = CUBuscarPrestamo.Ejecutar(id);
-            return Ok(prestamo);
+            try
+            {
+                var prestamo = CUBuscarPrestamo.Ejecutar(id);
+                if (prestamo == null) return NotFound($"El préstamo con id {id} no existe.");
+                return Ok(prestamo);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Ocurrió un problema al retornar el préstamo.");
+            }
+
         }
     }
 }

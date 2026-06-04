@@ -21,6 +21,16 @@ namespace WebAPI.Controllers
             CUEvaluar = cUEvaluar;
         }
 
+        /// <summary>
+        /// Evaluación de adecuación de observación
+        /// </summary>
+        /// <remarks>
+        /// Evalúa mediante IA si el equipo asociado al préstamo es adecuado para observar o fotografiar el objeto celeste seleccionado.
+        /// </remarks>
+        /// <param name="request">Objeto DTO que contiene el préstamo y el objeto celeste a evaluar.</param>
+        [ProducesResponseType(typeof(ObservacionDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST: api/observaciones/evaluar
         [Authorize(Roles = "Socio, Admin")]
         [HttpPost("evaluar")]
@@ -44,6 +54,16 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Alta de observación
+        /// </summary>
+        /// <remarks>
+        /// Permite registrar una nueva observación luego de haber evaluado la adecuación del equipo mediante IA.
+        /// </remarks>
+        /// <param name="nuevaObservacion">Objeto DTO que contiene la información de la nueva observación.</param>
+        [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST: api/observaciones/
         [Authorize(Roles = "Socio, Admin")]
         [HttpPost]

@@ -23,6 +23,19 @@ namespace WebAPI.Controllers
             CUEditarCamara = cuEditarCamara;
         }
 
+        /// <summary>
+        /// Alta de cámara
+        /// </summary>
+        /// <remarks>
+        /// Permite crear una nueva cámara. Solo los usuarios con rol "Admin" pueden acceder a este endpoint.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información de la nueva cámara.</param>
+        /// <returns>La cámara creada.</returns>
+        [ProducesResponseType(typeof(CamaraDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<CamarasController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -49,6 +62,21 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Modificación de cámara
+        /// </summary>
+        /// <remarks>
+        /// Permite modificar los datos de una cámara existente. Solo los usuarios con rol "Admin" pueden acceder a este endpoint.
+        /// </remarks>
+        /// <param name="id">Identificador de la cámara a modificar.</param>
+        /// <param name="aModificar">Objeto DTO con los datos actualizados de la cámara.</param>
+        /// <returns>La cámara modificada.</returns>
+        [ProducesResponseType(typeof(CamaraDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // PUT api/<CamarasController>/5
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]

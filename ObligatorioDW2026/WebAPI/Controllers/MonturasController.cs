@@ -23,6 +23,16 @@ namespace WebAPI.Controllers
             CUEditarMontura = cUEditarMontura;
         }
 
+        /// <summary>
+        /// Alta de montura
+        /// </summary>
+        /// <remarks>
+        /// Permite crear una nueva montura.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información de la nueva montura.</param>
+        [ProducesResponseType(typeof(MonturaDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<MonturasController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -49,6 +59,18 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Modificación de montura
+        /// </summary>
+        /// <remarks>
+        /// Permite modificar los datos de una montura existente.
+        /// </remarks>
+        /// <param name="id">Identificador de la montura a modificar.</param>
+        /// <param name="aModificar">Objeto DTO con los datos actualizados de la montura.</param>
+        [ProducesResponseType(typeof(MonturaDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // PUT api/<MonturasController>/5
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
@@ -56,9 +78,9 @@ namespace WebAPI.Controllers
         {
             try
             {
-                if (id == null) return BadRequest("No se proporciona el id del tema a modificar");
+                if (id == null) return BadRequest("No se proporciona el id de la montura a modificar");
                 if (aModificar == null) return BadRequest("No se proporcionan datos para la modificación");
-                if (aModificar.Id != id) return BadRequest("No coinciden los id del tema");
+                if (aModificar.Id != id) return BadRequest("No coinciden los id de la montura");
 
                 CUEditarMontura.Ejecutar(aModificar);
                 return Ok(aModificar);

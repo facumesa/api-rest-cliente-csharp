@@ -20,6 +20,15 @@ namespace WebAPI.Controllers
             CUListarUsuarios = cUListarUsuarios;
             CULogin = cULogin;
         }
+
+        /// <summary>
+        /// Listado de usuarios
+        /// </summary>
+        /// <remarks>
+        /// Retorna el listado de todos los usuarios registrados en el sistema.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<UsuarioDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/<UsuariosController>
         [Authorize(Roles = "Admin")]
         [HttpGet]
@@ -32,10 +41,21 @@ namespace WebAPI.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500, "Ocurrio un error inesperado");
+                return StatusCode(500, "Ocurrió un error inesperado");
             }
         }
 
+        /// <summary>
+        /// Inicio de sesión
+        /// </summary>
+        /// <remarks>
+        /// Valida las credenciales del usuario y retorna un token JWT para acceder a los endpoints protegidos.
+        /// </remarks>
+        /// <param name="dto">Objeto DTO con nombre de usuario y contraseña.</param>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         //POST DEL LOGIN
         [HttpPost]
         public IActionResult Login([FromBody] UsuarioDTO? dto)

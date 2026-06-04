@@ -25,6 +25,14 @@ namespace WebAPI.Controllers
             CUBajaEquipo = cuBajaEquipo;
         }
 
+        /// <summary>
+        /// Listado de equipos
+        /// </summary>
+        /// <remarks>
+        /// Retorna el listado de todos los equipos registrados en el sistema.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<EquipoDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/<EquiposController>
         [Authorize(Roles = "Admin, Coordinador")]
         [HttpGet]
@@ -37,10 +45,21 @@ namespace WebAPI.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500, "Ocurrio un error inesperado");
+                return StatusCode(500, "Ocurrió un error inesperado");
             }
         }
 
+        /// <summary>
+        /// Búsqueda de equipo por Id
+        /// </summary>
+        /// <remarks>
+        /// Retorna la información de un equipo específico según su identificador.
+        /// </remarks>
+        /// <param name="id">Identificador del equipo a buscar.</param>
+        [ProducesResponseType(typeof(EquipoDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         // GET api/<EquiposController>/5
         [Authorize(Roles = "Admin")]
         [HttpGet("{id}", Name = "ObtenerEquipoPorId")]
@@ -48,6 +67,7 @@ namespace WebAPI.Controllers
         {
             try
             {
+                if (id <= 0) return BadRequest("El id debe ser mayor a cero.");
                 EquipoDTO equipo = CUBuscarEquipo.BuscarEquipo(id);
                 if (equipo == null)
                 {
@@ -61,6 +81,17 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Baja de equipo
+        /// </summary>
+        /// <remarks>
+        /// Permite eliminar un equipo existente. Si el equipo tiene préstamos asociados, no se permite la baja.
+        /// </remarks>
+        /// <param name="id">Identificador del equipo a eliminar.</param>
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // DELETE api/<EquiposController>/5
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]

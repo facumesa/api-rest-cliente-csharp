@@ -25,6 +25,16 @@ namespace WebAPI.Controllers
             CUListarTelescopios = cUListarTelescopios;
         }
 
+        /// <summary>
+        /// Alta de telescopio
+        /// </summary>
+        /// <remarks>
+        /// Permite crear un nuevo telescopio.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información del nuevo telescopio.</param>
+        [ProducesResponseType(typeof(TelescopioDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<TelescopiosController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -49,6 +59,18 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Modificación de telescopio
+        /// </summary>
+        /// <remarks>
+        /// Permite modificar los datos de un telescopio existente.
+        /// </remarks>
+        /// <param name="id">Identificador del telescopio a modificar.</param>
+        /// <param name="aModificar">Objeto DTO con los datos actualizados del telescopio.</param>
+        [ProducesResponseType(typeof(TelescopioDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // PUT api/<TelescopiosController>/5
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
@@ -56,9 +78,9 @@ namespace WebAPI.Controllers
         {
             try
             {
-                if (id == null) return BadRequest("No se proporciona el id del tema a modificar");
                 if (aModificar == null) return BadRequest("No se proporcionan datos para la modificación");
-                if (aModificar.Id != id) return BadRequest("No coinciden los id del tema");
+                if (id == null) return BadRequest("No se proporciona el id del telescopio a modificar");
+                if (aModificar.Id != id) return BadRequest("No coinciden los id del telescopio");
 
                 CUEditarTelescopio.Ejecutar(aModificar);
                 return Ok(aModificar);
@@ -77,6 +99,14 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Listado de telescopios
+        /// </summary>
+        /// <remarks>
+        /// Retorna el listado de todos los telescopios registrados en el sistema.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<TelescopioDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/<TelescopiosController>
         [Authorize(Roles = "Admin, Coordinador")]
         [HttpGet]
@@ -89,7 +119,7 @@ namespace WebAPI.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500, "Ocurrio un error inesperado");
+                return StatusCode(500, "Ocurrió un error inesperado");
             }
         }
 

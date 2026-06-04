@@ -25,6 +25,14 @@ namespace WebAPI.Controllers
             CUListarSociosTelescopio = cUListarSociosTelescopio;
         }
 
+        /// <summary>
+        /// Listado de socios
+        /// </summary>
+        /// <remarks>
+        /// Retorna el listado de todos los socios registrados en el sistema.
+        /// </remarks>
+        [ProducesResponseType(typeof(IEnumerable<SocioDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET: api/<SociosController>
         [HttpGet]
         public IActionResult TraerTodos()
@@ -40,6 +48,16 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Alta de socio
+        /// </summary>
+        /// <remarks>
+        /// Permite crear un nuevo socio en el sistema.
+        /// </remarks>
+        /// <param name="nuevo">Objeto DTO que contiene la información del nuevo socio.</param>
+        [ProducesResponseType(typeof(SocioDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // POST api/<SociosController>
         [Authorize(Roles = "Admin")]
         [HttpPost]
@@ -64,6 +82,17 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Listado de socios por telescopio
+        /// </summary>
+        /// <remarks>
+        /// Retorna los socios que solicitaron en préstamo un telescopio determinado, sin repetir socios.
+        /// </remarks>
+        /// <param name="id">Identificador del telescopio.</param>
+        [ProducesResponseType(typeof(IEnumerable<SocioDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         // GET api/<SociosController>/contelescopio
         [Authorize(Roles = "Admin, Coordinador")]
         [HttpGet("contelescopio/{id}")]
@@ -71,6 +100,7 @@ namespace WebAPI.Controllers
         {
             try
             {
+                if (id <= 0) return BadRequest("El id del telescopio debe ser mayor a cero.");
                 IEnumerable<SocioDTO> socios = CUListarSociosTelescopio.ObtenerListado(id);
 
                 if(socios == null || !socios.Any())
@@ -81,7 +111,7 @@ namespace WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest("No se pudo obtener la lista de socios: " + ex.Message);
+                return StatusCode(500, "No se pudo obtener la lista de socios: " + ex.Message);
             }
         }
     }
