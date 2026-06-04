@@ -47,10 +47,10 @@ namespace WebAPI.Controllers
             return Ok(prestamos);
         }
 
-        // GET: api/prestamos/socios-con-prestamo-vigente
+        // GET: api/prestamos/prestamos-vigentes-por-socio/5
         [Authorize]
-        [HttpGet("socios-con-prestamo-vigente/{id}")]
-        public IActionResult GetSociosConPrestamosVigentes(int id) 
+        [HttpGet("prestamos-vigentes-por-socio/{id}")]
+        public IActionResult PrestamosVigentesPorSocio(int id) 
         {
             var prestamos = CUPrestamosVigentes.ObtenerListado(id);
             return Ok(prestamos);
