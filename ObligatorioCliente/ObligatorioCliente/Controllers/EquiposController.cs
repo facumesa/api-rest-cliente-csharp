@@ -491,6 +491,15 @@ namespace Presentacion.Controllers
                         return RedirectToAction("Login", "Usuarios");
 
                     ViewBag.Error = AuxliarClienteHttp.ObtenerError(respuesta);
+
+                    var respuestaEquipo = AuxliarClienteHttp.EnviarSolicitud("GET", URLApiEquipos + id, null, token);
+
+                    if (respuestaEquipo.IsSuccessStatusCode)
+                    {
+                        var tarea = respuestaEquipo.Content.ReadFromJsonAsync<EquipoDTO>();
+                        tarea.Wait();
+                        return View(tarea.Result);
+                    }
                 }
 
             }
@@ -499,7 +508,7 @@ namespace Presentacion.Controllers
                 ViewBag.Error = "Ocurrió un error y no fue posible realizar el borrado del tema";
             }
 
-            return View(dto);
+            return RedirectToAction(nameof(Index));
         }
 
     }

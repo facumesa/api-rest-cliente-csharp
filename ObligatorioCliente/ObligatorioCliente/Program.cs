@@ -21,6 +21,8 @@ namespace ObligatorioCliente
 
             var app = builder.Build();
 
+            app.Environment.EnvironmentName = Environments.Production;
+
             app.UseSession();
 
             // Configure the HTTP request pipeline.

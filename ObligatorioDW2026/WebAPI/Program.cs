@@ -122,10 +122,21 @@ namespace WebAPI
             builder.Services.AddScoped<IBuscarPrestamo, CUBuscarPrestamo>();
             builder.Services.AddScoped<IBuscarAuditoriaPorPrestamo, CUBuscarAuditoriaPorPrestamo>();
 
+            string conBD = "";
 
-            string conBD = builder.Configuration.GetConnectionString("MiConexion");
+            if (builder.Environment.IsDevelopment())
+            {
+                conBD = builder.Configuration.GetConnectionString("MiConexionDesarrollo");
+            }
+
+            if (builder.Environment.IsProduction())
+            {
+                conBD = builder.Configuration.GetConnectionString("MiConexionProduccion");
+            }
+
             builder.Services.AddDbContext<StellarContext>(options =>
                 options.UseSqlServer(conBD));
+
 
             builder.Services.AddControllers()
 

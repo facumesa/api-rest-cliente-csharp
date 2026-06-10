@@ -26,7 +26,11 @@ namespace Presentacion.Controllers
             else if (env.IsProduction())
             {
                 URLApiUsuarios = config.GetValue<string>("URLApiUsuariosProduccion");
+                URLApiSocios = config.GetValue<string>("URLApiSociosProduccion");
+                URLApiAdministradores = config.GetValue<string>("URLApiAdministradoresProduccion");
+                URLApiCoordinadores = config.GetValue<string>("URLApiCoordinadoresProduccion");
                 URLApiTelescopios = config.GetValue<string>("UrlApiTelescopiosProduccion");
+
             }
         }
 

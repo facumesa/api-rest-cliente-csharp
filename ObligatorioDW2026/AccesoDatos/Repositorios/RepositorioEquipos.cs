@@ -1,7 +1,8 @@
 ﻿using AccesoDatos.EF;
+using Excepciones.ExcepcionesPropias;
+using Microsoft.EntityFrameworkCore;
 using Negocio.Dominio;
 using Negocio.InterfacesRepo;
-using Excepciones.ExcepcionesPropias;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,8 +30,16 @@ namespace AccesoDatos.Repositorios
             Equipo equipo = FindById(id);
             if (equipo == null) throw new OperacionInvalidaException("No existe el equipo con el id: " + id);
 
-            Contexto.Equipos.Remove(equipo);
-            Contexto.SaveChanges();
+            try
+            {
+                Contexto.Equipos.Remove(equipo);
+                Contexto.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                throw new EntidadConRelacionException("No se puede eliminar el equipo porque tiene préstamos asociados en el historial.");
+            }
+
         }
 
         public void Update(Equipo nuevo)
@@ -58,5 +67,5 @@ namespace AccesoDatos.Repositorios
         }
     }
 
-    }
+}
 
