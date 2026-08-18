@@ -1,33 +1,33 @@
 # StellarMinds
 
-Sistema web para la gestión de una comunidad astronómica: administra usuarios, equipamiento, préstamos y observaciones, e incorpora inteligencia artificial para evaluar si una configuración de equipos es adecuada para observar un objeto celeste.
+Sistema web para la gestión de una comunidad astronómica. Permite administrar usuarios, equipamiento, préstamos y observaciones, e incorpora inteligencia artificial para evaluar si una configuración de equipos es adecuada para observar un objeto celeste.
 
-El proyecto nació como trabajo académico de **Desarrollo Web (2026)** y fue desarrollado de forma individual. Este repositorio reúne la solución completa: una API REST desplegada en Somee y un cliente web ASP.NET Core MVC que la consume.
+El proyecto nació como trabajo académico de **Desarrollo Web (2026)** y fue desarrollado de forma individual. El repositorio contiene la solución completa: un cliente web ASP.NET Core MVC desplegado en Render y una API REST publicada en Somee.
 
-## Demo y documentación
+## Demo
 
-- **API desplegada:** [dwobligatoriofm.somee.com](http://www.dwobligatoriofm.somee.com)
-- **Swagger / OpenAPI:** [dwobligatoriofm.somee.com/swagger](http://www.dwobligatoriofm.somee.com/swagger)
-- **Cliente web:** actualmente se ejecuta de forma local desde Visual Studio o mediante la CLI de .NET.
+- **Aplicación web:** [stellarminds-web.onrender.com](https://stellarminds-web.onrender.com/)
+- **API REST:** [dwobligatoriofm.somee.com](http://www.dwobligatoriofm.somee.com/)
+- **Swagger / OpenAPI:** [dwobligatoriofm.somee.com/swagger](http://www.dwobligatoriofm.somee.com/swagger/)
 
-> El hosting gratuito puede demorar unos segundos en responder durante la primera solicitud.
+> Los servicios utilizan planes gratuitos, por lo que la primera solicitud puede demorar unos segundos mientras se activa la instancia.
 
 ## Funcionalidades
 
-La aplicación adapta las operaciones disponibles según el rol del usuario:
+La interfaz y las operaciones disponibles se adaptan al rol de cada usuario.
 
 ### Administrador
 
 - Alta y consulta de socios, coordinadores y administradores.
-- Gestión del inventario de telescopios, monturas, cámaras y oculares.
-- Edición y baja de equipos, respetando sus relaciones y disponibilidad.
+- Gestión de telescopios, monturas, cámaras y oculares.
+- Edición y baja de equipos respetando sus relaciones y disponibilidad.
 - Consulta de préstamos y de su historial de auditoría.
 - Acceso al ranking de objetos celestes más observados.
 
 ### Coordinador
 
 - Registro de préstamos de equipamiento a socios.
-- Control de stock y de equipos disponibles.
+- Control de stock y equipos disponibles.
 - Registro de devoluciones.
 - Consulta de socios con préstamos vigentes.
 
@@ -43,30 +43,36 @@ La aplicación adapta las operaciones disponibles según el rol del usuario:
 - C# y .NET 10
 - ASP.NET Core Web API
 - ASP.NET Core MVC y Razor Views
-- Entity Framework Core
-- SQL Server
+- Entity Framework Core y SQL Server
 - JWT para autenticación y autorización por roles
 - Swagger / OpenAPI
 - Bootstrap, CSS y JavaScript
 - API de Google Gemini
-- Somee para el despliegue de la API y la base de datos
+- Docker
+- Render para el cliente web
+- Somee para la API y la base de datos
 
 ## Arquitectura
 
 La solución separa responsabilidades en capas y mantiene el dominio independiente de la infraestructura:
 
 ```text
-Cliente MVC
-    │ HTTP + JWT
-    ▼
-Web API (controllers y configuración)
-    ▼
+Cliente MVC (Render)
+        |
+        | HTTP + JWT
+        v
+Web API (Somee)
+        |
+        v
 Casos de uso / Aplicación
-    ▼
+        |
+        v
 Dominio e interfaces
-    ▲
+        ^
+        |
 Acceso a datos (EF Core, repositorios y Gemini)
-    ▼
+        |
+        v
 SQL Server / servicio externo
 ```
 
@@ -76,16 +82,16 @@ En el backend se aplican inyección de dependencias, repositorios, DTOs, mappers
 
 ```text
 .
-├── ObligatorioDW2026/
-│   ├── WebAPI/          # Endpoints REST, JWT, Swagger y configuración
-│   ├── Aplicacion/      # Implementación de los casos de uso y mappers
-│   ├── CasosUso/        # Contratos de casos de uso y DTOs
-│   ├── Negocio/         # Entidades, value objects e interfaces
-│   ├── AccesoDatos/     # EF Core, repositorios, migraciones y Gemini
-│   └── Excepciones/     # Excepciones propias del dominio
-└── ObligatorioCliente/
-    ├── ObligatorioCliente/ # Aplicación MVC, vistas, DTOs y recursos estáticos
-    └── Excepciones/         # Manejo de errores recibidos desde la API
+|-- ObligatorioDW2026/
+|   |-- WebAPI/          # Endpoints REST, JWT, Swagger y configuración
+|   |-- Aplicacion/      # Implementación de casos de uso y mappers
+|   |-- CasosUso/        # Contratos de casos de uso y DTOs
+|   |-- Negocio/         # Entidades, value objects e interfaces
+|   |-- AccesoDatos/     # EF Core, repositorios, migraciones y Gemini
+|   `-- Excepciones/     # Excepciones propias del dominio
+`-- ObligatorioCliente/
+    |-- ObligatorioCliente/ # Aplicación MVC, vistas, Dockerfile y estáticos
+    `-- Excepciones/         # Manejo de errores recibidos desde la API
 ```
 
 ## Ejecución local
@@ -93,26 +99,24 @@ En el backend se aplican inyección de dependencias, repositorios, DTOs, mappers
 ### Requisitos
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
-- Visual Studio 2026 o un editor compatible con proyectos .NET
-- SQL Server, únicamente si también se desea ejecutar la API localmente
+- Visual Studio o un editor compatible con proyectos .NET
+- SQL Server, únicamente si se desea ejecutar también la API localmente
 
-### Opción rápida: cliente local + API desplegada
+### Cliente local + API desplegada
 
-El cliente está configurado actualmente para utilizar la API publicada en Somee.
-
-Desde una terminal en la raíz del repositorio:
+El cliente está configurado para consumir la API publicada en Somee:
 
 ```bash
 dotnet run --project ObligatorioCliente/ObligatorioCliente/ObligatorioCliente.csproj
 ```
 
-Luego abrir la URL indicada por la terminal (por defecto, `http://localhost:5077`). En Visual Studio también puede abrirse `ObligatorioCliente/ObligatorioCliente.slnx`, seleccionar el proyecto web y ejecutarlo.
+Luego se debe abrir la URL indicada por la terminal, por defecto `http://localhost:5077`. Desde Visual Studio también puede abrirse `ObligatorioCliente/ObligatorioCliente.slnx`, seleccionar el proyecto web y ejecutarlo.
 
 ### Solución completa en local
 
 1. Configurar en `ObligatorioDW2026/WebAPI/appsettings.Development.json` una conexión SQL Server llamada `MiConexionDesarrollo`.
 2. Configurar `Gemini:ApiKey` mediante secretos de usuario o variables de entorno.
-3. Aplicar las migraciones desde el proyecto de acceso a datos:
+3. Aplicar las migraciones:
 
    ```bash
    dotnet ef database update \
@@ -126,11 +130,15 @@ Luego abrir la URL indicada por la terminal (por defecto, `http://localhost:5077
    dotnet run --project ObligatorioDW2026/WebAPI/WebAPI.csproj
    ```
 
-5. Ajustar el cliente para usar las URLs de desarrollo definidas en su `appsettings.json` y ejecutarlo con el entorno `Development`.
+5. Configurar el cliente para utilizar las URLs de desarrollo y ejecutarlo con el entorno `Development`.
+
+## Despliegue
+
+El cliente MVC se publica en Render mediante el `Dockerfile` incluido en el proyecto. La imagen utiliza una etapa de compilación con el SDK de .NET 10 y una etapa final más liviana con el runtime de ASP.NET Core.
+
+La API y SQL Server se encuentran alojados en Somee. El cliente desplegado se comunica con la API por HTTP y conserva el token JWT en la sesión del usuario para autorizar las solicitudes según su rol.
 
 ## API
-
-Los recursos principales expuestos son:
 
 | Recurso | Responsabilidad |
 | --- | --- |
@@ -147,22 +155,23 @@ Los recursos principales expuestos son:
 | `/api/observaciones` | Evaluación y registro de observaciones |
 | `/api/objetoscelestes` | Catálogo y ranking de objetos observados |
 
-La mayoría de los endpoints requieren un token JWT y aplican autorización para los roles `Admin`, `Coordinador` o `Socio`. El detalle actualizado de rutas, cuerpos y respuestas puede consultarse en Swagger.
+La mayoría de los endpoints requieren un token JWT y aplican autorización para los roles `Admin`, `Coordinador` o `Socio`. El detalle actualizado de rutas, cuerpos y respuestas está disponible en Swagger.
 
 ## Decisiones destacadas
 
 - Separación entre dominio, aplicación, infraestructura y presentación.
 - Reglas de negocio centralizadas en entidades y casos de uso.
-- Autorización por rol tanto en la API como en la experiencia del cliente.
-- Auditoría de las operaciones realizadas sobre préstamos.
-- Evaluación con IA encapsulada detrás de una interfaz de servicio, evitando acoplar los casos de uso al proveedor externo.
-- Persistencia con repositorios y migraciones de Entity Framework Core.
+- Autorización por rol en la API y en la experiencia del cliente.
+- Auditoría de operaciones realizadas sobre préstamos.
+- Evaluación con IA encapsulada detrás de una interfaz de servicio.
+- Persistencia mediante repositorios y migraciones de Entity Framework Core.
+- Cliente contenerizado para lograr un despliegue reproducible.
 
 ## Configuración y seguridad
 
-Las credenciales, cadenas de conexión, claves JWT y claves de servicios externos no deberían quedar versionadas. Para desplegar o reutilizar el proyecto se recomienda suministrarlas mediante variables de entorno, secretos de usuario o el gestor de secretos del proveedor de hosting.
+Las credenciales, cadenas de conexión y claves de servicios externos no se incluyen en el repositorio. Para ejecutar o desplegar el proyecto deben suministrarse mediante secretos de usuario, variables de entorno o la configuración privada del proveedor de hosting.
 
-Ejemplos de claves de configuración esperadas:
+Ejemplos de claves esperadas:
 
 ```text
 ConnectionStrings__MiConexionDesarrollo
@@ -172,5 +181,4 @@ Gemini__ApiKey
 
 ## Estado del proyecto
 
-Proyecto académico finalizado. La API se encuentra desplegada y operativa; el cliente web se ejecuta localmente y consume esa API remota.
-
+Proyecto académico finalizado y desplegado. Tanto el cliente web como la API se encuentran disponibles públicamente para demostración.
