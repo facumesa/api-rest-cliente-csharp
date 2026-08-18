@@ -1,4 +1,5 @@
 ﻿using AccesoDatos.Migrations;
+using Microsoft.Extensions.Configuration;
 using Negocio.Dominio;
 using Negocio.InterfacesServicios;
 using System;
@@ -12,11 +13,12 @@ namespace AccesoDatos.ServiciosExternos
     public class ServicioGeminiIA : IServicioGeminiIA
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "AIzaSyBuLNMQnvKSfvkEl00FOdZxR-wG_2UBuFw"; // Idealmente leer de un appsettings.json
+        private readonly string _apiKey;
 
-        public ServicioGeminiIA(HttpClient httpClient)
+        public ServicioGeminiIA(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _apiKey = configuration["Gemini:ApiKey"];
         }
 
         public ResultadoEvaluacionIA EvaluarAdecuacion(Telescopio telescopio, Montura montura, Camara camaraOpcional, Ocular ocularOpcional, ObjetoCeleste objetoCeleste)
