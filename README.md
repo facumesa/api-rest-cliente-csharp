@@ -12,6 +12,16 @@ El proyecto nació como trabajo académico de **Desarrollo Web (2026)** y fue de
 
 > Los servicios utilizan planes gratuitos, por lo que la primera solicitud puede demorar unos segundos mientras se activa la instancia.
 
+### Acceso a la Demo
+
+Para probar las distintas funcionalidades de la plataforma, podés ingresar a [stellarminds-web.onrender.com](https://stellarminds-web.onrender.com/) con cualquiera de estas credenciales de prueba:
+
+| Rol | Nombre de Usuario | Contraseña | Permisos principales |
+|---|---|---|---|
+| **Administrador** | `admindemo` | `Admin123!` | Gestión completa de usuarios, inventarios, auditoría y préstamos. |
+| **Coordinador** | `coordemo` | `Coord123!` | Registro de préstamos, devoluciones y control de stock. |
+| **Socio** | `sociodemo` | `Socio123!` | Solicitud de observaciones, evaluación con IA (Gemini) y ranking. |
+
 ## Funcionalidades
 
 La interfaz y las operaciones disponibles se adaptan al rol de cada usuario.
