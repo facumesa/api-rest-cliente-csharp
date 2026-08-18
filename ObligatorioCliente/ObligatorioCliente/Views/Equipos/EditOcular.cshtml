@@ -1,64 +1,247 @@
 ﻿@model ObligatorioCliente.DTOs.OcularDTO
 
-
 @{
     ViewData["Title"] = "Editar Ocular";
 }
 
-<h1>EditOcular</h1>
+<div class="page-header">
 
-<h4>Ocular</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditOcular">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" readonly />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Diametro_mm" class="control-label"></label>
-                <input asp-for="Diametro_mm" class="form-control" />
-                <span asp-validation-for="Diametro_mm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnguloVision_grados" class="control-label"></label>
-                <input asp-for="AnguloVision_grados" class="form-control" />
-                <span asp-validation-for="AnguloVision_grados" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <h1>Editar Ocular</h1>
+
+        <p class="page-subtitle">
+            Modificá las características técnicas
+            y la disponibilidad del ocular seleccionado.
+        </p>
     </div>
+
+    <span class="equipment-type-badge">
+        ◉ Ocular
+    </span>
+
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
-    </div>
-}
+<div class="equipment-form-container">
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="equipment-form-header">
+
+        <div class="equipment-details-icon">
+            ◉
+        </div>
+
+        <div>
+
+            <span class="equipment-details-category">
+                EDICIÓN DE EQUIPAMIENTO
+            </span>
+
+            <h2>
+                @Model.Marca @Model.Modelo
+            </h2>
+
+            <p>
+                Actualizá la información general
+                y las especificaciones del ocular.
+            </p>
+
+        </div>
+
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+
+            <strong>No se pudo actualizar el ocular.</strong>
+
+            <div>
+                @ViewBag.Error
+            </div>
+
+        </div>
+    }
+
+    <form asp-action="EditOcular" method="post">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary-errors mb-4">
+        </div>
+
+        <input asp-for="Id"
+               type="hidden" />
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ◇
+                </span>
+
+                <div>
+                    <h3>Información general</h3>
+
+                    <p>
+                        Datos identificativos y cantidad disponible.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Marca"
+                           class="form-label">
+
+                        Marca
+                    </label>
+
+                    <input asp-for="Marca"
+                           class="form-control"
+                           placeholder="Ejemplo: Celestron" />
+
+                    <span asp-validation-for="Marca"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Modelo"
+                           class="form-label">
+
+                        Modelo
+                    </label>
+
+                    <input asp-for="Modelo"
+                           class="form-control"
+                           placeholder="Ejemplo: Luminos" />
+
+                    <span asp-validation-for="Modelo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Cantidad"
+                           class="form-label">
+
+                        Cantidad disponible
+                    </label>
+
+                    <input asp-for="Cantidad"
+                           class="form-control"
+                           min="0" />
+
+                    <span asp-validation-for="Cantidad"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ✦
+                </span>
+
+                <div>
+                    <h3>Características técnicas</h3>
+
+                    <p>
+                        Especificaciones utilizadas durante
+                        las observaciones visuales.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+
+                    <label asp-for="Diametro_mm"
+                           class="form-label">
+
+                        Diámetro
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="Diametro_mm"
+                               class="form-control"
+                               placeholder="Ejemplo: 25" />
+
+                        <span class="input-group-text">
+                            mm
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="Diametro_mm"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label asp-for="AnguloVision_grados"
+                           class="form-label">
+
+                        Ángulo de visión
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="AnguloVision_grados"
+                               class="form-control"
+                               placeholder="Ejemplo: 52" />
+
+                        <span class="input-group-text">
+                            °
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="AnguloVision_grados"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+                   class="btn btn-secondary">
+
+                ← Cancelar
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </form>
+
 </div>
 

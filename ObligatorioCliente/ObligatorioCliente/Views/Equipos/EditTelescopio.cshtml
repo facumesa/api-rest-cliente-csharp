@@ -4,70 +4,297 @@
     ViewData["Title"] = "Editar Telescopio";
 }
 
-<h1>EditTelescopio</h1>
+<div class="page-header">
 
-<h4>Telescopio</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditTelescopio">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" readonly />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apertura_mm" class="control-label"></label>
-                <input asp-for="Apertura_mm" class="form-control" />
-                <span asp-validation-for="Apertura_mm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DistanciaFocal_mm" class="control-label"></label>
-                <input asp-for="DistanciaFocal_mm" class="form-control" />
-                <span asp-validation-for="DistanciaFocal_mm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RelacionFocal" class="control-label"></label>
-                <input asp-for="RelacionFocal" class="form-control" />
-                <span asp-validation-for="RelacionFocal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Peso" class="control-label"></label>
-                <input asp-for="Peso" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <h1>Editar Telescopio</h1>
+
+        <p class="page-subtitle">
+            Modificá las características técnicas
+            y la disponibilidad del telescopio seleccionado.
+        </p>
     </div>
+
+    <span class="equipment-type-badge">
+        🔭 Telescopio
+    </span>
+
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
-    </div>
-}
+<div class="equipment-form-container">
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="equipment-form-header">
+
+        <div class="equipment-details-icon">
+            🔭
+        </div>
+
+        <div>
+
+            <span class="equipment-details-category">
+                EDICIÓN DE EQUIPAMIENTO
+            </span>
+
+            <h2>
+                @Model.Marca @Model.Modelo
+            </h2>
+
+            <p>
+                Actualizá la información general
+                y las especificaciones ópticas del telescopio.
+            </p>
+
+        </div>
+
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+
+            <strong>No se pudo actualizar el telescopio.</strong>
+
+            <div>
+                @ViewBag.Error
+            </div>
+
+        </div>
+    }
+
+    <form asp-action="EditTelescopio" method="post">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary-errors mb-4">
+        </div>
+
+        <input asp-for="Id"
+               type="hidden" />
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ◇
+                </span>
+
+                <div>
+                    <h3>Información general</h3>
+
+                    <p>
+                        Datos identificativos y cantidad disponible.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Marca"
+                           class="form-label">
+
+                        Marca
+                    </label>
+
+                    <input asp-for="Marca"
+                           class="form-control"
+                           placeholder="Ejemplo: Celestron" />
+
+                    <span asp-validation-for="Marca"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Modelo"
+                           class="form-label">
+
+                        Modelo
+                    </label>
+
+                    <input asp-for="Modelo"
+                           class="form-control"
+                           placeholder="Ejemplo: NexStar 8SE" />
+
+                    <span asp-validation-for="Modelo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Cantidad"
+                           class="form-label">
+
+                        Cantidad disponible
+                    </label>
+
+                    <input asp-for="Cantidad"
+                           class="form-control"
+                           min="0" />
+
+                    <span asp-validation-for="Cantidad"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ✦
+                </span>
+
+                <div>
+                    <h3>Características ópticas</h3>
+
+                    <p>
+                        Especificaciones utilizadas para evaluar
+                        observaciones y astrofotografía.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+
+                    <label asp-for="Apertura_mm"
+                           class="form-label">
+
+                        Apertura
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="Apertura_mm"
+                               class="form-control"
+                               placeholder="Ejemplo: 203" />
+
+                        <span class="input-group-text">
+                            mm
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="Apertura_mm"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label asp-for="DistanciaFocal_mm"
+                           class="form-label">
+
+                        Distancia focal
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="DistanciaFocal_mm"
+                               class="form-control"
+                               placeholder="Ejemplo: 2032" />
+
+                        <span class="input-group-text">
+                            mm
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="DistanciaFocal_mm"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label asp-for="RelacionFocal"
+                           class="form-label">
+
+                        Relación focal
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            f/
+                        </span>
+
+                        <input asp-for="RelacionFocal"
+                               class="form-control"
+                               placeholder="Ejemplo: 10" />
+
+                    </div>
+
+                    <span asp-validation-for="RelacionFocal"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label asp-for="Peso"
+                           class="form-label">
+
+                        Peso
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="Peso"
+                               class="form-control"
+                               placeholder="Ejemplo: 5,7" />
+
+                        <span class="input-group-text">
+                            kg
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="Peso"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+                   class="btn btn-secondary">
+
+                ← Cancelar
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </form>
+
 </div>
 
+    

@@ -1,59 +1,180 @@
 ﻿@model IEnumerable<ObligatorioCliente.DTOs.UsuarioDTO>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Usuarios";
+
+    var usuarios = Model?.ToList()
+        ?? new List<ObligatorioCliente.DTOs.UsuarioDTO>();
 }
 
-<h1>Index</h1>
+<div class="page-header">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreCompleto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Direccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreUsuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rol)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreCompleto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rol)
-            </td>
-            <td>
-                @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-            </td>
-        </tr>
+    <div>
+        <h1>Gestión de Usuarios</h1>
+
+        <p class="page-subtitle">
+            Consultá los usuarios registrados y sus respectivos roles
+            dentro de StellarMinds.
+        </p>
+    </div>
+
+    <a asp-action="Create"
+           class="btn btn-primary">
+
+        ＋ Nuevo usuario
+    </a>
+
+</div>
+
+<div class="users-summary">
+
+    <div class="users-summary-icon">
+        ♙
+    </div>
+
+    <div>
+        <span class="users-summary-label">
+            USUARIOS REGISTRADOS
+        </span>
+
+        <strong>
+            @usuarios.Count
+        </strong>
+    </div>
+
+    <p>
+        El listado incluye administradores, coordinadores
+        y socios registrados en el sistema.
+    </p>
+
+</div>
+
+@if (!usuarios.Any())
+{
+    <div class="stellar-empty-state">
+
+        <div class="users-empty-icon">
+            ♙
+        </div>
+
+        <h3>No hay usuarios registrados</h3>
+
+        <p>
+            Todavía no existen usuarios cargados en el sistema.
+        </p>
+
+        <div class="mt-4">
+
+            <a asp-action="Create"
+                   class="btn btn-primary">
+
+                Registrar primer usuario
+            </a>
+
+        </div>
+
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <div class="table-responsive">
+
+        <table class="table align-middle users-table">
+
+            <thead>
+                <tr>
+                    <th>
+                        Usuario
+                    </th>
+
+                    <th>
+                        Dirección
+                    </th>
+
+                    <th>
+                        Teléfono
+                    </th>
+
+                    <th>
+                        Nombre de usuario
+                    </th>
+
+                    <th>
+                        Rol
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in usuarios)
+                {
+                    string inicial = !string.IsNullOrWhiteSpace(item.NombreCompleto)
+                        ? item.NombreCompleto.Substring(0, 1).ToUpper()
+                        : "?";
+
+                    string claseRol = item.Rol?.ToString() switch
+                    {
+                        "Admin" => "user-role-admin",
+                        "Coordinador" => "user-role-coordinator",
+                        "Socio" => "user-role-member",
+                        _ => "user-role-default"
+                    };
+
+                    <tr>
+
+                        <td>
+
+                            <div class="user-list-identity">
+
+                                <span class="user-list-avatar">
+                                    @inicial
+                                </span>
+
+                                <div>
+                                    <strong>
+                                        @item.NombreCompleto
+                                    </strong>
+
+                                    <span>
+                                        Miembro de StellarMinds
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            @item.Direccion
+                        </td>
+
+                        <td>
+                            @item.Telefono
+                        </td>
+
+                        <td>
+
+                            <span class="username-badge">
+                                @item.NombreUsuario
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <span class="user-role-badge @claseRol">
+                                @item.Rol
+                            </span>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+}

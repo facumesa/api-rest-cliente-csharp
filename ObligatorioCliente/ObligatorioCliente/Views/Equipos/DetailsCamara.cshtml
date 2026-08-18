@@ -4,51 +4,122 @@
     ViewData["Title"] = "Detalles de Cámara";
 }
 
-<h1>DetailsCamara</h1>
+<div class="page-header">
 
-<div>
-    <h4>Camara</h4>
-    <hr />
+    <div>
+        <h1>Detalles de la Cámara</h1>
+
+        <p class="page-subtitle">
+            Información técnica y disponibilidad de la cámara seleccionada.
+        </p>
+    </div>
+
+    <span class="equipment-type-badge">
+        📷 Cámara
+    </span>
+
+</div>
+
+<div class="stellar-panel">
+
+    <div class="equipment-details-header">
+
+        <div class="equipment-details-icon">
+            📷
+        </div>
+
+        <div>
+            <span class="equipment-details-category">
+                EQUIPAMIENTO ASTRONÓMICO
+            </span>
+
+            <h2>
+                @Model.Marca @Model.Modelo
+            </h2>
+        </div>
+
+    </div>
+
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TipoSensor)
+
+        <dt class="col-sm-4">
+            Tipo de sensor
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.TipoSensor)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Resolucion)
+
+        <dt class="col-sm-4">
+            Resolución
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Resolucion)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TamanioPixel)
+
+        <dt class="col-sm-4">
+            Tamaño del píxel
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TamanioPixel)
+
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TamanioPixel) µm
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca)
+
+        <dt class="col-sm-4">
+            Marca
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Marca)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modelo)
+
+        <dt class="col-sm-4">
+            Modelo
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Modelo)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cantidad)
+
+        <dt class="col-sm-4">
+            Cantidad disponible
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cantidad)
+
+        <dd class="col-sm-8">
+
+            @if (Model.Cantidad == 0)
+            {
+                <span class="badge bg-danger">
+                    Sin disponibilidad
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-success">
+                    @Model.Cantidad unidad(es)
+                </span>
+            }
+
         </dd>
+
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <div class="details-actions">
+
+        <a asp-action="Edit"
+               asp-route-id="@Model.Id"
+               class="btn btn-warning">
+
+            Editar cámara
+        </a>
+
+        <a asp-action="Index"
+               class="btn btn-secondary">
+
+            ← Volver al listado
+        </a>
+
+    </div>
+
 </div>

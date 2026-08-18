@@ -1,8 +1,437 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
+
+    string? rol = Context.Session.GetString("rol");
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home-hero">
+
+    <div class="home-hero-content">
+
+        <span class="home-eyebrow">
+            ✦ SISTEMA DE GESTIÓN ASTRONÓMICA
+        </span>
+
+        <h1 class="home-title">
+            Explorá el universo con
+            <span>StellarMinds</span>
+        </h1>
+
+        <p class="home-description">
+            Gestioná préstamos de equipamiento astronómico,
+            planificá observaciones y descubrí cuáles son los
+            objetos celestes más observados por nuestra comunidad.
+        </p>
+
+        <div class="home-actions">
+
+            @if (rol == "Socio")
+            {
+                <a class="btn btn-primary home-primary-button"
+                       asp-controller="Observaciones"
+                       asp-action="Create">
+
+                    <span class="home-button-icon">✦</span>
+                    Crear observación
+                </a>
+
+                <a class="btn btn-secondary"
+                       asp-controller="Prestamos"
+                       asp-action="MisPrestamos">
+
+                    Ver mis préstamos
+                </a>
+            }
+            else if (rol == "Coordinador")
+            {
+                <a class="btn btn-primary home-primary-button"
+                       asp-controller="Prestamos"
+                       asp-action="Create">
+
+                    <span class="home-button-icon">＋</span>
+                    Registrar préstamo
+                </a>
+
+                <a class="btn btn-secondary"
+                       asp-controller="Prestamos"
+                       asp-action="SociosConPrestamo">
+
+                    Registrar devolución
+                </a>
+            }
+            else if (rol == "Admin")
+            {
+                <a class="btn btn-primary home-primary-button"
+                       asp-controller="Equipos"
+                       asp-action="Create">
+
+                    <span class="home-button-icon">＋</span>
+                    Registrar equipo
+                </a>
+
+                <a class="btn btn-secondary"
+                       asp-controller="Usuarios"
+                       asp-action="Index">
+
+                    Administrar usuarios
+                </a>
+            }
+        </div>
+    </div>
+
+    <div class="home-hero-visual">
+
+        <div class="planet-system">
+
+            <div class="planet-orbit planet-orbit-one">
+                <span class="orbit-object"></span>
+            </div>
+
+            <div class="planet-orbit planet-orbit-two">
+                <span class="orbit-object"></span>
+            </div>
+
+            <div class="planet-main">
+                <span class="planet-shine"></span>
+            </div>
+
+            <span class="planet-star planet-star-one">✦</span>
+            <span class="planet-star planet-star-two">✧</span>
+            <span class="planet-star planet-star-three">✦</span>
+        </div>
+    </div>
+</section>
+
+<section class="home-section">
+            @if (rol != null)
+        {
+    <div class="home-section-header">
+        <div>
+            <span class="section-eyebrow">
+                ACCESOS RÁPIDOS
+            </span>
+
+            <h2>
+                ¿Qué querés hacer?
+            </h2>
+        </div>
+
+        <p>
+            Accedé rápidamente a las principales funcionalidades
+            disponibles para tu rol.
+        </p>
+    </div>
+        }
+
+    <div class="home-feature-grid">
+
+        @if (rol == "Socio" || rol == "Admin")
+        {
+            <a class="home-feature-card"
+                   asp-controller="Prestamos"
+                   asp-action="MisPrestamos">
+
+                <div class="feature-icon feature-icon-blue">
+                    ◫
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        PRÉSTAMOS
+                    </span>
+
+                    <h3>
+                        Mis préstamos
+                    </h3>
+
+                    <p>
+                        Consultá los equipos solicitados,
+                        sus fechas y el estado actual de cada préstamo.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+
+            <a class="home-feature-card"
+                   asp-controller="Observaciones"
+                   asp-action="Create">
+
+                <div class="feature-icon feature-icon-purple">
+                    ✧
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        OBSERVACIONES
+                    </span>
+
+                    <h3>
+                        Planificar observación
+                    </h3>
+
+                    <p>
+                        Evaluá mediante inteligencia artificial
+                        si tu equipamiento es adecuado para observar
+                        un objeto celeste.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+        }
+
+        @if (rol == "Coordinador" || rol == "Admin")
+        {
+            <a class="home-feature-card"
+                   asp-controller="Prestamos"
+                   asp-action="Create">
+
+                <div class="feature-icon feature-icon-green">
+                    ◇
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        COORDINACIÓN
+                    </span>
+
+                    <h3>
+                        Registrar préstamo
+                    </h3>
+
+                    <p>
+                        Asigná telescopios, monturas, cámaras
+                        y oculares disponibles a los socios.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+
+            <a class="home-feature-card"
+                   asp-controller="Prestamos"
+                   asp-action="SociosConPrestamo">
+
+                <div class="feature-icon feature-icon-orange">
+                    ↩
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        DEVOLUCIONES
+                    </span>
+
+                    <h3>
+                        Registrar devolución
+                    </h3>
+
+                    <p>
+                        Consultá los préstamos vigentes
+                        y registrá la devolución del equipamiento.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+        }
+
+        @if (rol == "Admin")
+        {
+            <a class="home-feature-card"
+                   asp-controller="Usuarios"
+                   asp-action="Index">
+
+                <div class="feature-icon feature-icon-purple">
+                    ♙
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        ADMINISTRACIÓN
+                    </span>
+
+                    <h3>
+                        Gestionar usuarios
+                    </h3>
+
+                    <p>
+                        Consultá y administrá los usuarios
+                        registrados dentro de StellarMinds.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+
+            <a class="home-feature-card"
+                   asp-controller="Equipos"
+                   asp-action="Index">
+
+                <div class="feature-icon feature-icon-blue">
+                    ⌖
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        EQUIPAMIENTO
+                    </span>
+
+                    <h3>
+                        Gestionar equipos
+                    </h3>
+
+                    <p>
+                        Administrá telescopios, monturas,
+                        cámaras y oculares del observatorio.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+
+            <a class="home-feature-card"
+                   asp-controller="Prestamos"
+                   asp-action="SeleccionarCoordinador">
+
+                <div class="feature-icon feature-icon-orange">
+                    ◎
+                </div>
+
+                <div class="feature-content">
+                    <span class="feature-category">
+                        AUDITORÍA
+                    </span>
+
+                    <h3>
+                        Auditoría de préstamos
+                    </h3>
+
+                    <p>
+                        Consultá las acciones realizadas
+                        por los coordinadores sobre cada préstamo.
+                    </p>
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+            </a>
+        }
+        @if (rol != null)
+        {
+        <a class="home-feature-card"
+               asp-controller="ObjetosCelestes"
+               asp-action="Ranking">
+
+            <div class="feature-icon feature-icon-yellow">
+                ★
+            </div>
+
+            <div class="feature-content">
+                <span class="feature-category">
+                    COMUNIDAD
+                </span>
+
+                <h3>
+                    Ranking celeste
+                </h3>
+
+                <p>
+                    Descubrí cuáles son los objetos celestes
+                    más observados por los socios.
+                </p>
+            </div>
+
+            <span class="feature-arrow">
+                →
+            </span>
+        </a>
+        }
+    </div>
+</section>
+
+<section class="home-information">
+
+    <div class="home-information-card">
+
+        <div class="information-icon">
+            ☾
+        </div>
+
+        <div>
+            <span class="information-label">
+                OBSERVACIÓN ASTRONÓMICA
+            </span>
+
+            <h3>
+                Equipamiento y objetos celestes
+            </h3>
+
+            <p>
+                StellarMinds permite verificar si la combinación
+                de telescopio, montura, cámara u ocular es adecuada
+                para el objeto celeste seleccionado.
+            </p>
+        </div>
+    </div>
+
+    <div class="home-information-card">
+
+        <div class="information-icon">
+            ✦
+        </div>
+
+        <div>
+            <span class="information-label">
+                INTELIGENCIA ARTIFICIAL
+            </span>
+
+            <h3>
+                Evaluaciones con Gemini
+            </h3>
+
+            <p>
+                La evaluación devuelve un resultado
+                IDEAL, ADECUADO o NO RECOMENDABLE,
+                acompañado de una explicación.
+            </p>
+        </div>
+    </div>
+
+    <div class="home-information-card">
+
+        <div class="information-icon">
+            ⌖
+        </div>
+
+        <div>
+            <span class="information-label">
+                EQUIPAMIENTO
+            </span>
+
+            <h3>
+                Préstamos controlados
+            </h3>
+
+            <p>
+                El sistema controla la disponibilidad
+                y compatibilidad del equipamiento antes
+                de registrar cada préstamo.
+            </p>
+        </div>
+    </div>
+</section>

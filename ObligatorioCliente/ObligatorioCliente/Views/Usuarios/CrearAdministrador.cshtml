@@ -4,58 +4,286 @@
     ViewData["Title"] = "Alta de Administrador";
 }
 
-<h1>CrearAdministrador</h1>
+<div class="page-header">
 
-<h4>Administrador</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CrearAdministrador">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NombreCompleto" class="control-label"></label>
-                <input asp-for="NombreCompleto" class="form-control" />
-                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+    <div>
+        <h1>Registrar Administrador</h1>
+
+        <p class="page-subtitle">
+            Ingresá los datos personales y las credenciales
+            del nuevo administrador de StellarMinds.
+        </p>
+    </div>
+
+    <span class="user-role-badge user-role-admin">
+        Administrador
+    </span>
+
+</div>
+
+<div class="user-form-layout">
+
+    <div class="user-form-container">
+
+        <div class="equipment-form-header">
+
+            <div class="user-form-role-icon user-form-role-admin">
+                A
             </div>
-            <div class="form-group">
-                <label asp-for="Direccion" class="control-label"></label>
-                <input asp-for="Direccion" class="form-control" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
+
+            <div>
+                <span class="equipment-details-category">
+                    ADMINISTRACIÓN GENERAL
+                </span>
+
+                <h2>Nuevo administrador</h2>
+
+                <p>
+                    Este perfil tendrá acceso a la gestión de usuarios,
+                    equipos, auditorías y funcionalidades generales.
+                </p>
             </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
+
+        </div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger" role="alert">
+
+                <strong>No se pudo registrar el administrador.</strong>
+
+                <div>
+                    @ViewBag.Error
+                </div>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+        }
+
+        <form asp-action="CrearAdministrador" method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="validation-summary-errors mb-4">
             </div>
-            <div class="form-group">
-                <label asp-for="NombreUsuario" class="control-label"></label>
-                <input asp-for="NombreUsuario" class="form-control" />
-                <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+
+            <div class="form-section">
+
+                <div class="form-section-heading">
+
+                    <span class="form-section-icon">
+                        ◇
+                    </span>
+
+                    <div>
+                        <h3>Información personal</h3>
+
+                        <p>
+                            Datos de contacto e identificación del usuario.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <label asp-for="NombreCompleto"
+                               class="form-label">
+
+                            Nombre completo
+                        </label>
+
+                        <input asp-for="NombreCompleto"
+                               class="form-control"
+                               placeholder="Ingresá nombre y apellido" />
+
+                        <span asp-validation-for="NombreCompleto"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Direccion"
+                               class="form-label">
+
+                            Dirección
+                        </label>
+
+                        <input asp-for="Direccion"
+                               class="form-control"
+                               placeholder="Ingresá la dirección" />
+
+                        <span asp-validation-for="Direccion"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Telefono"
+                               class="form-label">
+
+                            Teléfono
+                        </label>
+
+                        <input asp-for="Telefono"
+                               class="form-control"
+                               placeholder="Ingresá el teléfono" />
+
+                        <span asp-validation-for="Telefono"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Email"
+                               class="form-label">
+
+                            Correo electrónico
+                        </label>
+
+                        <input asp-for="Email"
+                               type="email"
+                               class="form-control"
+                               placeholder="usuario@correo.com" />
+
+                        <span asp-validation-for="Email"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Contrasenia" class="control-label"></label>
-                <input asp-for="Contrasenia" class="form-control" />
-                <span asp-validation-for="Contrasenia" type="password" class="text-danger"></span>
+
+            <div class="form-section">
+
+                <div class="form-section-heading">
+
+                    <span class="form-section-icon">
+                        ✦
+                    </span>
+
+                    <div>
+                        <h3>Credenciales de acceso</h3>
+
+                        <p>
+                            Datos que utilizará el administrador
+                            para ingresar al sistema.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <label asp-for="NombreUsuario"
+                               class="form-label">
+
+                            Nombre de usuario
+                        </label>
+
+                        <input asp-for="NombreUsuario"
+                               class="form-control"
+                               placeholder="Ingresá un nombre de usuario"
+                               autocomplete="off" />
+
+                        <span asp-validation-for="NombreUsuario"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label asp-for="Contrasenia"
+                               class="form-label">
+
+                            Contraseña
+                        </label>
+
+                        <input asp-for="Contrasenia"
+                               type="password"
+                               class="form-control"
+                               placeholder="Ingresá una contraseña"
+                               autocomplete="new-password" />
+
+                        <span asp-validation-for="Contrasenia"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="password-requirements">
+
+                    <span class="password-requirements-icon">
+                        ✦
+                    </span>
+
+                    <p>
+                        La contraseña debe tener un mínimo de 8 caracteres
+                        e incluir mayúsculas, minúsculas, números
+                        y al menos un carácter especial.
+                    </p>
+
+                </div>
+
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="form-actions">
+
+                <a asp-action="Create"
+                       class="btn btn-secondary">
+
+                    ← Volver
+                </a>
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    Registrar administrador
+                </button>
+
             </div>
+
         </form>
-    </div>
-</div>
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
-    </div>
-}
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    </div>
 
+    <aside class="user-role-information user-role-information-admin">
+
+        <div class="user-role-information-icon">
+            A
+        </div>
+
+        <span class="user-role-information-label">
+            PERFIL SELECCIONADO
+        </span>
+
+        <h3>Administrador</h3>
+
+        <p>
+            Cuenta con acceso general a las funciones administrativas
+            del sistema.
+        </p>
+
+        <ul>
+            <li>Gestión de usuarios</li>
+            <li>Gestión de equipamiento</li>
+            <li>Consulta de auditorías</li>
+            <li>Consulta del ranking</li>
+        </ul>
+
+    </aside>
+
+</div>

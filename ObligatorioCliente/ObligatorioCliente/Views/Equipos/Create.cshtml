@@ -1,53 +1,142 @@
 ﻿@{
-    ViewData["Title"] = "Alta de Equipos";
+    ViewData["Title"] = "Alta de Equipamiento";
 }
 
-<h1>Crear</h1>
+<div class="page-header">
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">¿Qué tipo de equipo desea registrar?</h2>
-    <div class="row justify-content-center">
-        <div class="col-md-3">
-            <div class="card text-center h-100 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-camera-fill" style="font-size: 2rem;"></i>
-                    <h5 class="card-title mt-3">Cámara</h5>
-                    <p class="card-text text-muted">Sensores CMOS, CCD, resolución y tamaño de pixel.</p>
-                    <a asp-action="CrearCamara" class="btn btn-primary btn-block">Seleccionar</a>
-                </div>
-            </div>
-        </div>
+    <div>
 
-        <div class="col-md-3">
-            <div class="card text-center h-100 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-telescope" style="font-size: 2rem;"></i>
-                    <h5 class="card-title mt-3">Telescopio</h5>
-                    <p class="card-text text-muted">Apertura, distancia focal, relación focal y peso.</p>
-                    <a asp-action="CrearTelescopio" class="btn btn-primary btn-block">Seleccionar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center h-100 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-montura" style="font-size: 2rem;"></i>
-                    <h5 class="card-title mt-3">Monturas</h5>
-                    <p class="card-text text-muted">Tipo de montura, carga útil y si es computarizado o no.</p>
-                    <a asp-action="CrearMontura" class="btn btn-primary btn-block">Seleccionar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center h-100 shadow-sm">
-                <div class="card-body">
-                    <i class="bi bi-ocular" style="font-size: 2rem;"></i>
-                    <h5 class="card-title mt-3">Oculares</h5>
-                    <p class="card-text text-muted">Diámetro y ángulo de visión.</p>
-                    <a asp-action="CrearOcular" class="btn btn-primary btn-block">Seleccionar</a>
-                </div>
-            </div>
-        </div>
-        
+        <h1>Registrar Equipamiento</h1>
+
+        <p class="page-subtitle">
+            Seleccioná el tipo de equipamiento astronómico que
+            deseás incorporar al inventario de StellarMinds.
+        </p>
+
     </div>
+
+</div>
+
+<div class="equipment-selector">
+
+    <a asp-action="CrearTelescopio"
+           class="equipment-option telescope">
+
+        <div class="equipment-option-icon">
+            🔭
+        </div>
+
+        <div class="equipment-option-content">
+
+            <span class="equipment-option-category">
+                OBSERVACIÓN
+            </span>
+
+            <h3>
+                Telescopio
+            </h3>
+
+            <p>
+                Registrá tubos ópticos indicando apertura,
+                distancia focal, relación focal y peso.
+            </p>
+
+        </div>
+
+        <span class="equipment-option-arrow">
+            →
+        </span>
+
+    </a>
+
+    <a asp-action="CrearMontura"
+           class="equipment-option mount">
+
+        <div class="equipment-option-icon">
+            ⚙
+        </div>
+
+        <div class="equipment-option-content">
+
+            <span class="equipment-option-category">
+                SOPORTE
+            </span>
+
+            <h3>
+                Montura
+            </h3>
+
+            <p>
+                Configurá el tipo de montura,
+                carga útil y sistema GoTo.
+            </p>
+
+        </div>
+
+        <span class="equipment-option-arrow">
+            →
+        </span>
+
+    </a>
+
+    <a asp-action="CrearCamara"
+           class="equipment-option camera">
+
+        <div class="equipment-option-icon">
+            📷
+        </div>
+
+        <div class="equipment-option-content">
+
+            <span class="equipment-option-category">
+                ASTROFOTOGRAFÍA
+            </span>
+
+            <h3>
+                Cámara
+            </h3>
+
+            <p>
+                Registrá cámaras CCD o CMOS,
+                resolución y tamaño del píxel.
+            </p>
+
+        </div>
+
+        <span class="equipment-option-arrow">
+            →
+        </span>
+
+    </a>
+
+    <a asp-action="CrearOcular"
+           class="equipment-option ocular">
+
+        <div class="equipment-option-icon">
+            👁
+        </div>
+
+        <div class="equipment-option-content">
+
+            <span class="equipment-option-category">
+                OBSERVACIÓN VISUAL
+            </span>
+
+            <h3>
+                Ocular
+            </h3>
+
+            <p>
+                Registrá diámetro
+                y ángulo aparente de visión.
+            </p>
+
+        </div>
+
+        <span class="equipment-option-arrow">
+            →
+        </span>
+
+    </a>
+
 </div>

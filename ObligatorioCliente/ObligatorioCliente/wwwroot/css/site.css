@@ -1,31 +1,3442 @@
+/* =========================================================
+   STELLARMINDS - ESTILOS GENERALES
+   ========================================================= */
+
+:root {
+    --stellar-background: #050816;
+    --stellar-background-secondary: #090d20;
+    --stellar-surface: rgba(15, 21, 48, 0.78);
+    --stellar-surface-solid: #111735;
+    --stellar-surface-light: rgba(255, 255, 255, 0.06);
+    --stellar-primary: #7c6cff;
+    --stellar-primary-light: #a99fff;
+    --stellar-secondary: #24c7e8;
+    --stellar-accent: #d36cff;
+    --stellar-text: #f4f6ff;
+    --stellar-text-secondary: #aeb7d6;
+    --stellar-muted: #747e9f;
+    --stellar-success: #43d9a3;
+    --stellar-warning: #ffcb6b;
+    --stellar-danger: #ff6688;
+    --stellar-info: #55c7ff;
+    --stellar-border: rgba(155, 167, 220, 0.16);
+    --stellar-border-hover: rgba(124, 108, 255, 0.48);
+    --stellar-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+    --stellar-shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.2);
+    --stellar-radius: 18px;
+    --stellar-radius-small: 11px;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 html {
-  font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    font-size: 14px;
+    scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+* {
+    box-sizing: border-box;
 }
 
 body {
-  margin-bottom: 60px;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--stellar-text);
+    background: radial-gradient( circle at 10% 10%, rgba(124, 108, 255, 0.13), transparent 30% ), radial-gradient( circle at 90% 30%, rgba(36, 199, 232, 0.09), transparent 30% ), linear-gradient( 160deg, #050816 0%, #080b1d 45%, #060917 100% );
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x: hidden;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -3;
+        pointer-events: none;
+        background-image: radial-gradient( circle, rgba(255, 255, 255, 0.7) 1px, transparent 1.5px );
+        background-size: 65px 65px;
+        opacity: 0.12;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background-image: radial-gradient( circle, rgba(167, 156, 255, 0.55) 1px, transparent 1.5px );
+        background-size: 110px 110px;
+        background-position: 35px 20px;
+        opacity: 0.07;
+    }
+
+a {
+    color: var(--stellar-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    a:hover {
+        color: #7cecff;
+    }
+
+::selection {
+    color: white;
+    background-color: var(--stellar-primary);
 }
+
+/* =========================================================
+   FONDO DECORATIVO
+   ========================================================= */
+
+.space-background {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.space-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.18;
+}
+
+.space-glow-one {
+    top: 80px;
+    left: -120px;
+    width: 360px;
+    height: 360px;
+    background-color: var(--stellar-primary);
+}
+
+.space-glow-two {
+    top: 40%;
+    right: -180px;
+    width: 420px;
+    height: 420px;
+    background-color: var(--stellar-secondary);
+}
+
+.space-glow-three {
+    bottom: -200px;
+    left: 35%;
+    width: 380px;
+    height: 380px;
+    background-color: var(--stellar-accent);
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1040;
+}
+
+.stellar-navbar {
+    min-height: 78px;
+    padding: 0.7rem 0;
+    background: rgba(5, 8, 22, 0.86);
+    border-bottom: 1px solid var(--stellar-border);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.stellar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-right: 1.8rem;
+    color: white !important;
+}
+
+.brand-logo {
+    display: grid;
+    width: 45px;
+    height: 45px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    background: linear-gradient( 145deg, var(--stellar-primary), #4d3dd4 );
+    box-shadow: 0 8px 20px rgba(124, 108, 255, 0.3);
+    font-size: 1.45rem;
+}
+
+.brand-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+    .brand-content strong {
+        font-size: 1.07rem;
+        letter-spacing: 0.2px;
+    }
+
+    .brand-content small {
+        margin-top: 0.25rem;
+        color: var(--stellar-text-secondary);
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+    }
+
+.stellar-menu {
+    gap: 0.15rem;
+}
+
+    .stellar-menu .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin: 0 0.06rem;
+        padding: 0.7rem 0.75rem !important;
+        color: var(--stellar-text-secondary) !important;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        font-size: 0.83rem;
+        font-weight: 600;
+        transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+        .stellar-menu .nav-link:hover {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.055);
+            border-color: rgba(255, 255, 255, 0.075);
+        }
+
+        .stellar-menu .nav-link.active {
+            color: white !important;
+            background: linear-gradient( 135deg, rgba(124, 108, 255, 0.24), rgba(36, 199, 232, 0.08) );
+            border-color: rgba(124, 108, 255, 0.32);
+        }
+
+.nav-icon {
+    color: var(--stellar-primary-light);
+    font-size: 1rem;
+}
+
+.stellar-toggler {
+    border-color: var(--stellar-border);
+    border-radius: 10px;
+}
+
+    .stellar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(124, 108, 255, 0.2);
+    }
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.stellar-dropdown {
+    min-width: 240px;
+    margin-top: 0.7rem !important;
+    padding: 0.55rem;
+    color: var(--stellar-text);
+    background: rgba(14, 19, 43, 0.97);
+    border: 1px solid var(--stellar-border);
+    border-radius: 15px;
+    box-shadow: var(--stellar-shadow);
+    backdrop-filter: blur(20px);
+}
+
+    .stellar-dropdown .dropdown-header {
+        padding: 0.65rem 0.75rem 0.5rem;
+        color: var(--stellar-muted);
+        font-size: 0.67rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+    }
+
+    .stellar-dropdown .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.7rem 0.8rem;
+        color: var(--stellar-text-secondary);
+        border-radius: 9px;
+        font-size: 0.85rem;
+        transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    }
+
+        .stellar-dropdown .dropdown-item:hover,
+        .stellar-dropdown .dropdown-item:focus {
+            color: white;
+            background-color: rgba(124, 108, 255, 0.15);
+            transform: translateX(2px);
+        }
+
+.dropdown-icon {
+    display: inline-grid;
+    width: 22px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    font-size: 1rem;
+}
+
+.stellar-dropdown .dropdown-divider {
+    border-color: var(--stellar-border);
+}
+
+/* =========================================================
+   USUARIO
+   ========================================================= */
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-left: 0.8rem;
+}
+
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.38rem 0.65rem 0.38rem 0.4rem;
+    background-color: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--stellar-border);
+    border-radius: 12px;
+}
+
+.user-avatar {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: white;
+    background: linear-gradient( 145deg, var(--stellar-primary), #5141c7 );
+    border-radius: 10px;
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.user-information {
+    display: flex;
+    flex-direction: column;
+    min-width: 65px;
+    line-height: 1.05;
+}
+
+    .user-information .user-label {
+        color: var(--stellar-muted);
+        font-size: 0.59rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .user-information strong {
+        margin-top: 0.2rem;
+        color: var(--stellar-text);
+        font-size: 0.76rem;
+    }
+
+.logout-button,
+.login-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 43px;
+    padding: 0.65rem 0.9rem;
+    color: white !important;
+    background: linear-gradient( 135deg, var(--stellar-primary), #5d4be2 );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 11px;
+    box-shadow: 0 8px 18px rgba(124, 108, 255, 0.2);
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+    .logout-button:hover,
+    .login-button:hover {
+        color: white;
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 23px rgba(124, 108, 255, 0.3);
+    }
+
+.logout-icon {
+    font-size: 0.95rem;
+}
+
+.navbar-login {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-message {
+    color: var(--stellar-text-secondary);
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================= */
+
+.page-wrapper {
+    position: relative;
+    min-height: calc(100vh - 153px);
+}
+
+.page-content {
+    width: min(100%, 1500px);
+    margin: 0 auto;
+    padding: 2.4rem 4.2rem 4rem;
+}
+
+@media (max-width: 1200px) {
+    .page-content {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-content {
+        padding: 1.5rem 1rem 3rem;
+    }
+}
+
+/* =========================================================
+   TIPOGRAFÍA Y TÍTULOS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--stellar-text);
+    font-weight: 700;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    letter-spacing: -1px;
+}
+
+    h1::after {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 4px;
+        margin-top: 0.7rem;
+        background: linear-gradient( 90deg, var(--stellar-primary), var(--stellar-secondary) );
+        border-radius: 10px;
+    }
+
+h2 {
+    margin-bottom: 1.2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p,
+label,
+dt,
+dd,
+li {
+    color: var(--stellar-text-secondary);
+}
+
+.text-muted {
+    color: var(--stellar-muted) !important;
+}
+
+hr {
+    border-color: var(--stellar-border);
+    opacity: 1;
+}
+
+/* =========================================================
+   TARJETAS Y CONTENEDORES
+   ========================================================= */
+
+.card,
+.stellar-card,
+form:not(.navbar-user form),
+.details-container {
+    color: var(--stellar-text);
+    background: linear-gradient( 145deg, rgba(19, 26, 59, 0.82), rgba(11, 16, 38, 0.78) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow-soft);
+    backdrop-filter: blur(16px);
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem 1.25rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.035);
+    border-bottom: 1px solid var(--stellar-border);
+}
+
+.card-body {
+    padding: 1.35rem;
+}
+
+form:not(.navbar-user form) {
+    padding: 1.6rem;
+}
+
+/*
+   Evita que el estilo de formulario se aplique
+   a formularios mínimos dentro de tablas.
+*/
+table form,
+.navbar form {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+/* =========================================================
+   FORMULARIOS
+   ========================================================= */
+
+.form-label,
+.control-label {
+    margin-bottom: 0.45rem;
+    color: var(--stellar-text-secondary);
+    font-size: 0.8rem;
+    font-weight: 650;
+}
+
+.form-control,
+.form-select {
+    min-height: 45px;
+    padding: 0.65rem 0.85rem;
+    color: var(--stellar-text);
+    background-color: rgba(4, 8, 24, 0.72);
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius-small);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+    .form-control::placeholder {
+        color: #646e8d;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        color: white;
+        background-color: rgba(7, 12, 31, 0.92);
+        border-color: var(--stellar-primary);
+        box-shadow: 0 0 0 0.22rem rgba(124, 108, 255, 0.16);
+    }
+
+    .form-control:disabled,
+    .form-control[readonly],
+    .form-select:disabled {
+        color: var(--stellar-muted);
+        background-color: rgba(255, 255, 255, 0.035);
+    }
+
+.form-select {
+    color-scheme: dark;
+}
+
+    .form-select option {
+        color: white;
+        background-color: var(--stellar-surface-solid);
+    }
+
+.form-check-input {
+    background-color: rgba(4, 8, 24, 0.8);
+    border-color: var(--stellar-border);
+}
+
+    .form-check-input:checked {
+        background-color: var(--stellar-primary);
+        border-color: var(--stellar-primary);
+    }
+
+    .form-check-input:focus {
+        border-color: var(--stellar-primary);
+        box-shadow: 0 0 0 0.2rem rgba(124, 108, 255, 0.16);
+    }
+
+.input-group-text {
+    color: var(--stellar-text-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--stellar-border);
+}
+
+.field-validation-error,
+.text-danger,
+.validation-summary-errors {
+    color: #ff829b !important;
+    font-size: 0.78rem;
+}
+
+    .validation-summary-errors ul {
+        margin-bottom: 0;
+    }
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.btn {
+    min-height: 42px;
+    padding: 0.58rem 1rem;
+    border-radius: 10px;
+    font-size: 0.83rem;
+    font-weight: 700;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn:focus,
+    .btn:active:focus,
+    .btn-link.nav-link:focus {
+        box-shadow: 0 0 0 0.22rem rgba(124, 108, 255, 0.2);
+    }
+
+.btn-primary {
+    color: white;
+    background: linear-gradient( 135deg, var(--stellar-primary), #5e4cdb );
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(124, 108, 255, 0.22);
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        color: white;
+        background: linear-gradient( 135deg, #8a7cff, #6958e7 );
+        border-color: transparent;
+    }
+
+.btn-success {
+    color: #041a14;
+    background-color: var(--stellar-success);
+    border-color: var(--stellar-success);
+}
+
+.btn-danger {
+    color: white;
+    background-color: var(--stellar-danger);
+    border-color: var(--stellar-danger);
+}
+
+.btn-warning {
+    color: #251800;
+    background-color: var(--stellar-warning);
+    border-color: var(--stellar-warning);
+}
+
+.btn-info {
+    color: #031923;
+    background-color: var(--stellar-info);
+    border-color: var(--stellar-info);
+}
+
+.btn-secondary {
+    color: var(--stellar-text);
+    background-color: rgba(255, 255, 255, 0.09);
+    border-color: var(--stellar-border);
+}
+
+    .btn-secondary:hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+.btn-outline-primary {
+    color: var(--stellar-primary-light);
+    border-color: rgba(124, 108, 255, 0.5);
+}
+
+    .btn-outline-primary:hover {
+        color: white;
+        background-color: var(--stellar-primary);
+        border-color: var(--stellar-primary);
+    }
+
+.btn-link {
+    color: var(--stellar-secondary);
+    text-decoration: none;
+}
+
+/* =========================================================
+   TABLAS
+   ========================================================= */
+
+.table-responsive {
+    overflow: hidden;
+    overflow-x: auto;
+    background: linear-gradient( 145deg, rgba(17, 23, 53, 0.78), rgba(9, 14, 34, 0.78) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+.table {
+    margin-bottom: 0;
+    color: var(--stellar-text-secondary);
+    vertical-align: middle;
+}
+
+    .table > :not(caption) > * > * {
+        padding: 0.9rem 1rem;
+        color: inherit;
+        background-color: transparent;
+        border-bottom-color: var(--stellar-border);
+    }
+
+    .table thead th {
+        color: var(--stellar-text);
+        background-color: rgba(124, 108, 255, 0.1);
+        border-bottom: 1px solid rgba(124, 108, 255, 0.24);
+        font-size: 0.72rem;
+        font-weight: 750;
+        letter-spacing: 0.65px;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .table tbody tr {
+        transition: background-color 0.18s ease, transform 0.18s ease;
+    }
+
+        .table tbody tr:hover {
+            color: var(--stellar-text);
+            background-color: rgba(255, 255, 255, 0.035);
+        }
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.018);
+}
+
+.table a {
+    font-weight: 650;
+}
+
+/*
+   También da estilo aunque la vista tenga una tabla
+   sin envolverla en .table-responsive.
+*/
+table.table {
+    overflow: hidden;
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+}
+
+/* =========================================================
+   ALERTAS
+   ========================================================= */
+
+.alert {
+    color: var(--stellar-text);
+    border-width: 1px;
+    border-radius: 13px;
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+.alert-success {
+    background-color: rgba(67, 217, 163, 0.12);
+    border-color: rgba(67, 217, 163, 0.32);
+}
+
+.alert-danger {
+    background-color: rgba(255, 102, 136, 0.12);
+    border-color: rgba(255, 102, 136, 0.32);
+}
+
+.alert-warning {
+    background-color: rgba(255, 203, 107, 0.12);
+    border-color: rgba(255, 203, 107, 0.32);
+}
+
+.alert-info {
+    background-color: rgba(85, 199, 255, 0.12);
+    border-color: rgba(85, 199, 255, 0.32);
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge {
+    padding: 0.45rem 0.68rem;
+    border-radius: 100px;
+    font-weight: 700;
+}
+
+.bg-primary {
+    background-color: var(--stellar-primary) !important;
+}
+
+.bg-success {
+    background-color: var(--stellar-success) !important;
+}
+
+.bg-danger {
+    background-color: var(--stellar-danger) !important;
+}
+
+.bg-warning {
+    background-color: var(--stellar-warning) !important;
+}
+
+/* =========================================================
+   LISTAS DE DEFINICIÓN Y DETALLES
+   ========================================================= */
+
+dl.row {
+    margin: 0;
+    padding: 1.4rem;
+    background: linear-gradient( 145deg, rgba(17, 23, 53, 0.8), rgba(9, 14, 34, 0.8) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+    dl.row dt,
+    dl.row dd {
+        padding-top: 0.65rem;
+        padding-bottom: 0.65rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    dl.row dt {
+        color: var(--stellar-muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    dl.row dd {
+        color: var(--stellar-text);
+    }
+
+/* =========================================================
+   PAGINACIÓN
+   ========================================================= */
+
+.pagination {
+    gap: 0.3rem;
+}
+
+.page-link {
+    color: var(--stellar-text-secondary);
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: var(--stellar-border);
+    border-radius: 9px !important;
+}
+
+    .page-link:hover {
+        color: white;
+        background-color: rgba(124, 108, 255, 0.16);
+        border-color: rgba(124, 108, 255, 0.35);
+    }
+
+.page-item.active .page-link {
+    color: white;
+    background-color: var(--stellar-primary);
+    border-color: var(--stellar-primary);
+}
+
+/* =========================================================
+   MODALES
+   ========================================================= */
+
+.modal-content {
+    color: var(--stellar-text);
+    background-color: var(--stellar-surface-solid);
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--stellar-border);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(1);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.stellar-footer {
+    position: relative;
+    z-index: 2;
+    padding: 1.2rem 0;
+    background-color: rgba(5, 8, 22, 0.75);
+    border-top: 1px solid var(--stellar-border);
+    backdrop-filter: blur(16px);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.footer-star {
+    color: var(--stellar-primary-light);
+    font-size: 1.4rem;
+}
+
+.footer-brand div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand strong {
+    color: var(--stellar-text);
+    font-size: 0.82rem;
+}
+
+.footer-brand span:not(.footer-star) {
+    color: var(--stellar-muted);
+    font-size: 0.67rem;
+}
+
+.footer-text {
+    margin: 0;
+    color: var(--stellar-muted);
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.footer-year {
+    color: var(--stellar-muted);
+    font-size: 0.72rem;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #070a18;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient( var(--stellar-primary), #5141c7 );
+    border: 2px solid #070a18;
+    border-radius: 10px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient( var(--stellar-primary-light), var(--stellar-primary) );
+    }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+    .stellar-navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: rgba(10, 14, 34, 0.96);
+        border: 1px solid var(--stellar-border);
+        border-radius: 15px;
+        box-shadow: var(--stellar-shadow);
+    }
+
+    .stellar-menu {
+        gap: 0.25rem;
+    }
+
+        .stellar-menu .nav-link {
+            padding: 0.75rem 0.9rem !important;
+        }
+
+    .navbar-user {
+        margin-top: 1rem;
+        margin-left: 0;
+        padding-top: 1rem;
+        border-top: 1px solid var(--stellar-border);
+    }
+
+    .navbar-login {
+        align-items: stretch;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .stellar-dropdown {
+        margin-top: 0.2rem !important;
+        background-color: rgba(255, 255, 255, 0.025);
+        border-color: rgba(255, 255, 255, 0.07);
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .brand-content small {
+        display: none;
+    }
+
+    .navbar-user {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .user-badge {
+        width: 100%;
+    }
+
+    .logout-button,
+    .login-button {
+        width: 100%;
+    }
+
+    .login-message {
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+    }
+
+    .footer-text {
+        max-width: 320px;
+    }
+
+    form:not(.navbar-user form) {
+        padding: 1.15rem;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================================================
+   CLASES OPCIONALES PARA VISTAS
+   ========================================================= */
+
+.page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+    .page-header h1 {
+        margin-bottom: 0;
+    }
+
+        .page-header h1::after {
+            margin-top: 0.65rem;
+        }
+
+.page-subtitle {
+    max-width: 700px;
+    margin-top: -0.8rem;
+    margin-bottom: 1.7rem;
+    color: var(--stellar-text-secondary);
+    font-size: 0.9rem;
+}
+
+.stellar-panel {
+    padding: 1.5rem;
+    background: linear-gradient( 145deg, rgba(19, 26, 59, 0.82), rgba(11, 16, 38, 0.78) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow-soft);
+    backdrop-filter: blur(16px);
+}
+
+.stellar-empty-state {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.025);
+    border: 1px dashed rgba(155, 167, 220, 0.24);
+    border-radius: var(--stellar-radius);
+}
+
+    .stellar-empty-state h3 {
+        margin-bottom: 0.6rem;
+    }
+
+    .stellar-empty-state p {
+        margin: 0;
+        color: var(--stellar-muted);
+    }
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.home-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    align-items: center;
+    min-height: 510px;
+    overflow: hidden;
+    padding: 4rem;
+    background: radial-gradient( circle at 75% 40%, rgba(124, 108, 255, 0.17), transparent 35% ), linear-gradient( 135deg, rgba(18, 25, 58, 0.9), rgba(8, 13, 34, 0.82) );
+    border: 1px solid var(--stellar-border);
+    border-radius: 28px;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(18px);
+}
+
+    .home-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: linear-gradient( rgba(255, 255, 255, 0.018) 1px, transparent 1px ), linear-gradient( 90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px );
+        background-size: 45px 45px;
+        mask-image: linear-gradient( to right, transparent, black 40%, black );
+    }
+
+.home-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.home-eyebrow,
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+    color: var(--stellar-primary-light);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.home-title {
+    max-width: 680px;
+    margin-bottom: 1.35rem;
+    font-size: clamp(2.6rem, 5vw, 4.7rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -3px;
+}
+
+    .home-title::after {
+        display: none;
+    }
+
+    .home-title span {
+        color: transparent;
+        background: linear-gradient( 90deg, var(--stellar-primary-light), var(--stellar-secondary) );
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+
+.home-description {
+    max-width: 650px;
+    margin-bottom: 2rem;
+    color: var(--stellar-text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+    .home-actions .btn {
+        min-height: 48px;
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+    }
+
+.home-primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.home-button-icon {
+    font-size: 1.05rem;
+}
+
+/* =========================================================
+   PLANETA
+   ========================================================= */
+
+.home-hero-visual {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    min-height: 390px;
+    place-items: center;
+}
+
+.planet-system {
+    position: relative;
+    width: 360px;
+    height: 360px;
+}
+
+.planet-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 190px;
+    height: 190px;
+    overflow: hidden;
+    background: radial-gradient( circle at 35% 28%, rgba(255, 255, 255, 0.9), transparent 7% ), radial-gradient( circle at 35% 35%, #aca4ff 0%, #7567e9 25%, #4538a5 58%, #19194b 100% );
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    box-shadow: inset -28px -24px 55px rgba(0, 0, 0, 0.45), 0 0 45px rgba(124, 108, 255, 0.35), 0 0 100px rgba(124, 108, 255, 0.18);
+    transform: translate(-50%, -50%);
+}
+
+    .planet-main::before,
+    .planet-main::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .planet-main::before {
+        top: 38px;
+        left: 25px;
+        width: 105px;
+        height: 22px;
+        background-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 25px 35px 0 rgba(14, 17, 70, 0.19), -5px 70px 0 rgba(255, 255, 255, 0.08);
+        transform: rotate(-15deg);
+    }
+
+    .planet-main::after {
+        top: 58px;
+        right: 28px;
+        width: 35px;
+        height: 55px;
+        background-color: rgba(29, 27, 91, 0.25);
+        transform: rotate(35deg);
+    }
+
+.planet-shine {
+    position: absolute;
+    top: 18px;
+    left: 27px;
+    width: 70px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    filter: blur(5px);
+    transform: rotate(-35deg);
+}
+
+.planet-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(169, 159, 255, 0.22);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.planet-orbit-one {
+    width: 280px;
+    height: 280px;
+}
+
+.planet-orbit-two {
+    width: 350px;
+    height: 350px;
+    border-color: rgba(36, 199, 232, 0.13);
+    transform: translate(-50%, -50%) rotate(28deg);
+}
+
+.orbit-object {
+    position: absolute;
+    top: 38px;
+    right: 20px;
+    width: 13px;
+    height: 13px;
+    background-color: var(--stellar-secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(36, 199, 232, 0.7);
+}
+
+.planet-orbit-two .orbit-object {
+    top: auto;
+    right: auto;
+    bottom: 55px;
+    left: 15px;
+    width: 9px;
+    height: 9px;
+    background-color: var(--stellar-primary-light);
+}
+
+.planet-star {
+    position: absolute;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.65);
+}
+
+.planet-star-one {
+    top: 30px;
+    left: 35px;
+    font-size: 1.1rem;
+}
+
+.planet-star-two {
+    top: 85px;
+    right: 28px;
+    color: var(--stellar-secondary);
+    font-size: 1.4rem;
+}
+
+.planet-star-three {
+    right: 55px;
+    bottom: 25px;
+    color: var(--stellar-primary-light);
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   SECCIÓN DE ACCESOS
+   ========================================================= */
+
+.home-section {
+    margin-top: 4.5rem;
+}
+
+.home-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.8rem;
+}
+
+    .home-section-header h2 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .home-section-header p {
+        max-width: 460px;
+        margin: 0;
+        color: var(--stellar-muted);
+        font-size: 0.88rem;
+        line-height: 1.6;
+        text-align: right;
+    }
+
+.section-eyebrow {
+    margin-bottom: 0.65rem;
+}
+
+.home-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.home-feature-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    min-height: 195px;
+    overflow: hidden;
+    padding: 1.4rem;
+    color: var(--stellar-text);
+    background: linear-gradient( 145deg, rgba(18, 25, 58, 0.84), rgba(9, 14, 34, 0.78) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow-soft);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .home-feature-card::before {
+        content: "";
+        position: absolute;
+        right: -70px;
+        bottom: -80px;
+        width: 180px;
+        height: 180px;
+        background-color: rgba(124, 108, 255, 0.08);
+        border-radius: 50%;
+        filter: blur(15px);
+    }
+
+    .home-feature-card:hover {
+        color: var(--stellar-text);
+        border-color: var(--stellar-border-hover);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+    }
+
+.feature-icon {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    font-size: 1.25rem;
+}
+
+.feature-icon-blue {
+    color: #87eaff;
+    background-color: rgba(36, 199, 232, 0.12);
+}
+
+.feature-icon-purple {
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.14);
+}
+
+.feature-icon-green {
+    color: #72e9be;
+    background-color: rgba(67, 217, 163, 0.12);
+}
+
+.feature-icon-orange {
+    color: #ffd28a;
+    background-color: rgba(255, 203, 107, 0.12);
+}
+
+.feature-icon-yellow {
+    color: #ffe28a;
+    background-color: rgba(255, 226, 138, 0.12);
+}
+
+.feature-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.feature-category {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--stellar-muted);
+    font-size: 0.61rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.feature-content h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+}
+
+.feature-content p {
+    margin: 0;
+    color: var(--stellar-text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+.feature-arrow {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.1rem;
+    color: var(--stellar-primary-light);
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.home-feature-card:hover .feature-arrow {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   INFORMACIÓN INFERIOR
+   ========================================================= */
+
+.home-information {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 4.5rem;
+}
+
+.home-information-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(155, 167, 220, 0.1);
+    border-radius: 15px;
+}
+
+.information-icon {
+    display: grid;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.1);
+    border-radius: 12px;
+}
+
+.information-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--stellar-muted);
+    font-size: 0.57rem;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+}
+
+.home-information-card h3 {
+    margin-bottom: 0.45rem;
+    font-size: 0.92rem;
+}
+
+.home-information-card p {
+    margin: 0;
+    color: var(--stellar-muted);
+    font-size: 0.74rem;
+    line-height: 1.55;
+}
+
+/* =========================================================
+   HOME RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .home-hero {
+        grid-template-columns: 1fr;
+        padding: 3rem;
+    }
+
+    .home-hero-content {
+        max-width: 760px;
+    }
+
+    .home-hero-visual {
+        display: none;
+    }
+
+    .home-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+
+    .home-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+        .home-section-header p {
+            max-width: 600px;
+            text-align: left;
+        }
+
+    .home-information {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .home-hero {
+        min-height: auto;
+        padding: 2rem 1.3rem;
+        border-radius: 20px;
+    }
+
+    .home-title {
+        font-size: 2.45rem;
+        letter-spacing: -2px;
+    }
+
+    .home-description {
+        font-size: 0.9rem;
+    }
+
+    .home-actions {
+        flex-direction: column;
+    }
+
+        .home-actions .btn {
+            width: 100%;
+        }
+
+    .home-section {
+        margin-top: 3rem;
+    }
+
+    .home-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-feature-card {
+        min-height: 170px;
+    }
+
+    .home-information {
+        margin-top: 3rem;
+    }
+}
+
+/* =========================================================
+   DETALLES DE EQUIPAMIENTO
+   ========================================================= */
+
+.equipment-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1rem;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.12);
+    border: 1px solid rgba(124, 108, 255, 0.25);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.equipment-details-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--stellar-border);
+}
+
+.equipment-details-icon {
+    display: grid;
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    place-items: center;
+    color: white;
+    background: linear-gradient( 145deg, rgba(124, 108, 255, 0.3), rgba(36, 199, 232, 0.12) );
+    border: 1px solid rgba(124, 108, 255, 0.3);
+    border-radius: 17px;
+    font-size: 1.6rem;
+}
+
+.equipment-details-category {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--stellar-muted);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+}
+
+.equipment-details-header h2 {
+    margin: 0;
+    font-size: 1.45rem;
+}
+
+.details-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 650px) {
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .details-actions {
+        flex-direction: column;
+    }
+
+        .details-actions .btn {
+            width: 100%;
+        }
+}
+
+/* =========================================================
+   FORMULARIOS DE EQUIPAMIENTO
+   ========================================================= */
+
+.equipment-form-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.7rem;
+    background: linear-gradient( 145deg, rgba(19, 26, 59, 0.86), rgba(10, 15, 36, 0.82) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow);
+    backdrop-filter: blur(16px);
+}
+
+    .equipment-form-container form {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+.equipment-form-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--stellar-border);
+}
+
+    .equipment-form-header h2 {
+        margin: 0;
+        font-size: 1.45rem;
+    }
+
+    .equipment-form-header p {
+        margin: 0.35rem 0 0;
+        color: var(--stellar-muted);
+        font-size: 0.8rem;
+    }
+
+.form-section {
+    margin-top: 1.2rem;
+    padding: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(155, 167, 220, 0.1);
+    border-radius: 15px;
+}
+
+    .form-section + .form-section {
+        margin-top: 1rem;
+    }
+
+.form-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.form-section-icon {
+    display: grid;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.12);
+    border: 1px solid rgba(124, 108, 255, 0.2);
+    border-radius: 11px;
+}
+
+.form-section-heading h3 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.form-section-heading p {
+    margin: 0.25rem 0 0;
+    color: var(--stellar-muted);
+    font-size: 0.73rem;
+}
+
+.form-help-text {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--stellar-muted);
+    font-size: 0.68rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--stellar-border);
+}
+
+@media (max-width: 650px) {
+
+    .equipment-form-container {
+        padding: 1.1rem;
+    }
+
+    .equipment-form-header {
+        align-items: flex-start;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+        .form-actions .btn {
+            width: 100%;
+        }
+}
+
+/* =========================================================
+   DELETE
+   ========================================================= */
+
+.delete-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.4rem;
+    background: rgba(255,102,136,.08);
+    border: 1px solid rgba(255,102,136,.22);
+    border-radius: 16px;
+}
+
+.delete-icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    border-radius: 14px;
+    font-size: 1.5rem;
+    color: #ff8ca8;
+    background: rgba(255,102,136,.15);
+}
+
+.delete-warning h3 {
+    margin-bottom: .45rem;
+}
+
+.delete-warning p {
+    margin: 0;
+    color: var(--stellar-text-secondary);
+}
+
+/* =========================================================
+   SELECCIÓN DE EQUIPAMIENTO
+   ========================================================= */
+
+.equipment-selector {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.equipment-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    min-height: 170px;
+    overflow: hidden;
+    padding: 1.6rem;
+    color: var(--stellar-text);
+    background: linear-gradient( 145deg, rgba(19,26,59,.82), rgba(10,15,36,.82) );
+    border: 1px solid var(--stellar-border);
+    border-radius: 20px;
+    transition: .25s ease;
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+    .equipment-option:hover {
+        color: white;
+        border-color: var(--stellar-primary);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 45px rgba(0,0,0,.35);
+    }
+
+    .equipment-option::before {
+        content: "";
+        position: absolute;
+        right: -70px;
+        bottom: -70px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(124,108,255,.08);
+    }
+
+.equipment-option-icon {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+    border-radius: 18px;
+    font-size: 2rem;
+    background: rgba(124,108,255,.14);
+    border: 1px solid rgba(124,108,255,.25);
+}
+
+.equipment-option-content {
+    flex: 1;
+}
+
+.equipment-option-category {
+    display: block;
+    margin-bottom: .4rem;
+    color: var(--stellar-muted);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.equipment-option h3 {
+    margin-bottom: .6rem;
+}
+
+.equipment-option p {
+    margin: 0;
+    color: var(--stellar-text-secondary);
+    font-size: .83rem;
+    line-height: 1.6;
+}
+
+.equipment-option-arrow {
+    font-size: 1.5rem;
+    color: var(--stellar-primary-light);
+    transition: .2s;
+}
+
+.equipment-option:hover .equipment-option-arrow {
+    transform: translateX(5px);
+}
+
+.telescope .equipment-option-icon {
+    background: rgba(36,199,232,.12);
+    color: #7eeaff;
+}
+
+.mount .equipment-option-icon {
+    background: rgba(255,203,107,.12);
+    color: #ffd676;
+}
+
+.camera .equipment-option-icon {
+    background: rgba(124,108,255,.12);
+    color: #b7afff;
+}
+
+.ocular .equipment-option-icon {
+    background: rgba(67,217,163,.12);
+    color: #7deac0;
+}
+
+@media(max-width:900px) {
+
+    .equipment-selector {
+        grid-template-columns: 1fr;
+    }
+}
+
+.computerized-option {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 45px;
+    padding: 0.65rem 0.85rem;
+    background-color: rgba(4, 8, 24, 0.72);
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius-small);
+}
+
+    .computerized-option .form-check-input {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+
+    .computerized-option .form-check-label {
+        margin: 0;
+        color: var(--stellar-text-secondary);
+        cursor: pointer;
+    }
+
+/* =========================================================
+   RANKING DE OBJETOS CELESTES
+   ========================================================= */
+
+.ranking-summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 1.1rem 1.3rem;
+    background: linear-gradient( 135deg, rgba(124, 108, 255, 0.12), rgba(36, 199, 232, 0.05) );
+    border: 1px solid rgba(124, 108, 255, 0.22);
+    border-radius: 16px;
+}
+
+.ranking-summary-icon {
+    display: grid;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    color: #ffe28a;
+    background-color: rgba(255, 226, 138, 0.12);
+    border: 1px solid rgba(255, 226, 138, 0.2);
+    border-radius: 14px;
+    font-size: 1.3rem;
+}
+
+.ranking-summary > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+}
+
+.ranking-summary-label {
+    color: var(--stellar-muted);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.ranking-summary strong {
+    color: var(--stellar-text);
+    font-size: 1.5rem;
+}
+
+.ranking-summary p {
+    margin: 0 0 0 auto;
+    max-width: 500px;
+    color: var(--stellar-text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.ranking-position-column {
+    width: 110px;
+    text-align: center;
+}
+
+.ranking-position-cell {
+    text-align: center;
+}
+
+.ranking-medal,
+.ranking-number {
+    display: inline-grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.ranking-medal-gold {
+    color: #3c2c00;
+    background: linear-gradient( 145deg, #ffe995, #e6b93c );
+    box-shadow: 0 0 18px rgba(255, 217, 90, 0.26);
+}
+
+.ranking-medal-silver {
+    color: #283042;
+    background: linear-gradient( 145deg, #eef2f8, #aeb8c8 );
+}
+
+.ranking-medal-bronze {
+    color: #331b0d;
+    background: linear-gradient( 145deg, #e7aa79, #a7663d );
+}
+
+.ranking-number {
+    color: var(--stellar-text-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--stellar-border);
+}
+
+.ranking-object {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.ranking-object-icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.1);
+    border-radius: 10px;
+}
+
+.ranking-object strong {
+    color: var(--stellar-text);
+    font-size: 0.9rem;
+}
+
+.ranking-type-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.7rem;
+    color: var(--stellar-secondary);
+    background-color: rgba(36, 199, 232, 0.08);
+    border: 1px solid rgba(36, 199, 232, 0.17);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.ranking-count {
+    display: block;
+    color: var(--stellar-text);
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.ranking-count-label {
+    display: block;
+    color: var(--stellar-muted);
+    font-size: 0.65rem;
+}
+
+.ranking-top-1 {
+    background: linear-gradient( 90deg, rgba(255, 226, 138, 0.055), transparent );
+}
+
+.ranking-top-2 {
+    background: linear-gradient( 90deg, rgba(210, 219, 235, 0.04), transparent );
+}
+
+.ranking-top-3 {
+    background: linear-gradient( 90deg, rgba(201, 130, 80, 0.045), transparent );
+}
+
+.ranking-empty-icon {
+    display: grid;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 1rem;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.1);
+    border: 1px solid rgba(124, 108, 255, 0.2);
+    border-radius: 18px;
+    font-size: 1.65rem;
+}
+
+@media (max-width: 700px) {
+
+    .ranking-summary {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+        .ranking-summary p {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            text-align: left;
+        }
+
+    .ranking-position-column {
+        width: auto;
+    }
+}
+
+/* =========================================================
+   ALTA DE OBSERVACIÓN
+   ========================================================= */
+
+.observation-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    align-items: start;
+    gap: 1.2rem;
+}
+
+.observation-form-panel {
+    padding: 1.7rem;
+    background: linear-gradient( 145deg, rgba(19, 26, 59, 0.86), rgba(10, 15, 36, 0.82) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow);
+    backdrop-filter: blur(16px);
+}
+
+    .observation-form-panel form {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+.observation-select {
+    font-size: 0.78rem;
+}
+
+.observation-help-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-top: 0.9rem;
+    padding: 0.85rem 1rem;
+    color: var(--stellar-warning);
+    background-color: rgba(255, 203, 107, 0.08);
+    border: 1px solid rgba(255, 203, 107, 0.18);
+    border-radius: 11px;
+}
+
+    .observation-help-warning p {
+        margin: 0;
+        color: var(--stellar-text-secondary);
+        font-size: 0.75rem;
+    }
+
+.observation-evaluate-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    padding: 1.2rem;
+    background: linear-gradient( 135deg, rgba(124, 108, 255, 0.11), rgba(36, 199, 232, 0.04) );
+    border: 1px solid rgba(124, 108, 255, 0.2);
+    border-radius: 15px;
+}
+
+.observation-evaluate-information {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.observation-ai-icon {
+    display: grid;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.13);
+    border: 1px solid rgba(124, 108, 255, 0.23);
+    border-radius: 13px;
+    font-size: 1.15rem;
+}
+
+.observation-evaluate-information strong {
+    color: var(--stellar-text);
+    font-size: 0.84rem;
+}
+
+.observation-evaluate-information p {
+    max-width: 510px;
+    margin: 0.25rem 0 0;
+    color: var(--stellar-muted);
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+.observation-evaluate-button {
+    flex: 0 0 auto;
+    min-width: 190px;
+}
+
+/* =========================================================
+   RESULTADO DE IA
+   ========================================================= */
+
+.ai-result {
+    overflow: hidden;
+    margin-top: 1.2rem;
+    border: 1px solid var(--stellar-border);
+    border-radius: 17px;
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+.ai-result-ideal {
+    border-color: rgba(67, 217, 163, 0.35);
+}
+
+.ai-result-suitable {
+    border-color: rgba(85, 199, 255, 0.35);
+}
+
+.ai-result-not-recommended {
+    border-color: rgba(255, 102, 136, 0.35);
+}
+
+.ai-result-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.1rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.035);
+    border-bottom: 1px solid var(--stellar-border);
+}
+
+.ai-result-icon {
+    display: grid;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.12);
+    border-radius: 12px;
+}
+
+.ai-result-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--stellar-muted);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.ai-result-header h3 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.ai-result-indicator {
+    margin-left: auto;
+    padding: 0.5rem 0.8rem;
+    color: white;
+    background-color: rgba(124, 108, 255, 0.18);
+    border: 1px solid rgba(124, 108, 255, 0.28);
+    border-radius: 100px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.ai-result-ideal .ai-result-indicator {
+    color: #8df3cc;
+    background-color: rgba(67, 217, 163, 0.12);
+    border-color: rgba(67, 217, 163, 0.25);
+}
+
+.ai-result-suitable .ai-result-indicator {
+    color: #92e1ff;
+    background-color: rgba(85, 199, 255, 0.12);
+    border-color: rgba(85, 199, 255, 0.25);
+}
+
+.ai-result-not-recommended .ai-result-indicator {
+    color: #ff9cb2;
+    background-color: rgba(255, 102, 136, 0.12);
+    border-color: rgba(255, 102, 136, 0.25);
+}
+
+.ai-result-body {
+    padding: 1.2rem;
+    background-color: rgba(5, 9, 25, 0.35);
+}
+
+.ai-result-detail-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--stellar-muted);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+}
+
+.ai-result-body p {
+    margin: 0;
+    color: var(--stellar-text-secondary);
+    font-size: 0.83rem;
+    line-height: 1.65;
+}
+
+.ai-result-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--stellar-border);
+}
+
+    .ai-result-actions p {
+        max-width: 500px;
+        margin: 0;
+        color: var(--stellar-muted);
+        font-size: 0.69rem;
+        line-height: 1.5;
+    }
+
+/* =========================================================
+   GUÍA LATERAL
+   ========================================================= */
+
+.observation-guide {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.observation-guide-card {
+    padding: 1.3rem;
+    background: linear-gradient( 145deg, rgba(18, 25, 58, 0.8), rgba(9, 14, 34, 0.76) );
+    border: 1px solid var(--stellar-border);
+    border-radius: 16px;
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+.observation-guide-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.9rem;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.12);
+    border-radius: 12px;
+}
+
+.observation-guide-card h3 {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.observation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .observation-steps li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .observation-steps > li > span {
+        display: grid;
+        flex: 0 0 27px;
+        width: 27px;
+        height: 27px;
+        place-items: center;
+        color: var(--stellar-primary-light);
+        background-color: rgba(124, 108, 255, 0.1);
+        border: 1px solid rgba(124, 108, 255, 0.17);
+        border-radius: 8px;
+        font-size: 0.67rem;
+        font-weight: 800;
+    }
+
+    .observation-steps strong {
+        display: block;
+        color: var(--stellar-text);
+        font-size: 0.74rem;
+    }
+
+    .observation-steps p {
+        margin: 0.2rem 0 0;
+        color: var(--stellar-muted);
+        font-size: 0.67rem;
+        line-height: 1.45;
+    }
+
+.observation-guide-secondary p {
+    margin-bottom: 0.75rem;
+    color: var(--stellar-text-secondary);
+    font-size: 0.72rem;
+    line-height: 1.55;
+}
+
+    .observation-guide-secondary p:last-child {
+        margin-bottom: 0;
+    }
+
+@media (max-width: 1050px) {
+
+    .observation-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .observation-guide {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+        .observation-guide > .btn {
+            grid-column: 1 / -1;
+        }
+}
+
+@media (max-width: 700px) {
+
+    .observation-form-panel {
+        padding: 1.1rem;
+    }
+
+    .observation-evaluate-section,
+    .ai-result-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+        .observation-evaluate-button,
+        .ai-result-actions .btn {
+            width: 100%;
+        }
+
+    .ai-result-header {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .ai-result-indicator {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .observation-guide {
+        grid-template-columns: 1fr;
+    }
+
+        .observation-guide > .btn {
+            grid-column: auto;
+        }
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login-page {
+    display: grid;
+    min-height: calc(100vh - 230px);
+    place-items: center;
+}
+
+.login-card {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    width: min(100%, 1050px);
+    min-height: 590px;
+    overflow: hidden;
+    background: linear-gradient( 145deg, rgba(17, 24, 56, 0.94), rgba(8, 13, 32, 0.92) );
+    border: 1px solid var(--stellar-border);
+    border-radius: 28px;
+    box-shadow: 0 30px 75px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(20px);
+}
+
+.login-visual {
+    position: relative;
+    overflow: hidden;
+    padding: 3.4rem;
+    background: radial-gradient( circle at 35% 25%, rgba(124, 108, 255, 0.28), transparent 35% ), radial-gradient( circle at 70% 70%, rgba(36, 199, 232, 0.14), transparent 35% ), linear-gradient( 145deg, rgba(19, 26, 62, 0.95), rgba(9, 13, 37, 0.92) );
+    border-right: 1px solid var(--stellar-border);
+}
+
+    .login-visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient( circle, rgba(255, 255, 255, 0.65) 1px, transparent 1.4px );
+        background-size: 55px 55px;
+        opacity: 0.12;
+    }
+
+.login-visual-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.login-eyebrow {
+    display: inline-flex;
+    margin-bottom: 1.1rem;
+    color: var(--stellar-primary-light);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.login-visual h1 {
+    max-width: 450px;
+    margin-bottom: 1rem;
+    font-size: clamp(2.4rem, 4vw, 3.7rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+    .login-visual h1::after {
+        display: none;
+    }
+
+.login-visual p {
+    max-width: 430px;
+    margin: 0;
+    color: var(--stellar-text-secondary);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+
+.login-orbit {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: auto auto 0;
+}
+
+.login-planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 125px;
+    height: 125px;
+    overflow: hidden;
+    background: radial-gradient( circle at 35% 30%, #d4ceff 0%, #8879f1 25%, #5040ba 60%, #151642 100% );
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    box-shadow: inset -20px -18px 35px rgba(0, 0, 0, 0.4), 0 0 35px rgba(124, 108, 255, 0.35);
+    transform: translate(-50%, -50%);
+}
+
+    .login-planet span {
+        position: absolute;
+        top: 22px;
+        left: 20px;
+        width: 50px;
+        height: 28px;
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 50%;
+        filter: blur(3px);
+        transform: rotate(-30deg);
+    }
+
+.login-orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(169, 159, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.login-orbit-ring-one {
+    width: 220px;
+    height: 220px;
+}
+
+.login-orbit-ring-two {
+    width: 285px;
+    height: 285px;
+    border-color: rgba(36, 199, 232, 0.12);
+    transform: translate(-50%, -50%) rotate(25deg);
+}
+
+.login-star {
+    position: absolute;
+    color: white;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
+}
+
+.login-star-one {
+    top: 25px;
+    left: 25px;
+}
+
+.login-star-two {
+    top: 70px;
+    right: 20px;
+    color: var(--stellar-secondary);
+    font-size: 1.3rem;
+}
+
+.login-star-three {
+    right: 48px;
+    bottom: 30px;
+    color: var(--stellar-primary-light);
+}
+
+.login-form-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3.2rem;
+}
+
+    .login-form-side form {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+.login-form-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.8rem;
+}
+
+.login-logo {
+    display: grid;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    color: white;
+    background: linear-gradient( 145deg, var(--stellar-primary), #4f3fc2 );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(124, 108, 255, 0.25);
+    font-size: 1.3rem;
+}
+
+.login-form-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--stellar-muted);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.login-form-header h2 {
+    margin: 0;
+    font-size: 1.55rem;
+}
+
+.login-form-header p {
+    margin: 0.25rem 0 0;
+    color: var(--stellar-muted);
+    font-size: 0.75rem;
+}
+
+.login-field {
+    margin-bottom: 1.1rem;
+}
+
+.login-input-wrapper {
+    position: relative;
+}
+
+    .login-input-wrapper .form-control {
+        padding-left: 2.8rem;
+    }
+
+.login-input-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.9rem;
+    z-index: 2;
+    color: var(--stellar-primary-light);
+    font-size: 0.85rem;
+    transform: translateY(-50%);
+}
+
+.login-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 49px;
+    margin-top: 0.5rem;
+}
+
+.login-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--stellar-border);
+}
+
+    .login-footer span {
+        color: var(--stellar-primary-light);
+    }
+
+    .login-footer p {
+        margin: 0;
+        color: var(--stellar-muted);
+        font-size: 0.68rem;
+        text-align: center;
+    }
+
+@media (max-width: 900px) {
+
+    .login-card {
+        grid-template-columns: 1fr;
+        width: min(100%, 600px);
+    }
+
+    .login-visual {
+        display: none;
+    }
+
+    .login-form-side {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .login-page {
+        min-height: auto;
+    }
+
+    .login-card {
+        border-radius: 20px;
+    }
+
+    .login-form-side {
+        min-height: auto;
+        padding: 2rem 1.25rem;
+    }
+
+    .login-form-header {
+        align-items: flex-start;
+    }
+}
+
+/* =========================================================
+   LISTADO DE USUARIOS
+   ========================================================= */
+
+.users-summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 1.1rem 1.3rem;
+    background: linear-gradient( 135deg, rgba(124, 108, 255, 0.12), rgba(36, 199, 232, 0.05) );
+    border: 1px solid rgba(124, 108, 255, 0.2);
+    border-radius: 16px;
+}
+
+.users-summary-icon {
+    display: grid;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.13);
+    border: 1px solid rgba(124, 108, 255, 0.22);
+    border-radius: 14px;
+    font-size: 1.25rem;
+}
+
+.users-summary > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    min-width: 125px;
+}
+
+.users-summary-label {
+    color: var(--stellar-muted);
+    font-size: 0.59rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.users-summary strong {
+    color: var(--stellar-text);
+    font-size: 1.5rem;
+}
+
+.users-summary p {
+    max-width: 520px;
+    margin: 0 0 0 auto;
+    color: var(--stellar-text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.user-list-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-list-avatar {
+    display: grid;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    color: white;
+    background: linear-gradient( 145deg, var(--stellar-primary), #4f3fc2 );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    box-shadow: 0 7px 17px rgba(124, 108, 255, 0.18);
+}
+
+.user-list-identity > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-list-identity strong {
+    color: var(--stellar-text);
+    font-size: 0.84rem;
+}
+
+.user-list-identity span:last-child {
+    margin-top: 0.15rem;
+    color: var(--stellar-muted);
+    font-size: 0.65rem;
+}
+
+.username-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.68rem;
+    color: var(--stellar-secondary);
+    background-color: rgba(36, 199, 232, 0.08);
+    border: 1px solid rgba(36, 199, 232, 0.16);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.user-role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.43rem 0.72rem;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.user-role-admin {
+    color: #c9c2ff;
+    background-color: rgba(124, 108, 255, 0.12);
+    border-color: rgba(124, 108, 255, 0.23);
+}
+
+.user-role-coordinator {
+    color: #8fe5ff;
+    background-color: rgba(36, 199, 232, 0.1);
+    border-color: rgba(36, 199, 232, 0.2);
+}
+
+.user-role-member {
+    color: #8cf0c8;
+    background-color: rgba(67, 217, 163, 0.1);
+    border-color: rgba(67, 217, 163, 0.2);
+}
+
+.user-role-default {
+    color: var(--stellar-text-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--stellar-border);
+}
+
+.users-empty-icon {
+    display: grid;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.1);
+    border: 1px solid rgba(124, 108, 255, 0.2);
+    border-radius: 18px;
+    font-size: 1.45rem;
+}
+
+@media (max-width: 700px) {
+
+    .users-summary {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+        .users-summary p {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            text-align: left;
+        }
+}
+
+/* =========================================================
+   SELECCIÓN DE TIPO DE USUARIO
+   ========================================================= */
+
+.user-selector {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+    margin-top: 2rem;
+}
+
+.user-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 330px;
+    overflow: hidden;
+    padding: 1.6rem;
+    color: var(--stellar-text);
+    background: linear-gradient( 145deg, rgba(19, 26, 59, 0.84), rgba(10, 15, 36, 0.82) );
+    border: 1px solid var(--stellar-border);
+    border-radius: 21px;
+    box-shadow: var(--stellar-shadow-soft);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .user-option::before {
+        content: "";
+        position: absolute;
+        right: -80px;
+        bottom: -90px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        filter: blur(10px);
+    }
+
+    .user-option:hover {
+        color: var(--stellar-text);
+        border-color: var(--stellar-border-hover);
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.34);
+        transform: translateY(-6px);
+    }
+
+.user-option-member::before {
+    background-color: rgba(67, 217, 163, 0.08);
+}
+
+.user-option-coordinator::before {
+    background-color: rgba(36, 199, 232, 0.08);
+}
+
+.user-option-admin::before {
+    background-color: rgba(124, 108, 255, 0.1);
+}
+
+.user-option-icon {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.25rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.user-option-member .user-option-icon {
+    color: #8df0c9;
+    background-color: rgba(67, 217, 163, 0.12);
+    border-color: rgba(67, 217, 163, 0.24);
+}
+
+.user-option-coordinator .user-option-icon {
+    color: #91e7ff;
+    background-color: rgba(36, 199, 232, 0.12);
+    border-color: rgba(36, 199, 232, 0.24);
+}
+
+.user-option-admin .user-option-icon {
+    color: #c3bcff;
+    background-color: rgba(124, 108, 255, 0.14);
+    border-color: rgba(124, 108, 255, 0.27);
+}
+
+.user-option-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.user-option-category {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--stellar-muted);
+    font-size: 0.61rem;
+    font-weight: 800;
+    letter-spacing: 1.05px;
+}
+
+.user-option h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.3rem;
+}
+
+.user-option p {
+    margin: 0;
+    color: var(--stellar-text-secondary);
+    font-size: 0.81rem;
+    line-height: 1.62;
+}
+
+.user-option-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.2rem;
+}
+
+    .user-option-features span {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.38rem 0.58rem;
+        color: var(--stellar-text-secondary);
+        background-color: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--stellar-border);
+        border-radius: 100px;
+        font-size: 0.62rem;
+        font-weight: 650;
+    }
+
+.user-option-arrow {
+    position: relative;
+    z-index: 2;
+    align-self: flex-end;
+    margin-top: 1.2rem;
+    color: var(--stellar-primary-light);
+    font-size: 1.4rem;
+    transition: transform 0.2s ease;
+}
+
+.user-option:hover .user-option-arrow {
+    transform: translateX(5px);
+}
+
+.user-selector-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--stellar-border);
+    border-radius: 14px;
+}
+
+.user-selector-information {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.user-selector-information-icon {
+    display: grid;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: var(--stellar-primary-light);
+    background-color: rgba(124, 108, 255, 0.1);
+    border-radius: 10px;
+}
+
+.user-selector-information p {
+    margin: 0;
+    color: var(--stellar-muted);
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 1050px) {
+
+    .user-selector {
+        grid-template-columns: 1fr;
+    }
+
+    .user-option {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .user-selector-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+        .user-selector-footer .btn {
+            width: 100%;
+        }
+}
+
+/* =========================================================
+   FORMULARIOS DE USUARIOS
+   ========================================================= */
+
+.user-form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: start;
+    gap: 1.2rem;
+}
+
+.user-form-container {
+    padding: 1.7rem;
+    background: linear-gradient( 145deg, rgba(19, 26, 59, 0.86), rgba(10, 15, 36, 0.82) );
+    border: 1px solid var(--stellar-border);
+    border-radius: var(--stellar-radius);
+    box-shadow: var(--stellar-shadow);
+    backdrop-filter: blur(16px);
+}
+
+    .user-form-container form {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+.user-form-role-icon {
+    display: grid;
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    place-items: center;
+    border: 1px solid;
+    border-radius: 17px;
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.user-form-role-admin {
+    color: #c3bcff;
+    background-color: rgba(124, 108, 255, 0.14);
+    border-color: rgba(124, 108, 255, 0.28);
+}
+
+.user-form-role-coordinator {
+    color: #91e7ff;
+    background-color: rgba(36, 199, 232, 0.12);
+    border-color: rgba(36, 199, 232, 0.25);
+}
+
+.user-form-role-member {
+    color: #8df0c9;
+    background-color: rgba(67, 217, 163, 0.12);
+    border-color: rgba(67, 217, 163, 0.24);
+}
+
+.password-requirements {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    background-color: rgba(124, 108, 255, 0.07);
+    border: 1px solid rgba(124, 108, 255, 0.16);
+    border-radius: 11px;
+}
+
+.password-requirements-icon {
+    color: var(--stellar-primary-light);
+}
+
+.password-requirements p {
+    margin: 0;
+    color: var(--stellar-muted);
+    font-size: 0.7rem;
+    line-height: 1.55;
+}
+
+.user-role-information {
+    position: sticky;
+    top: 100px;
+    padding: 1.4rem;
+    background: linear-gradient( 145deg, rgba(18, 25, 58, 0.82), rgba(9, 14, 34, 0.78) );
+    border: 1px solid var(--stellar-border);
+    border-radius: 17px;
+    box-shadow: var(--stellar-shadow-soft);
+}
+
+.user-role-information-icon {
+    display: grid;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 1rem;
+    place-items: center;
+    border: 1px solid;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.user-role-information-admin .user-role-information-icon {
+    color: #c3bcff;
+    background-color: rgba(124, 108, 255, 0.14);
+    border-color: rgba(124, 108, 255, 0.27);
+}
+
+.user-role-information-coordinator .user-role-information-icon {
+    color: #91e7ff;
+    background-color: rgba(36, 199, 232, 0.12);
+    border-color: rgba(36, 199, 232, 0.24);
+}
+
+.user-role-information-member .user-role-information-icon {
+    color: #8df0c9;
+    background-color: rgba(67, 217, 163, 0.12);
+    border-color: rgba(67, 217, 163, 0.24);
+}
+
+.user-role-information-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--stellar-muted);
+    font-size: 0.59rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.user-role-information h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+
+.user-role-information > p {
+    color: var(--stellar-text-secondary);
+    font-size: 0.76rem;
+    line-height: 1.6;
+}
+
+.user-role-information ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 1.2rem 0 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--stellar-border);
+    list-style: none;
+}
+
+.user-role-information li {
+    position: relative;
+    padding-left: 1.2rem;
+    color: var(--stellar-text-secondary);
+    font-size: 0.72rem;
+}
+
+    .user-role-information li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: var(--stellar-primary-light);
+        font-size: 0.65rem;
+    }
+
+@media (max-width: 1000px) {
+
+    .user-form-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .user-role-information {
+        position: static;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .user-form-container {
+        padding: 1.1rem;
+    }
+}
+

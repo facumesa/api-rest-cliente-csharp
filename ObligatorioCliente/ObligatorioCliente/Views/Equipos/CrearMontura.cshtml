@@ -5,60 +5,260 @@
     ViewData["Title"] = "Alta de Montura";
 }
 
-<h1>CrearMontura</h1>
+<div class="page-header">
 
-<h4>Montura</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CrearMontura">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<ObligatorioCliente.Enums.TipoMontura>()">
-                    <option value="">-- Seleccione un Sensor --</option>
-                </select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CargaUtil_kg" class="control-label"></label>
-                <input asp-for="CargaUtil_kg" class="form-control" />
-                <span asp-validation-for="CargaUtil_kg" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EsComputarizado" /> @Html.DisplayNameFor(model => model.EsComputarizado)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
-    </div>
-}
+    <div>
+        <h1>Registrar Montura</h1>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+        <p class="page-subtitle">
+            Ingresá la información general y las características
+            técnicas de la nueva montura.
+        </p>
+    </div>
+
+    <span class="equipment-type-badge">
+        ⚙ Montura
+    </span>
+
 </div>
 
+<div class="equipment-form-container">
+
+    <div class="equipment-form-header">
+
+        <div class="equipment-details-icon">
+            ⚙
+        </div>
+
+        <div>
+            <span class="equipment-details-category">
+                NUEVO EQUIPAMIENTO
+            </span>
+
+            <h2>Alta de montura</h2>
+
+            <p>
+                Registrá el soporte que se utilizará
+                para montar y controlar los telescopios.
+            </p>
+        </div>
+
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+
+            <strong>No se pudo registrar la montura.</strong>
+
+            <div>
+                @ViewBag.Error
+            </div>
+
+        </div>
+    }
+
+    <form asp-action="CrearMontura" method="post">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary-errors mb-4">
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ◇
+                </span>
+
+                <div>
+                    <h3>Información general</h3>
+
+                    <p>
+                        Datos identificativos y cantidad inicial.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Marca"
+                           class="form-label">
+
+                        Marca
+                    </label>
+
+                    <input asp-for="Marca"
+                           class="form-control"
+                           placeholder="Ejemplo: Sky-Watcher" />
+
+                    <span asp-validation-for="Marca"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Modelo"
+                           class="form-label">
+
+                        Modelo
+                    </label>
+
+                    <input asp-for="Modelo"
+                           class="form-control"
+                           placeholder="Ejemplo: EQ6-R Pro" />
+
+                    <span asp-validation-for="Modelo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Cantidad"
+                           class="form-label">
+
+                        Cantidad disponible
+                    </label>
+
+                    <input asp-for="Cantidad"
+                           class="form-control"
+                           min="0"
+                           placeholder="Ejemplo: 3" />
+
+                    <span asp-validation-for="Cantidad"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ✦
+                </span>
+
+                <div>
+                    <h3>Características técnicas</h3>
+
+                    <p>
+                        Configuración, capacidad de carga
+                        y sistema de seguimiento.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Tipo"
+                           class="form-label">
+
+                        Tipo de montura
+                    </label>
+
+                    <select asp-for="Tipo"
+                            class="form-select"
+                            asp-items="Html.GetEnumSelectList<ObligatorioCliente.Enums.TipoMontura>()">
+
+                        <option value="">
+                            -- Seleccione una montura --
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="Tipo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="CargaUtil_kg"
+                           class="form-label">
+
+                        Carga útil
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="CargaUtil_kg"
+                               class="form-control"
+                               placeholder="Ejemplo: 20" />
+
+                        <span class="input-group-text">
+                            kg
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="CargaUtil_kg"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Sistema computarizado
+                    </label>
+
+                    <div class="computerized-option">
+
+                        <input asp-for="EsComputarizado"
+                               class="form-check-input" />
+
+                        <label asp-for="EsComputarizado"
+                               class="form-check-label">
+
+                            Posee sistema GoTo
+                        </label>
+
+                    </div>
+
+                    <span class="form-help-text">
+                        Permite alineación, búsqueda y seguimiento automático.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a asp-action="Create"
+                   class="btn btn-secondary">
+
+                ← Volver
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Registrar montura
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

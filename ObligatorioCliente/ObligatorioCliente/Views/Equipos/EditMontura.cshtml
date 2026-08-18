@@ -1,70 +1,205 @@
 ﻿@model ObligatorioCliente.DTOs.MonturaDTO
 
-
 @{
     ViewData["Title"] = "Editar Montura";
 }
 
-<h1>EditMontura</h1>
+<div class="page-header">
 
-<h4>Montura</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditMontura">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" readonly />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<ObligatorioCliente.Enums.TipoMontura>()">
-                </select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CargaUtil_kg" class="control-label"></label>
-                <input asp-for="CargaUtil_kg" class="form-control" />
-                <span asp-validation-for="CargaUtil_kg" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EsComputarizado" /> @Html.DisplayNameFor(model => model.EsComputarizado)
-                </label>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <h1>Editar Montura</h1>
+
+        <p class="page-subtitle">
+            Modificá la información y características
+            de la montura seleccionada.
+        </p>
     </div>
+
+    <span class="equipment-type-badge">
+        ⚙️ Montura
+    </span>
+
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
+<div class="equipment-form-container">
+
+    <div class="equipment-form-header">
+
+        <div class="equipment-details-icon">
+            ⚙️
+        </div>
+
+        <div>
+
+            <span class="equipment-details-category">
+                EDICIÓN DE EQUIPAMIENTO
+            </span>
+
+            <h2>
+                @Model.Marca @Model.Modelo
+            </h2>
+
+            <p>
+                Actualizá las especificaciones de la montura
+                y su disponibilidad.
+            </p>
+
+        </div>
+
     </div>
-}
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <strong>No se pudo actualizar la montura.</strong>
+            <div>@ViewBag.Error</div>
+        </div>
+    }
+
+    <form asp-action="EditMontura">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary-errors mb-4">
+        </div>
+
+        <input asp-for="Id" type="hidden" />
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ◇
+                </span>
+
+                <div>
+                    <h3>Información general</h3>
+                    <p>Datos básicos del equipo.</p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <label asp-for="Marca" class="form-label"></label>
+                    <input asp-for="Marca" class="form-control" />
+                    <span asp-validation-for="Marca" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Modelo" class="form-label"></label>
+                    <input asp-for="Modelo" class="form-control" />
+                    <span asp-validation-for="Modelo" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Cantidad" class="form-label"></label>
+                    <input asp-for="Cantidad" class="form-control" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ✦
+                </span>
+
+                <div>
+                    <h3>Características técnicas</h3>
+                    <p>Datos específicos de la montura.</p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Tipo" class="form-label"></label>
+
+                    <select asp-for="Tipo"
+                            class="form-select"
+                            asp-items="Html.GetEnumSelectList<ObligatorioCliente.Enums.TipoMontura>()">
+                    </select>
+
+                    <span asp-validation-for="Tipo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="CargaUtil_kg"
+                           class="form-label">
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="CargaUtil_kg"
+                               class="form-control" />
+
+                        <span class="input-group-text">
+                            kg
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="CargaUtil_kg"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="EsComputarizado"
+                           class="form-label">
+                    </label>
+
+                    <div class="form-check mt-2">
+
+                        <input asp-for="EsComputarizado"
+                               class="form-check-input" />
+
+                        <label asp-for="EsComputarizado"
+                               class="form-check-label">
+                            Posee sistema GoTo
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+                   class="btn btn-secondary">
+
+                ← Cancelar
+
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Guardar cambios
+
+            </button>
+
+        </div>
+
+    </form>
+
 </div>
-

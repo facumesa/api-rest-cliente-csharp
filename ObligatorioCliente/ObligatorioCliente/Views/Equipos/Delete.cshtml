@@ -1,46 +1,128 @@
 ﻿@model ObligatorioCliente.DTOs.EquipoDTO
 
 @{
-    ViewData["Title"] = "Baja de Equipo";
+    ViewData["Title"] = "Eliminar Equipo";
 }
 
-<h1>Delete</h1>
+<div class="page-header">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Equipo</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Marca)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modelo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modelo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    <div>
+
+        <h1>Eliminar Equipo</h1>
+
+        <p class="page-subtitle">
+            Confirmá la eliminación del equipamiento seleccionado.
+            Esta acción no podrá deshacerse.
+        </p>
+
+    </div>
+
+    <span class="equipment-type-badge">
+        🗑 Eliminación
+    </span>
+
+</div>
+
+<div class="stellar-panel">
+
+    <div class="delete-warning">
+
+        <div class="delete-icon">
+            ⚠
+        </div>
+
+        <div>
+
+            <h3>
+                ¿Deseás eliminar este equipo?
+            </h3>
+
+            <p>
+                Antes de continuar verificá que el equipo no tenga
+                préstamos asociados. Si existe alguna restricción,
+                el sistema impedirá la eliminación.
+            </p>
+
+        </div>
+
+    </div>
 
     @if (ViewBag.Error != null)
     {
-        <div class="alert alert-danger">
-            @ViewBag.Error
+        <div class="alert alert-danger mt-4">
+
+            <strong>No fue posible eliminar el equipo.</strong>
+
+            <div>
+                @ViewBag.Error
+            </div>
+
         </div>
     }
+
+    <dl class="row mt-4">
+
+        <dt class="col-sm-4">
+            Marca
+        </dt>
+
+        <dd class="col-sm-8">
+            @Model.Marca
+        </dd>
+
+        <dt class="col-sm-4">
+            Modelo
+        </dt>
+
+        <dd class="col-sm-8">
+            @Model.Modelo
+        </dd>
+
+        <dt class="col-sm-4">
+            Cantidad disponible
+        </dt>
+
+        <dd class="col-sm-8">
+
+            @if (Model.Cantidad == 0)
+            {
+                <span class="badge bg-danger">
+                    Sin stock
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-success">
+                    @Model.Cantidad unidad(es)
+                </span>
+            }
+
+        </dd>
+
+    </dl>
+
+    <form asp-action="Delete">
+
+        <input asp-for="Id" type="hidden" />
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+                   class="btn btn-secondary">
+
+                ← Cancelar
+
+            </a>
+
+            <button type="submit"
+                    class="btn btn-danger">
+
+                Eliminar definitivamente
+
+            </button>
+
+        </div>
+
+    </form>
+
 </div>

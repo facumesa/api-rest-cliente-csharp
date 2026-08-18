@@ -1,48 +1,175 @@
 ﻿@model IEnumerable<CasosUso.DTOs.RankingObjetoDTO>
 
-<h1>Ranking de objetos celestes</h1>
+@{
+    ViewData["Title"] = "Ranking de objetos celestes";
 
+    var ranking = Model?.ToList()
+        ?? new List<CasosUso.DTOs.RankingObjetoDTO>();
+}
 
-@if (Model == null || !Model.Any())
+<div class="page-header">
+
+    <div>
+        <h1>Ranking de objetos celestes</h1>
+
+        <p class="page-subtitle">
+            Consultá cuáles son los objetos celestes más observados
+            por los socios de StellarMinds.
+        </p>
+    </div>
+
+    <span class="equipment-type-badge">
+        ★ Ranking
+    </span>
+
+</div>
+
+@if (!ranking.Any())
 {
-    <div class="alert alert-info">
+    <div class="stellar-empty-state">
 
-        <p>No se han observado objetos celestes.</p>
+        <div class="ranking-empty-icon">
+            ✦
+        </div>
+
+        <h3>No hay observaciones registradas</h3>
+
+        <p>
+            El ranking se generará cuando los socios comiencen
+            a registrar observaciones de objetos celestes.
+        </p>
 
     </div>
 }
 else
 {
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                Cantidad de veces observado
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tipo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cantidad)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="ranking-summary">
+
+        <div class="ranking-summary-icon">
+            ★
+        </div>
+
+        <div>
+            <span class="ranking-summary-label">
+                OBJETOS OBSERVADOS
+            </span>
+
+            <strong>
+                @ranking.Count
+            </strong>
+        </div>
+
+        <p>
+            El listado se encuentra ordenado desde el objeto
+            más observado hasta el menos observado.
+        </p>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table ranking-table">
+
+            <thead>
+                <tr>
+                    <th class="ranking-position-column">
+                        Posición
+                    </th>
+
+                    <th>
+                        Objeto celeste
+                    </th>
+
+                    <th>
+                        Tipo
+                    </th>
+
+                    <th class="text-center">
+                        Observaciones
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @for (int i = 0; i < ranking.Count; i++)
+                {
+                    var item = ranking[i];
+                    int posicion = i + 1;
+
+                    <tr class="@(posicion <= 3 ? $"ranking-top ranking-top-{posicion}" : "")">
+
+                        <td class="ranking-position-cell">
+
+                            @if (posicion == 1)
+                            {
+                                <span class="ranking-medal ranking-medal-gold">
+                                    ★
+                                </span>
+                            }
+                            else if (posicion == 2)
+                            {
+                                <span class="ranking-medal ranking-medal-silver">
+                                    2
+                                </span>
+                            }
+                            else if (posicion == 3)
+                            {
+                                <span class="ranking-medal ranking-medal-bronze">
+                                    3
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="ranking-number">
+                                    @posicion
+                                </span>
+                            }
+
+                        </td>
+
+                        <td>
+
+                            <div class="ranking-object">
+
+                                <span class="ranking-object-icon">
+                                    ✦
+                                </span>
+
+                                <strong>
+                                    @item.Nombre
+                                </strong>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="ranking-type-badge">
+                                @item.Tipo
+                            </span>
+                        </td>
+
+                        <td class="text-center">
+
+                            <span class="ranking-count">
+                                @item.Cantidad
+                            </span>
+
+                            <span class="ranking-count-label">
+                                @(item.Cantidad == 1
+                                    ? "vez"
+                                    : "veces")
+                            </span>
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
 }

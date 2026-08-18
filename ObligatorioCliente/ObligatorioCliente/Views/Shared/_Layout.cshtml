@@ -1,130 +1,465 @@
 ﻿@{
     string? token = Context.Session.GetString("token");
     string? rol = Context.Session.GetString("rol");
-} 
+
+    string controladorActual = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string accionActual = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+
+    string EsActivo(string controlador, string? accion = null)
+    {
+        bool coincideControlador = controladorActual.Equals(
+            controlador,
+            StringComparison.OrdinalIgnoreCase
+        );
+
+        bool coincideAccion = accion == null ||
+            accionActual.Equals(
+                accion,
+                StringComparison.OrdinalIgnoreCase
+            );
+
+        return coincideControlador && coincideAccion ? "active" : "";
+    }
+}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Presentacion</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color"
+          content="#080c1d" />
+
+    <title>@ViewData["Title"] - StellarMinds</title>
+
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Presentacion.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/Presentacion.styles.css"
+          asp-append-version="true" />
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Presentacion</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <div class="space-background">
+        <div class="space-glow space-glow-one"></div>
+        <div class="space-glow space-glow-two"></div>
+        <div class="space-glow space-glow-three"></div>
+    </div>
+
+    <header class="main-header">
+
+        <nav class="navbar navbar-expand-xl navbar-dark stellar-navbar">
+
+            <div class="container-fluid px-lg-4">
+
+                <a class="navbar-brand stellar-brand"
+                       asp-area=""
+                       asp-controller="Home"
+                       asp-action="Index">
+
+                    <span class="brand-logo">
+                        ✦
+                    </span>
+
+                    <span class="brand-content">
+                        <strong>StellarMinds</strong>
+                        <small>Observatorio astronómico</small>
+                    </span>
+                </a>
+
+                <button class="navbar-toggler stellar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#stellarNavbar"
+                        aria-controls="stellarNavbar"
+                        aria-expanded="false"
+                        aria-label="Abrir navegación">
+
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                @if (token != null)
-                {
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                             @if (rol == "Socio" || rol == "Admin")
-                            { 
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Prestamos"
-                                       asp-action="MisPrestamos">Mis prestamos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Observaciones"
-                                       asp-action="Create">Crear observación</a>
-                                </li>
-                             }
-                            @if (rol == "Admin")
-                            { 
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">
-                                        Alta
-                                        Usuarios
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Equipos" asp-action="Create">
-                                        Alta
-                                        Equipos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                                        Ver
-                                        Usuarios
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Equipos" asp-action="Index">
-                                        Ver
-                                        Equipos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Prestamos" asp-action="SeleccionarCoordinador">
-                                        Seleccionar coordinador
-                                    </a>
-                                </li>
-                             }
-                            @if (rol == "Coordinador" || rol == "Admin")
-                            { 
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Prestamos" asp-action="Create">
-                                        Alta
-                                        Prestamo
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Prestamos" asp-action="SociosConPrestamo">
-                                        Devolución
-                                        Prestamo
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="SeleccionarTelescopio">
-                                        Lista
-                                        Socios (Tel.)
-                                    </a>
-                                </li>
-                             }
+
+                <div class="collapse navbar-collapse"
+                     id="stellarNavbar">
+
+                    @if (token != null)
+                    {
+                        <ul class="navbar-nav me-auto mb-2 mb-xl-0 stellar-menu">
+
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="ObjetosCelestes" asp-action="Ranking">Ranking OC</a>
+                                <a class="nav-link @EsActivo("Home", "Index")"
+                                       asp-area=""
+                                       asp-controller="Home"
+                                       asp-action="Index">
+
+                                    <span class="nav-icon">⌂</span>
+                                    Inicio
+                                </a>
                             </li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios"
-                               asp-action="Logout">Logout</a>
+
+                            @if (rol == "Socio" || rol == "Admin")
+                            {
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle
+                                        @(controladorActual == "Observaciones" ||
+                                                                                 (controladorActual == "Prestamos" &&
+                                                                                  accionActual == "MisPrestamos")
+                                                                                 ? "active"
+                                                                                 : "")"
+                                           href="#"
+                                           id="socioDropdown"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+
+                                        <span class="nav-icon">☾</span>
+                                        Mis actividades
+                                    </a>
+
+                                    <ul class="dropdown-menu stellar-dropdown"
+                                        aria-labelledby="socioDropdown">
+
+                                        <li>
+                                            <span class="dropdown-header">
+                                                ÁREA DEL SOCIO
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Prestamos"
+                                                   asp-action="MisPrestamos">
+
+                                                <span class="dropdown-icon">◫</span>
+                                                Mis préstamos
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Observaciones"
+                                                   asp-action="Create">
+
+                                                <span class="dropdown-icon">✧</span>
+                                                Crear observación
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+
+                            @if (rol == "Coordinador" || rol == "Admin")
+                            {
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle
+                                        @(controladorActual == "Prestamos" &&
+                                                                                 accionActual != "MisPrestamos" &&
+                                                                                 accionActual != "SeleccionarCoordinador"
+                                                                                 ? "active"
+                                                                                 : "")"
+                                           href="#"
+                                           id="coordinadorDropdown"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+
+                                        <span class="nav-icon">◇</span>
+                                        Préstamos
+                                    </a>
+
+                                    <ul class="dropdown-menu stellar-dropdown"
+                                        aria-labelledby="coordinadorDropdown">
+
+                                        <li>
+                                            <span class="dropdown-header">
+                                                GESTIÓN DE PRÉSTAMOS
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Prestamos"
+                                                   asp-action="Create">
+
+                                                <span class="dropdown-icon">＋</span>
+                                                Registrar préstamo
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Prestamos"
+                                                   asp-action="SociosConPrestamo">
+
+                                                <span class="dropdown-icon">↩</span>
+                                                Registrar devolución
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Usuarios"
+                                                   asp-action="SeleccionarTelescopio">
+
+                                                <span class="dropdown-icon">⌕</span>
+                                                Socios por telescopio
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+
+                            @if (rol == "Admin")
+                            {
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle
+                                        @(controladorActual == "Usuarios" &&
+                                                                                 accionActual != "SeleccionarTelescopio"
+                                                                                 ? "active"
+                                                                                 : "")"
+                                           href="#"
+                                           id="usuariosDropdown"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+
+                                        <span class="nav-icon">♙</span>
+                                        Usuarios
+                                    </a>
+
+                                    <ul class="dropdown-menu stellar-dropdown"
+                                        aria-labelledby="usuariosDropdown">
+
+                                        <li>
+                                            <span class="dropdown-header">
+                                                ADMINISTRACIÓN
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Usuarios"
+                                                   asp-action="Create">
+
+                                                <span class="dropdown-icon">＋</span>
+                                                Registrar usuario
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Usuarios"
+                                                   asp-action="Index">
+
+                                                <span class="dropdown-icon">☷</span>
+                                                Ver usuarios
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle
+                                        @(controladorActual == "Equipos"
+                                                                                 ? "active"
+                                                                                 : "")"
+                                           href="#"
+                                           id="equiposDropdown"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+
+                                        <span class="nav-icon">⌖</span>
+                                        Equipos
+                                    </a>
+
+                                    <ul class="dropdown-menu stellar-dropdown"
+                                        aria-labelledby="equiposDropdown">
+
+                                        <li>
+                                            <span class="dropdown-header">
+                                                EQUIPAMIENTO
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Equipos"
+                                                   asp-action="Create">
+
+                                                <span class="dropdown-icon">＋</span>
+                                                Registrar equipo
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item"
+                                                   asp-area=""
+                                                   asp-controller="Equipos"
+                                                   asp-action="Index">
+
+                                                <span class="dropdown-icon">☷</span>
+                                                Ver equipos
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+
+                                    <a class="nav-link
+                                        @EsActivo("Prestamos", "SeleccionarCoordinador")"
+                                           asp-area=""
+                                           asp-controller="Prestamos"
+                                           asp-action="SeleccionarCoordinador">
+
+                                        <span class="nav-icon">◎</span>
+                                        Auditoría
+                                    </a>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+
+                                <a class="nav-link @EsActivo("ObjetosCelestes", "Ranking")"
+                                       asp-area=""
+                                       asp-controller="ObjetosCelestes"
+                                       asp-action="Ranking">
+
+                                    <span class="nav-icon">★</span>
+                                    Ranking
+                                </a>
+                            </li>
                         </ul>
-                    </div>
-                 }
-                else
-                { 
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-                 } 
 
-            </nav>
-        </header>
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+                        <div class="navbar-user">
 
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2026 - Presentacion - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <div class="user-badge">
+
+                                <span class="user-avatar">
+                                    @(rol == "Admin" ? "A" :
+                                      rol == "Coordinador" ? "C" :
+                                      "S")
+                                </span>
+
+                                <div class="user-information">
+                                    <span class="user-label">
+                                        Sesión activa
+                                    </span>
+
+                                    <strong>
+                                        @rol
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <a class="logout-button"
+                                   asp-area=""
+                                   asp-controller="Usuarios"
+                                   asp-action="Logout">
+
+                                <span>Salir</span>
+                                <span class="logout-icon">↗</span>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="navbar-login ms-auto">
+
+                            <span class="login-message">
+                                Explorá el universo con nosotros
+                            </span>
+
+                            <a class="login-button"
+                                   asp-area=""
+                                   asp-controller="Usuarios"
+                                   asp-action="Login">
+
+                                Iniciar sesión
+                                <span>→</span>
+                            </a>
+                        </div>
+                    }
+                </div>
             </div>
-        </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+
+        <main role="main"
+              class="container-fluid page-content">
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="stellar-footer">
+
+        <div class="container-fluid px-lg-5">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+                    <span class="footer-star">✦</span>
+
+                    <div>
+                        <strong>StellarMinds</strong>
+                        <span>
+                            Gestión astronómica
+                        </span>
+                    </div>
+                </div>
+
+                <p class="footer-text">
+                    Sistema de gestión de préstamos,
+                    observaciones y equipamiento astronómico.
+                </p>
+
+                <span class="footer-year">
+                    © 2026
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
 
 </html>

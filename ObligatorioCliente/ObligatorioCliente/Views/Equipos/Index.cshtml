@@ -1,53 +1,151 @@
 ﻿@model IEnumerable<ObligatorioCliente.DTOs.EquipoDTO>
 
 @{
-    ViewData["Title"] = "Listado de Equipos";
+    ViewData["Title"] = "Equipamiento";
 }
 
-<h1>Index</h1>
+<div class="page-header">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modelo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoEquipo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoEquipo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div>
+        <h1>Equipamiento Astronómico</h1>
+
+        <p class="page-subtitle">
+            Administrá el inventario de telescopios, monturas,
+            cámaras y oculares disponibles en StellarMinds.
+        </p>
+    </div>
+
+    <a asp-action="Create" class="btn btn-primary">
+        ＋ Nuevo equipo
+    </a>
+
+</div>
+
+<div class="stellar-panel">
+
+    @if (!Model.Any())
+    {
+        <div class="stellar-empty-state">
+
+            <h3>No hay equipos registrados</h3>
+
+            <p>
+                Todavía no existe equipamiento cargado en el sistema.
+            </p>
+
+            <br />
+
+            <a asp-action="Create" class="btn btn-primary">
+                Registrar primer equipo
+            </a>
+
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table align-middle table-hover">
+
+                <thead>
+
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Cantidad</th>
+                        <th>Tipo</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                <strong>@item.Marca</strong>
+                            </td>
+
+                            <td>
+                                @item.Modelo
+                            </td>
+
+                            <td>
+
+                                @if (item.Cantidad == 0)
+                                {
+                                    <span class="badge bg-danger">
+                                        Sin stock
+                                    </span>
+                                }
+                                else if (item.Cantidad <= 2)
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        @item.Cantidad disponible(s)
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success">
+                                        @item.Cantidad disponible(s)
+                                    </span>
+                                }
+
+                            </td>
+
+                            <td>
+
+                                @{
+                                    string icono = item.TipoEquipo switch
+                                    {
+                                        "Telescopio" => "🔭",
+                                        "Montura" => "⚙️",
+                                        "Camara" => "📷",
+                                        "Ocular" => "👁",
+                                        _ => "✦"
+                                    };
+                                }
+
+                                @icono @item.TipoEquipo
+
+                            </td>
+
+                            <td class="text-center">
+
+                                <a asp-action="Details"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-info me-1">
+
+                                    Ver
+                                </a>
+
+                                <a asp-action="Edit"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-warning me-1">
+
+                                    Editar
+                                </a>
+
+                                <a asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-danger">
+
+                                    Eliminar
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

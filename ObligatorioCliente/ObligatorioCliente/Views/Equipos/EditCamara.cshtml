@@ -4,66 +4,251 @@
     ViewData["Title"] = "Editar Cámara";
 }
 
-<h1>EditCamara</h1>
+<div class="page-header">
 
-<h4>Camara</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditCamara">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" readonly />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TipoSensor" class="control-label"></label>
-                <select asp-for="TipoSensor" class="form-control" asp-items="Html.GetEnumSelectList<ObligatorioCliente.Enums.TipoSensor>()">
-                </select>
-                <span asp-validation-for="TipoSensor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Resolucion" class="control-label"></label>
-                <input asp-for="Resolucion" class="form-control" />
-                <span asp-validation-for="Resolucion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TamanioPixel" class="control-label"></label>
-                <input asp-for="TamanioPixel" class="form-control" />
-                <span asp-validation-for="TamanioPixel" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <h1>Editar Cámara</h1>
+
+        <p class="page-subtitle">
+            Modificá la información técnica y la disponibilidad
+            de la cámara seleccionada.
+        </p>
     </div>
+
+    <span class="equipment-type-badge">
+        📷 Cámara
+    </span>
+
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
+<div class="equipment-form-container">
+
+    <div class="equipment-form-header">
+
+        <div class="equipment-details-icon">
+            📷
+        </div>
+
+        <div>
+            <span class="equipment-details-category">
+                EDICIÓN DE EQUIPAMIENTO
+            </span>
+
+            <h2>
+                @Model.Marca @Model.Modelo
+            </h2>
+
+            <p>
+                Los campos marcados son necesarios para actualizar
+                correctamente la cámara.
+            </p>
+        </div>
+
     </div>
-}
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>No se pudo actualizar la cámara.</strong>
+            <div>@ViewBag.Error</div>
+        </div>
+    }
+
+    <form asp-action="EditCamara" method="post">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary-errors mb-4">
+        </div>
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ◇
+                </span>
+
+                <div>
+                    <h3>Información general</h3>
+
+                    <p>
+                        Datos identificativos y disponibilidad
+                        del equipo.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Id" class="form-label">
+                        Identificador
+                    </label>
+
+                    <input asp-for="Id"
+                           class="form-control"
+                           readonly />
+
+                    <span class="form-help-text">
+                        El identificador no puede modificarse.
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Marca" class="form-label">
+                        Marca
+                    </label>
+
+                    <input asp-for="Marca"
+                           class="form-control"
+                           placeholder="Ejemplo: ZWO" />
+
+                    <span asp-validation-for="Marca"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Modelo" class="form-label">
+                        Modelo
+                    </label>
+
+                    <input asp-for="Modelo"
+                           class="form-control"
+                           placeholder="Ejemplo: ASI 294MC Pro" />
+
+                    <span asp-validation-for="Modelo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Cantidad" class="form-label">
+                        Cantidad disponible
+                    </label>
+
+                    <input asp-for="Cantidad"
+                           class="form-control"
+                           min="0" />
+
+                    <span asp-validation-for="Cantidad"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ✦
+                </span>
+
+                <div>
+                    <h3>Características técnicas</h3>
+
+                    <p>
+                        Especificaciones utilizadas para evaluar
+                        observaciones de astrofotografía.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="TipoSensor" class="form-label">
+                        Tipo de sensor
+                    </label>
+
+                    <select asp-for="TipoSensor"
+                            class="form-select"
+                            asp-items="Html.GetEnumSelectList<ObligatorioCliente.Enums.TipoSensor>()">
+                    </select>
+
+                    <span asp-validation-for="TipoSensor"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Resolucion" class="form-label">
+                        Resolución
+                    </label>
+
+                    <input asp-for="Resolucion"
+                           class="form-control"
+                           placeholder="Ejemplo: 4144x2822" />
+
+                    <span asp-validation-for="Resolucion"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="TamanioPixel" class="form-label">
+                        Tamaño del píxel
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="TamanioPixel"
+                               class="form-control"
+                               placeholder="Ejemplo: 4,63" />
+
+                        <span class="input-group-text">
+                            µm
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="TamanioPixel"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+                   class="btn btn-secondary">
+
+                ← Cancelar
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </form>
+
 </div>
-

@@ -5,54 +5,237 @@
     ViewData["Title"] = "Alta de Ocular";
 }
 
-<h1>CrearOcular</h1>
+<div class="page-header">
 
-<h4>Ocular</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CrearOcular">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Diametro_mm" class="control-label"></label>
-                <input asp-for="Diametro_mm" class="form-control" />
-                <span asp-validation-for="Diametro_mm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnguloVision_grados" class="control-label"></label>
-                <input asp-for="AnguloVision_grados" class="form-control" />
-                <span asp-validation-for="AnguloVision_grados" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <h1>Registrar Ocular</h1>
+
+        <p class="page-subtitle">
+            Ingresá la información general y las características
+            del nuevo ocular para observación visual.
+        </p>
     </div>
+
+    <span class="equipment-type-badge">
+        ◉ Ocular
+    </span>
+
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger">
-        @ViewBag.Error
+<div class="equipment-form-container">
+
+    <div class="equipment-form-header">
+
+        <div class="equipment-details-icon">
+            ◉
+        </div>
+
+        <div>
+            <span class="equipment-details-category">
+                NUEVO EQUIPAMIENTO
+            </span>
+
+            <h2>Alta de ocular</h2>
+
+            <p>
+                Registrá un ocular para realizar
+                observaciones visuales con telescopios.
+            </p>
+        </div>
+
     </div>
-}
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+
+            <strong>No se pudo registrar el ocular.</strong>
+
+            <div>
+                @ViewBag.Error
+            </div>
+
+        </div>
+    }
+
+    <form asp-action="CrearOcular" method="post">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary-errors mb-4">
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ◇
+                </span>
+
+                <div>
+                    <h3>Información general</h3>
+
+                    <p>
+                        Datos identificativos y cantidad inicial.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label asp-for="Marca"
+                           class="form-label">
+
+                        Marca
+                    </label>
+
+                    <input asp-for="Marca"
+                           class="form-control"
+                           placeholder="Ejemplo: Celestron" />
+
+                    <span asp-validation-for="Marca"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Modelo"
+                           class="form-label">
+
+                        Modelo
+                    </label>
+
+                    <input asp-for="Modelo"
+                           class="form-control"
+                           placeholder="Ejemplo: Luminos" />
+
+                    <span asp-validation-for="Modelo"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label asp-for="Cantidad"
+                           class="form-label">
+
+                        Cantidad disponible
+                    </label>
+
+                    <input asp-for="Cantidad"
+                           class="form-control"
+                           min="0"
+                           placeholder="Ejemplo: 5" />
+
+                    <span asp-validation-for="Cantidad"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section">
+
+            <div class="form-section-heading">
+
+                <span class="form-section-icon">
+                    ✦
+                </span>
+
+                <div>
+                    <h3>Características ópticas</h3>
+
+                    <p>
+                        Medidas utilizadas para determinar
+                        el aumento y campo de visión.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+
+                    <label asp-for="Diametro_mm"
+                           class="form-label">
+
+                        Diámetro
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="Diametro_mm"
+                               class="form-control"
+                               placeholder="Ejemplo: 25" />
+
+                        <span class="input-group-text">
+                            mm
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="Diametro_mm"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label asp-for="AnguloVision_grados"
+                           class="form-label">
+
+                        Ángulo de visión
+                    </label>
+
+                    <div class="input-group">
+
+                        <input asp-for="AnguloVision_grados"
+                               class="form-control"
+                               placeholder="Ejemplo: 52" />
+
+                        <span class="input-group-text">
+                            °
+                        </span>
+
+                    </div>
+
+                    <span asp-validation-for="AnguloVision_grados"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a asp-action="Create"
+                   class="btn btn-secondary">
+
+                ← Volver
+            </a>
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Registrar ocular
+            </button>
+
+        </div>
+
+    </form>
+
 </div>
-

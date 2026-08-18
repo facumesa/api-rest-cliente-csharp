@@ -1,54 +1,138 @@
 ﻿@model ObligatorioCliente.DTOs.MonturaDTO
 
 @{
-    ViewData["Title"] = "Alta de Montura";
+    ViewData["Title"] = "Detalles de Montura";
 }
 
-<h1>DetailsMontura</h1>
+<div class="page-header">
 
-<div>
-    <h4>Montura</h4>
-    <hr />
+    <div>
+        <h1>Detalles de la Montura</h1>
+
+        <p class="page-subtitle">
+            Información técnica y disponibilidad de la montura seleccionada.
+        </p>
+    </div>
+
+    <span class="equipment-type-badge">
+        ⚙ Montura
+    </span>
+
+</div>
+
+<div class="stellar-panel">
+
+    <div class="equipment-details-header">
+
+        <div class="equipment-details-icon">
+            ⚙
+        </div>
+
+        <div>
+            <span class="equipment-details-category">
+                EQUIPAMIENTO ASTRONÓMICO
+            </span>
+
+            <h2>
+                @Model.Marca @Model.Modelo
+            </h2>
+        </div>
+
+    </div>
+
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tipo)
+
+        <dt class="col-sm-4">
+            Tipo de montura
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Tipo)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CargaUtil_kg)
+
+        <dt class="col-sm-4">
+            Carga útil
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CargaUtil_kg)
+
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.CargaUtil_kg) kg
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EsComputarizado)
+
+        <dt class="col-sm-4">
+            Sistema computarizado
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EsComputarizado)
+
+        <dd class="col-sm-8">
+
+            @if (Model.EsComputarizado)
+            {
+                <span class="badge bg-success">
+                    Sí, incluye GoTo
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-secondary">
+                    No
+                </span>
+            }
+
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca)
+
+        <dt class="col-sm-4">
+            Marca
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Marca)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modelo)
+
+        <dt class="col-sm-4">
+            Modelo
         </dt>
-        <dd class = "col-sm-10">
+
+        <dd class="col-sm-8">
             @Html.DisplayFor(model => model.Modelo)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cantidad)
+
+        <dt class="col-sm-4">
+            Cantidad disponible
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cantidad)
+
+        <dd class="col-sm-8">
+
+            @if (Model.Cantidad == 0)
+            {
+                <span class="badge bg-danger">
+                    Sin disponibilidad
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-success">
+                    @Model.Cantidad unidad(es)
+                </span>
+            }
+
         </dd>
+
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <div class="details-actions">
+
+        <a asp-action="Edit"
+               asp-route-id="@Model.Id"
+               class="btn btn-warning">
+
+            Editar montura
+        </a>
+
+        <a asp-action="Index"
+               class="btn btn-secondary">
+
+            ← Volver al listado
+        </a>
+
+    </div>
+
 </div>
